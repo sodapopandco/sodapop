@@ -1,48 +1,42 @@
 /* =============================================================================
-   Boilerplate
-   ========================================================================== */
+  Basics
+============================================================================= */
 
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
-audio[controls], canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+figure, footer, header { display: block; }
+[hidden] { display: none; }
 
-html { font-size: 100%; overflow-y: scroll; -webkit-overflow-scrolling: touch; -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
-
-body { margin: 0; font-size: 13px; line-height: 1.231; }
-
-body, button, input, select, textarea { font-family: sans-serif; color: #222; }
+html { font-family: sans-serif; font-size: 100%; color: #333; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+body { margin: 0; font-size: 1em; line-height: 1.5; }
 
 ::-moz-selection { background: #f47421; color: #fff; text-shadow: none; }
 ::selection { background: #f47421; color: #fff; text-shadow: none; }
 
-a, a img { -webkit-transition: all .15s ease; -moz-transition: all .15s ease; -o-transition: all .15s ease; transition: all .15s ease; }
-a, a:visited { color: inherit; text-decoration: none; }
-a:hover, a:focus { color: #f47421; }
+a, a:visited { color: #f47421; text-decoration: none; }
+a:hover, a:focus { color: #333; }
 a:focus { outline: thin dotted; }
 a:hover, a:active { outline: 0; }
+a, a img { -webkit-transition: all .2s ease; -moz-transition: all .2s ease; -o-transition: all .2s ease; transition: all .2s ease; }
+b, strong { font-weight: bold; }
+em { font-style: normal; }
 
-img { border: 0; -ms-interpolation-mode: bicubic; }
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+svg:not(:root) { overflow: hidden; }
 figure { margin: 0; }
 
 
 /* =============================================================================
-   Sodapop & Co.
-   ========================================================================== */
+  Main
+============================================================================= */
 
 body {
   margin: 0 auto;
   padding: 96px 20px;
   width: 700px;
   background: #fff;
-  color: #333;
+  color: #ccc;
   font-family: futura-pt, Verdana, sans-serif;
   font-weight: 700;
   text-align: center;
-}
-p {
-  margin: 0;
-  color: #e5e5e5;
-  font-size: 14px;
-  letter-spacing: 6px;
 }
 header {
   width: 700px;
@@ -52,6 +46,7 @@ header {
 header h1 {
   margin: 0;
   margin-bottom: 18px;
+  color: #333;
   font-size: 72px;
   letter-spacing: 9px;
   line-height: 1em;
@@ -61,29 +56,35 @@ header h1 {
     0 2px 0 #ccc,
     0 3px 0 #ccc,
     0 4px 0 #ccc,
-    0 5px 0 rgba(204,204,204,.9),
+    0 5px 0 rgba(204,204,204,.8),
     /* Shadow */
     1px 6px 0 #f2f2f2,
     4px 7px 0 #f2f2f2,
     6px 8px 0 #f2f2f2,
-    8px 9px 0 rgba(242,242,242,.9)
+    8px 9px 0 rgba(242,242,242,.6),
+    10px 10px 0 rgba(242,242,242,.4)
   ;
 }
-header h1 span.full-stop {
-  color: #f47421;
+header p {
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: 6px;
 }
-div#main {
+div[role="main"] {
   margin: 60px 0;
 }
-div#main figure {
+figure {
   margin-bottom: 60px;
 }
-div#main figure img {
-  border-radius: 2px;
-  border: 5px solid #f2f2f2;
+img {
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 2px #ccc;
+  box-shadow: 0 1px 2px #ccc;
 }
-div#main a:hover figure img, div#main a:focus figure img {
-  border-color: #ccc;
+a:hover img, a:focus img {
+  -webkit-box-shadow: 0 2px 4px #c2c2c2;
+  box-shadow: 0 2px 4px #c2c2c2;
 }
 footer p {
   margin-bottom: 36px;
