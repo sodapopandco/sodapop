@@ -5,14 +5,14 @@
 figure, footer, header { display: block; }
 [hidden] { display: none; }
 
-html { font-family: sans-serif; font-size: 100%; color: #333; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-rendering: optimizeLegibility; }
+html { font-family: sans-serif; font-size: 100%; color: #444; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-rendering: optimizeLegibility; }
 body { margin: 0; font-size: 1em; line-height: 1.5; }
 
 ::-moz-selection { background: #f37421; color: #fff; text-shadow: none; }
 ::selection { background: #f37421; color: #fff; text-shadow: none; }
 
-a, a:visited { color: #333; text-decoration: none; }
-a:hover, a:focus { color: #f37421; }
+a, a:visited { color: #f37421; text-decoration: none; }
+a:hover, a:focus { color: #444; }
 a:focus { outline: thin dotted; }
 a:hover, a:active { outline: 0; }
 a, a img { -webkit-transition: all .2s ease; -moz-transition: all .2s ease; -o-transition: all .2s ease; transition: all .2s ease; }
@@ -33,9 +33,15 @@ body {
   padding: 60px 20px;
   width: 700px;
   background: #fff;
-  color: #333;
+  color: #444;
   font-family: "futura-pt", Verdana, sans-serif;
   text-align: center;
+}
+header p, div[role="main"] p {
+  margin: 0;
+  color: #e5e5e5;
+  font-size: 14px;
+  letter-spacing: 4px;
 }
 header {
   width: 700px;
@@ -54,19 +60,13 @@ header h1 a {
   display: block;
   padding-top: 205px;
 }
-header h1 a:hover, header h1 a:focus {
-  color: #333;
+header h1 a, header h1 a:visited {
+  color: #444;
 }
 header h1 em {
   color: #f37421;
   font-weight: 500;
   text-transform: capitalize;
-}
-header p {
-  margin: 0;
-  color: #e5e5e5;
-  font-size: 14px;
-  letter-spacing: 4px;
 }
 header a {
   color: #ccc;
@@ -74,29 +74,30 @@ header a {
 div[role="main"] {
   margin: 60px 0;
 }
+div[role="main"] p {
+  color: #444;
+  text-transform: uppercase;
+}
 figure {
   margin-bottom: 60px;
 }
 img {
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  -webkit-box-shadow: 0 1px 2px #c5c5c5;
-  box-shadow: 0 1px 2px #c5c5c5;
+  -webkit-box-shadow: 0 2px 3px #ccc;
+  box-shadow: 0 2px 3px #ccc;
 }
 a:hover img, a:focus img {
-  -webkit-box-shadow: 0 2px 4px #a5a5a5;
-  box-shadow: 0 2px 4px #a5a5a5;
+  -webkit-box-shadow: 0 2px 4px #999;
+  box-shadow: 0 2px 4px #999;
 }
 footer {
   margin-bottom: 36px;
   color: #ccc;
   font-size: 12px;
+  letter-spacing: 1px;
+}
+footer a {
   letter-spacing: 2px;
   text-transform: uppercase;
-}
-footer a, footer a:visited {
-  color: #f37421;
-}
-footer a:hover, footer a:focus {
-  color: #333;
 }
