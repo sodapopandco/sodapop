@@ -2,8 +2,7 @@
   Basics
 ============================================================================= */
 
-figure, footer, header { display: block; }
-[hidden] { display: none; }
+header, footer, figure { display: block; }
 
 html { font-family: sans-serif; font-size: 100%; color: #444; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-rendering: optimizeLegibility; }
 body { margin: 0; font-size: 1em; line-height: 1.5; }
@@ -16,11 +15,9 @@ a:hover, a:focus { color: #444; }
 a:focus { outline: thin dotted; }
 a:hover, a:active { outline: 0; }
 a, a img { -webkit-transition: all .2s ease; -moz-transition: all .2s ease; -o-transition: all .2s ease; transition: all .2s ease; }
-b, strong { font-weight: bold; }
 em { font-style: normal; }
 
 img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
-svg:not(:root) { overflow: hidden; }
 figure { margin: 0; }
 
 
@@ -51,22 +48,21 @@ header h1 {
   margin: 0;
   margin-bottom: 12px;
   background: url(/images/logo.png) no-repeat center top;
+  font-weight: 500;
   font-size: 48px;
-  font-weight: 700;
   letter-spacing: 4px;
   line-height: 1em;
+  text-transform: capitalize;
 }
 header h1 a {
   display: block;
   padding-top: 205px;
-}
-header h1 a, header h1 a:visited {
-  color: #444;
+  color: #f37421;
 }
 header h1 em {
-  color: #f37421;
-  font-weight: 500;
-  text-transform: capitalize;
+  color: #444;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 header a {
   color: #ccc;
