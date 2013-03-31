@@ -78,14 +78,16 @@ figure {
     margin-bottom: 60px;
 }
 img {
+    position: relative;
     -webkit-border-radius: 3px;
     border-radius: 3px;
     -webkit-box-shadow: 0 2px 3px #ccc;
     box-shadow: 0 2px 3px #ccc;
 }
 a:hover img, a:focus img {
-    -webkit-box-shadow: 0 2px 4px #999;
-    box-shadow: 0 2px 4px #999;
+    top: -3px;
+    -webkit-box-shadow: 0 3px 6px #999;
+    box-shadow: 0 3px 6px #999;
 }
 footer {
     margin-bottom: 36px;
