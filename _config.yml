@@ -3,5 +3,3 @@ description: A short description about the website.
 
 source: source
 destination: public
-
-markdown: redcarpet
