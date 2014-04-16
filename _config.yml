@@ -3,4 +3,3 @@ name: Your New Jekyll Site
 destination: public
 
 markdown: redcarpet
-pygments: true
