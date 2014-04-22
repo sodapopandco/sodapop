@@ -4,8 +4,19 @@ task :cleanup do
   system "rm -rf public"
 end
 
-desc "Generate the site."
+desc "Continuously generate the site."
 task :default do
-  system "sass --watch source/_assets/stylesheets:public/assets/stylesheets"
-  system "jekyll -w build"
+  pids = [
+    spawn("sass --watch source/_assets/stylesheets:public/assets/stylesheets"),
+    spawn("jekyll -w build")
+  ]
+
+  trap "INT" do
+    Process.kill "INT", *pids
+    exit 1
+  end
+
+  loop do
+    sleep 1
+  end
 end
