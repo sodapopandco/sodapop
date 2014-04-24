@@ -35,7 +35,13 @@ module.exports = function(grunt) {
     },
 
     jekyll: {
-
+      options: {
+        bundleExec: true
+      },
+      build: {
+        src: 'source',
+        dest: 'public'
+      }
     },
 
     sass: {
@@ -54,6 +60,10 @@ module.exports = function(grunt) {
     watch: {
       options: {
         livereload: true
+      },
+      jekyll: {
+        files: ['source/*.html'],
+        tasks: ['jekyll']
       },
       stylesheets: {
         files: ['**/*.scss'],
