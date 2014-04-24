@@ -7,14 +7,14 @@ module.exports = function(grunt) {
     // Task configuration.
     autoprefixer: {
       files: {
-        src: 'public/assets/stylesheets/*.css'
+        src: 'public/assets/styles/*.css'
       }
     },
 
     clean: {
       all: ['public/*'],
       html: ['public/**/*.html'],
-      stylesheets: ['public/assets/stylesheets/*']
+      styles: ['public/assets/styles/*']
     },
 
     csslint: {
@@ -27,9 +27,9 @@ module.exports = function(grunt) {
       },
       compress: {
         expand: true,
-        cwd: 'public/assets/stylesheets/',
+        cwd: 'public/assets/styles/',
         src: ['*.css', '!*.min.css'],
-        dest: 'public/assets/stylesheets/',
+        dest: 'public/assets/styles/',
         ext: '.min.css'
       }
     },
@@ -50,9 +50,9 @@ module.exports = function(grunt) {
       },
       compile: {
         expand: true,
-        cwd: 'source/_assets/stylesheets',
+        cwd: 'source/_assets/styles',
         src: ['*.scss'],
-        dest: 'public/assets/stylesheets',
+        dest: 'public/assets/styles',
         ext: '.css'
       }
     },
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
         files: ['source/*.html'],
         tasks: ['jekyll', 'styles']
       },
-      stylesheets: {
+      styles: {
         files: ['**/*.scss'],
         tasks: ['styles']
       }
@@ -73,7 +73,7 @@ module.exports = function(grunt) {
   });
 
   // Compile styles.
-  grunt.registerTask('styles', ['clean:stylesheets', 'sass', 'autoprefixer']);
+  grunt.registerTask('styles', ['clean:styles', 'sass', 'autoprefixer']);
 
   // Default task.
   grunt.registerTask('default', ['watch']);
