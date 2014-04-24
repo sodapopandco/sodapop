@@ -10,7 +10,9 @@ module.exports = function(grunt) {
       }
     },
     clean: {
-
+      all: ['public/*'],
+      html: ['public/**/*.html'],
+      stylesheets: ['public/assets/stylesheets/*']
     },
     csslint: {
 
