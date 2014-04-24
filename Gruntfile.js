@@ -63,14 +63,17 @@ module.exports = function(grunt) {
       },
       jekyll: {
         files: ['source/*.html'],
-        tasks: ['jekyll']
+        tasks: ['jekyll', 'styles']
       },
       stylesheets: {
         files: ['**/*.scss'],
-        tasks: ['clean:stylesheets', 'sass', 'autoprefixer']
+        tasks: ['styles']
       }
     }
   });
+
+  // Compile styles.
+  grunt.registerTask('styles', ['clean:stylesheets', 'sass', 'autoprefixer']);
 
   // Default task.
   grunt.registerTask('default', ['watch']);
