@@ -34,6 +34,10 @@ module.exports = function(grunt) {
       }
     },
 
+    jekyll: {
+
+    }
+
     sass: {
       options: {
         bundleExec: true
