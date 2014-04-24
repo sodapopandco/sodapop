@@ -18,7 +18,16 @@ module.exports = function(grunt) {
 
     },
     cssmin: {
-
+      options: {
+        keepSpecialComments: 0
+      },
+      compress: {
+        expand: true,
+        cwd: 'public/assets/stylesheets/',
+        src: ['*.css', '!*.min.css'],
+        dest: 'public/assets/stylesheets/',
+        ext: '.min.css'
+      }
     },
     sass: {
       compile: {
