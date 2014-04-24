@@ -5,7 +5,9 @@ module.exports = function(grunt) {
   grunt.initConfig({
     // Task configuration.
     autoprefixer: {
-
+      files: {
+        src: 'public/assets/stylesheets/*.css'
+      }
     },
     clean: {
 
