@@ -35,6 +35,9 @@ module.exports = function(grunt) {
     },
 
     sass: {
+      options: {
+        bundleExec: true
+      },
       compile: {
         expand: true,
         cwd: 'source/_assets/stylesheets',
