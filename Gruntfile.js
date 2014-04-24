@@ -42,15 +42,9 @@ module.exports = function(grunt) {
     }
   });
 
-  // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-autoprefixer');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-csslint');
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-
   // Default task.
   grunt.registerTask('default', ['watch']);
 
+  // These plugins provide necessary tasks.
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 };
