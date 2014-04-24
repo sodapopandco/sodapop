@@ -21,10 +21,24 @@ module.exports = function(grunt) {
 
     },
     sass: {
-
+      compile: {
+        files: [{
+          expand: true,
+          cwd: 'source/_assets/stylesheets',
+          src: ['*.scss'],
+          dest: 'public/assets/stylesheets',
+          ext: '.css'
+        }]
+      }
     },
     watch: {
-
+      options: {
+        livereload: true
+      },
+      stylesheets: {
+        files: ['**/*.scss'],
+        tasks: ['clean:stylesheets', 'sass', 'autoprefixer']
+      }
     }
   });
 
