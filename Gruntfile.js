@@ -3,20 +3,24 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+
     // Task configuration.
     autoprefixer: {
       files: {
         src: 'public/assets/stylesheets/*.css'
       }
     },
+
     clean: {
       all: ['public/*'],
       html: ['public/**/*.html'],
       stylesheets: ['public/assets/stylesheets/*']
     },
+
     csslint: {
 
     },
+
     cssmin: {
       options: {
         keepSpecialComments: 0
@@ -29,17 +33,17 @@ module.exports = function(grunt) {
         ext: '.min.css'
       }
     },
+
     sass: {
       compile: {
-        files: [{
-          expand: true,
-          cwd: 'source/_assets/stylesheets',
-          src: ['*.scss'],
-          dest: 'public/assets/stylesheets',
-          ext: '.css'
-        }]
+        expand: true,
+        cwd: 'source/_assets/stylesheets',
+        src: ['*.scss'],
+        dest: 'public/assets/stylesheets',
+        ext: '.css'
       }
     },
+
     watch: {
       options: {
         livereload: true
@@ -56,4 +60,5 @@ module.exports = function(grunt) {
 
   // These plugins provide necessary tasks.
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
 };
