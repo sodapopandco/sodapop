@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 
     // Task configuration.
     autoprefixer: {
-      files: {
+      prefix: {
         src: 'public/assets/styles/*.css'
       }
     },
