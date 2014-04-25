@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 
     clean: {
       all: ['public/*'],
-      html: ['public/**/*.html'],
+      markup: ['public/**/*.html', 'public/**/*.txt'],
       styles: ['public/assets/styles/*']
     },
 
