@@ -1,6 +1,9 @@
 /*global module:false*/
 module.exports = function(grunt) {
 
+  // Load tasks automatically.
+  require('load-grunt-tasks')(grunt);
+
   // Project configuration.
   grunt.initConfig({
 
@@ -77,8 +80,5 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['watch']);
-
-  // These plugins provide necessary tasks.
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
 };
