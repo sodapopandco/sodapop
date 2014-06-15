@@ -61,22 +61,25 @@ module.exports = function(grunt) {
     },
 
     watch: {
-      options: {
-        livereload: true
-      },
-      jekyll: {
-        files: ['source/*.html'],
+      markup: {
+        files: ['source/**/*.html', 'source/**/*.md', 'source/**/*.txt'],
         tasks: ['jekyll', 'styles']
       },
-      styles: {
-        files: ['**/*.scss'],
+      sass: {
+        files: ['source/**/*.scss'],
         tasks: ['styles']
+      },
+      styles: {
+        options: {
+          livereload: true
+        },
+        files: ['public/**/*.css']
       }
     }
   });
 
   // Compile styles.
-  grunt.registerTask('styles', ['clean:styles', 'sass', 'autoprefixer']);
+  grunt.registerTask('styles', ['sass', 'autoprefixer']);
 
   // Default task.
   grunt.registerTask('default', ['watch']);
