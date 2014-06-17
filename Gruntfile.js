@@ -45,6 +45,19 @@ module.exports = function(grunt) {
       }
     },
 
+    htmlmin: {
+      options: {
+        removeComments: true,
+        collapseWhitespace: true
+      },
+      default: {
+        expand: true,
+        cwd: 'public',
+        src: ['**/*.html'],
+        dest: 'public'
+      }
+    },
+
     jekyll: {
       options: {
         bundleExec: true
