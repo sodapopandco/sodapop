@@ -10,7 +10,10 @@ module.exports = function(grunt) {
     // Task configuration.
     autoprefixer: {
       prefix: {
-        src: 'public/assets/styles/*.css'
+        expand: true,
+        cwd: 'public/assets/styles',
+        src: ['*.css', '!*.min.css'],
+        dest: 'public/assets/styles'
       }
     },
 
@@ -21,7 +24,12 @@ module.exports = function(grunt) {
     },
 
     csslint: {
-      src: 'public/assets/styles/*.css'
+      default: {
+        expand: true,
+        cwd: 'public/assets/styles',
+        src: ['*.css', '!*.min.css'],
+        dest: 'public/assets/styles'
+      }
     },
 
     cssmin: {
@@ -30,9 +38,9 @@ module.exports = function(grunt) {
       },
       compress: {
         expand: true,
-        cwd: 'public/assets/styles/',
+        cwd: 'public/assets/styles',
         src: ['*.css', '!*.min.css'],
-        dest: 'public/assets/styles/',
+        dest: 'public/assets/styles',
         ext: '.min.css'
       }
     },
