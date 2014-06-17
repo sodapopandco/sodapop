@@ -21,7 +21,7 @@ module.exports = function(grunt) {
     },
 
     csslint: {
-
+      src: 'public/assets/styles/*.css'
     },
 
     cssmin: {
@@ -71,15 +71,12 @@ module.exports = function(grunt) {
       sass: {
         files: ['source/**/*.scss'],
         tasks: ['styles']
-      },
-      styles: {
-        files: ['public/**/*.css']
       }
     }
   });
 
   // Compile styles.
-  grunt.registerTask('styles', ['sass', 'autoprefixer', 'cssmin']);
+  grunt.registerTask('styles', ['sass', 'autoprefixer', 'csslint', 'cssmin']);
 
   // Default task.
   grunt.registerTask('default', ['watch']);
