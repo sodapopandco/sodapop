@@ -1,5 +1,6 @@
 title: Website Title
 description: A short description about the website.
+author: Author Name
 
 source: source
 destination: public
