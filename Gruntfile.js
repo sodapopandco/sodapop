@@ -79,7 +79,7 @@ module.exports = function(grunt) {
   });
 
   // Compile styles.
-  grunt.registerTask('styles', ['sass', 'autoprefixer']);
+  grunt.registerTask('styles', ['sass', 'autoprefixer', 'cssmin']);
 
   // Default task.
   grunt.registerTask('default', ['watch']);
