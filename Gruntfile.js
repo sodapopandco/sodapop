@@ -97,8 +97,8 @@ module.exports = function(grunt) {
   });
 
   // Compile styles.
-  grunt.registerTask('build', ['jekyll', 'sass', 'autoprefixer', 'csslint', 'cssmin']);
-  grunt.registerTask('styles', ['sass', 'autoprefixer', 'csslint', 'cssmin']);
+  grunt.registerTask('build', ['jekyll', 'sass', 'autoprefixer', 'csslint']);
+  grunt.registerTask('styles', ['sass', 'autoprefixer', 'csslint']);
 
   // Default task.
   grunt.registerTask('default', ['watch']);
