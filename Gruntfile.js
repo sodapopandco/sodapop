@@ -61,6 +61,9 @@ module.exports = function(grunt) {
     },
 
     watch: {
+      options: {
+        livereload: 9000
+      },
       markup: {
         files: ['source/**/*.html', 'source/**/*.md', 'source/**/*.txt'],
         tasks: ['jekyll', 'styles']
@@ -70,9 +73,6 @@ module.exports = function(grunt) {
         tasks: ['styles']
       },
       styles: {
-        options: {
-          livereload: true
-        },
         files: ['public/**/*.css']
       }
     }
