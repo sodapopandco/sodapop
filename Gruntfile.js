@@ -24,7 +24,7 @@ module.exports = function(grunt) {
     },
 
     csslint: {
-      default: {
+      check: {
         expand: true,
         cwd: 'public/assets/styles',
         src: ['**/*.css', '**/!*.min.css'],
@@ -50,7 +50,7 @@ module.exports = function(grunt) {
         removeComments: true,
         collapseWhitespace: true
       },
-      default: {
+      compress: {
         expand: true,
         cwd: 'public',
         src: ['**/*.html'],
@@ -103,7 +103,7 @@ module.exports = function(grunt) {
         files: ['source/**/*.html', 'source/**/*.md', 'source/**/*.txt'],
         tasks: ['jekyll', 'compile']
       },
-      sass: {
+      styles: {
         files: ['source/**/*.scss'],
         tasks: ['compile']
       }
