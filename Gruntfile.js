@@ -81,6 +81,16 @@ module.exports = function(grunt) {
       }
     },
 
+    uglify: {
+      compile: {
+        expand: true,
+        cwd: 'source/_assets/scripts',
+        src: 'main.js',
+        dest: 'public/assets/scripts',
+        ext: '.min.js'
+      }
+    },
+
     watch: {
       options: {
         livereload: 9000
@@ -99,7 +109,7 @@ module.exports = function(grunt) {
   // Compile styles.
   grunt.registerTask('build', ['jekyll', 'compile']);
   grunt.registerTask('compile', ['sass', 'autoprefixer', 'csslint']);
-  grunt.registerTask('compress', ['htmlmin', 'cssmin']);
+  grunt.registerTask('compress', ['htmlmin', 'cssmin', 'uglify']);
 
   // Default task.
   grunt.registerTask('default', ['watch']);
