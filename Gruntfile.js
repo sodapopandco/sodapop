@@ -20,6 +20,7 @@ module.exports = function(grunt) {
     clean: {
       all: ['public/*'],
       markup: ['public/**/*.html', 'public/**/*.txt'],
+      scripts: ['public/assets/scripts/*'],
       styles: ['public/assets/styles/*']
     },
 
