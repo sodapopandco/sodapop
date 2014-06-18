@@ -4,6 +4,14 @@ module.exports = function(grunt) {
   // Load tasks automatically.
   require('load-grunt-tasks')(grunt);
 
+  // Project directories.
+  srcDir = './source/';
+  destDir = './public/';
+  srcAssetsDir = './source/_assets/';
+  destAssetsDir = './public/assets/';
+  scriptsDir = 'scripts/';
+  stylesDir = 'styles/';
+
   // Project configuration.
   grunt.initConfig({
 
@@ -11,33 +19,36 @@ module.exports = function(grunt) {
     autoprefixer: {
       prefix: {
         expand: true,
-        cwd: 'public/assets/styles',
+        cwd: destAssetsDir + stylesDir,
         src: ['**/*.css', '!**/*.min.css'],
-        dest: 'public/assets/styles'
+        dest: destAssetsDir + stylesDir
       }
     },
 
     clean: {
-      all: ['public/*'],
-      markup: ['public/**/*.html', 'public/**/*.txt'],
-      scripts: ['public/assets/scripts/*'],
-      styles: ['public/assets/styles/*']
+      all: [destDir + '*'],
+      markup: [destDir + '**/*.html', destDir + '**/*.txt'],
+      scripts: [destAssetsDir + scriptsDir + '*'],
+      styles: [destAssetsDir + stylesDir + '*']
     },
 
     coffee: {
       compile: {
         expand: true,
-        cwd: 'source/_assets/scripts',
+        cwd: srcAssetsDir + scriptsDir,
         src: ['**/*.coffee'],
-        dest: 'public/assets/scripts',
+        dest: destAssetsDir + scriptsDir,
         ext: '.js'
       }
     },
 
     csslint: {
+      options: {
+        csslintrc: '.csslintrc'
+      },
       check: {
         expand: true,
-        cwd: 'public/assets/styles',
+        cwd: destAssetsDir + stylesDir,
         src: ['**/*.css', '!**/*.min.css']
       }
     },
@@ -48,9 +59,9 @@ module.exports = function(grunt) {
       },
       compress: {
         expand: true,
-        cwd: 'public/assets/styles',
+        cwd: destAssetsDir + stylesDir,
         src: ['**/*.css', '!**/*.min.css'],
-        dest: 'public/assets/styles',
+        dest: destAssetsDir + stylesDir,
         ext: '.min.css'
       }
     },
@@ -62,9 +73,9 @@ module.exports = function(grunt) {
       },
       compress: {
         expand: true,
-        cwd: 'public',
+        cwd: destDir,
         src: ['**/*.html'],
-        dest: 'public'
+        dest: destDir
       }
     },
 
@@ -73,15 +84,15 @@ module.exports = function(grunt) {
         bundleExec: true
       },
       build: {
-        src: 'source',
-        dest: 'public'
+        src: srcDir,
+        dest: destDir
       }
     },
 
     jshint: {
       check: {
         expand: true,
-        cwd: 'public/assets/scripts',
+        cwd: destAssetsDir + scriptsDir,
         src: ['**/*.js', '!**/*.min.js'],
       }
     },
@@ -92,9 +103,9 @@ module.exports = function(grunt) {
       },
       compile: {
         expand: true,
-        cwd: 'source/_assets/styles',
+        cwd: srcAssetsDir + stylesDir,
         src: ['**/*.scss'],
-        dest: 'public/assets/styles',
+        dest: destAssetsDir + stylesDir,
         ext: '.css'
       }
     },
@@ -102,9 +113,9 @@ module.exports = function(grunt) {
     uglify: {
       compile: {
         expand: true,
-        cwd: 'public/assets/scripts',
+        cwd: destAssetsDir + scriptsDir,
         src: ['**/*.js', '!**/*.min.js'],
-        dest: 'public/assets/scripts',
+        dest: destAssetsDir + scriptsDir,
         ext: '.min.js'
       }
     },
@@ -114,15 +125,15 @@ module.exports = function(grunt) {
         livereload: 9000
       },
       markup: {
-        files: ['source/**/*.html', 'source/**/*.md', 'source/**/*.txt'],
+        files: [srcDir + '**/*.html', srcDir + '**/*.md', srcDir + '**/*.txt'],
         tasks: ['jekyll']
       },
       scripts: {
-        files: ['source/**/*.coffee'],
+        files: [srcDir + '**/*.coffee'],
         tasks: ['compile:js']
       },
       styles: {
-        files: ['source/**/*.scss'],
+        files: [srcDir + '**/*.scss'],
         tasks: ['compile:css']
       }
     }
