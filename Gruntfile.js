@@ -90,6 +90,9 @@ module.exports = function(grunt) {
     },
 
     jshint: {
+      self: [
+        'Gruntfile.js'
+      ],
       check: {
         expand: true,
         cwd: destAssetsDir + scriptsDir,
