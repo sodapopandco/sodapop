@@ -1,6 +1,5 @@
 .sass-cache
-node_modules
-public
-
 .scssc
+node_modules
 npm-debug.log
+public
