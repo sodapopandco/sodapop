@@ -99,6 +99,7 @@ module.exports = function(grunt) {
   // Compile styles.
   grunt.registerTask('build', ['jekyll', 'compile']);
   grunt.registerTask('compile', ['sass', 'autoprefixer', 'csslint']);
+  grunt.registerTask('compress', ['htmlmin', 'cssmin']);
 
   // Default task.
   grunt.registerTask('default', ['watch']);
