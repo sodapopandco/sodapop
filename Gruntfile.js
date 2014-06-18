@@ -12,7 +12,7 @@ module.exports = function(grunt) {
       prefix: {
         expand: true,
         cwd: 'public/assets/styles',
-        src: ['**/*.css', '**/!*.min.css'],
+        src: ['**/*.css', '!**/*.min.css'],
         dest: 'public/assets/styles'
       }
     },
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
       check: {
         expand: true,
         cwd: 'public/assets/styles',
-        src: ['**/*.css', '**/!*.min.css']
+        src: ['**/*.css', '!**/*.min.css']
       }
     },
 
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
       compress: {
         expand: true,
         cwd: 'public/assets/styles',
-        src: ['**/*.css', '**/!*.min.css'],
+        src: ['**/*.css', '!**/*.min.css'],
         dest: 'public/assets/styles',
         ext: '.min.css'
       }
@@ -81,7 +81,7 @@ module.exports = function(grunt) {
       check: {
         expand: true,
         cwd: 'public/assets/scripts',
-        src: ['**/*.js', '**/!*.min.js'],
+        src: ['**/*.js', '!**/*.min.js'],
       }
     },
 
@@ -102,7 +102,7 @@ module.exports = function(grunt) {
       compile: {
         expand: true,
         cwd: 'public/assets/scripts',
-        src: ['**/*.js', '**/!*.min.js'],
+        src: ['**/*.js', '!**/*.min.js'],
         dest: 'public/assets/scripts',
         ext: '.min.js'
       }
