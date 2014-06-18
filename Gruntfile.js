@@ -68,6 +68,10 @@ module.exports = function(grunt) {
       }
     },
 
+    jshint: {
+      check: ['Gruntfile.js', 'source/**/*.js']
+    },
+
     sass: {
       options: {
         bundleExec: true
@@ -108,7 +112,7 @@ module.exports = function(grunt) {
 
   // Compile styles.
   grunt.registerTask('build', ['jekyll', 'compile']);
-  grunt.registerTask('compile', ['sass', 'autoprefixer', 'csslint']);
+  grunt.registerTask('compile', ['sass', 'autoprefixer', 'csslint', 'uglify', 'jshint']);
   grunt.registerTask('compress', ['htmlmin', 'cssmin', 'uglify']);
 
   // Default task.
