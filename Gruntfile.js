@@ -23,6 +23,16 @@ module.exports = function(grunt) {
       styles: ['public/assets/styles/*']
     },
 
+    coffee: {
+      compile: {
+        expand: true,
+        cwd: 'source/_assets/scripts',
+        src: ['**/*.coffee'],
+        dest: 'public/assets/scripts',
+        ext: '.js'
+      }
+    },
+
     csslint: {
       check: {
         expand: true,
@@ -70,7 +80,7 @@ module.exports = function(grunt) {
     jshint: {
       check: {
         expand: true,
-        cwd: 'public',
+        cwd: 'public/assets/scripts',
         src: ['**/*.js', '**/!*.min.js'],
       }
     },
@@ -91,8 +101,8 @@ module.exports = function(grunt) {
     uglify: {
       compile: {
         expand: true,
-        cwd: 'source/_assets/scripts',
-        src: 'main.js',
+        cwd: 'public/assets/scripts',
+        src: ['**/*.js', '**/!*.min.js'],
         dest: 'public/assets/scripts',
         ext: '.min.js'
       }
@@ -115,7 +125,7 @@ module.exports = function(grunt) {
 
   // Compile styles.
   grunt.registerTask('build', ['jekyll', 'compile']);
-  grunt.registerTask('compile', ['sass', 'autoprefixer', 'csslint', 'uglify', 'jshint']);
+  grunt.registerTask('compile', ['sass', 'autoprefixer', 'csslint', 'coffee', 'jshint']);
   grunt.registerTask('compress', ['htmlmin', 'cssmin', 'uglify']);
 
   // Default task.
