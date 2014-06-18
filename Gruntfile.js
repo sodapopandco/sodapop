@@ -57,8 +57,8 @@ module.exports = function(grunt) {
 
     htmlmin: {
       options: {
-        removeComments: true,
-        collapseWhitespace: true
+        collapseWhitespace: true,
+        removeComments: true
       },
       compress: {
         expand: true,
