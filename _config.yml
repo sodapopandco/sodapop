@@ -4,3 +4,4 @@ author: Author Name
 
 source: source
 destination: public
+keep_files:  ['assets']

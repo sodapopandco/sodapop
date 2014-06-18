@@ -114,7 +114,7 @@ module.exports = function(grunt) {
       },
       markup: {
         files: ['source/**/*.html', 'source/**/*.md', 'source/**/*.txt'],
-        tasks: ['jekyll', 'compile']
+        tasks: ['jekyll']
       },
       styles: {
         files: ['source/**/*.scss'],
