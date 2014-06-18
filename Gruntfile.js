@@ -87,18 +87,18 @@ module.exports = function(grunt) {
       },
       markup: {
         files: ['source/**/*.html', 'source/**/*.md', 'source/**/*.txt'],
-        tasks: ['jekyll', 'styles']
+        tasks: ['jekyll', 'compile']
       },
       sass: {
         files: ['source/**/*.scss'],
-        tasks: ['styles']
+        tasks: ['compile']
       }
     }
   });
 
   // Compile styles.
-  grunt.registerTask('build', ['jekyll', 'sass', 'autoprefixer', 'csslint']);
-  grunt.registerTask('styles', ['sass', 'autoprefixer', 'csslint']);
+  grunt.registerTask('build', ['jekyll', 'compile']);
+  grunt.registerTask('compile', ['sass', 'autoprefixer', 'csslint']);
 
   // Default task.
   grunt.registerTask('default', ['watch']);
