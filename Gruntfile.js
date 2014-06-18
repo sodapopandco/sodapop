@@ -9,6 +9,7 @@ module.exports = function(grunt) {
   destDir = './public/';
   srcAssetsDir = './source/_assets/';
   destAssetsDir = './public/assets/';
+  imagesDir = 'images/';
   scriptsDir = 'scripts/';
   stylesDir = 'styles/';
 
@@ -27,6 +28,7 @@ module.exports = function(grunt) {
 
     clean: {
       all: [destDir + '*'],
+      images: [destDir + '**/*.{gif,jpg,png,svg}'],
       markup: [destDir + '**/*.html', destDir + '**/*.txt'],
       scripts: [destAssetsDir + scriptsDir + '*'],
       styles: [destAssetsDir + stylesDir + '*']
@@ -79,6 +81,15 @@ module.exports = function(grunt) {
       }
     },
 
+    imagemin: {
+      compress: {
+        expand: true,
+        cwd: srcAssetsDir + imagesDir,
+        src: ['**/*.{gif,jpg,png,svg}'],
+        dest: destAssetsDir + imagesDir
+      }
+    },
+
     jekyll: {
       options: {
         bundleExec: true
@@ -127,6 +138,10 @@ module.exports = function(grunt) {
       options: {
         livereload: 9000
       },
+      images: {
+        files: [srcDir + '**/*.{gif,jpg,png,svg}'],
+        tasks: ['imagemin']
+      },
       markup: {
         files: [srcDir + '**/*.html', srcDir + '**/*.md', srcDir + '**/*.txt'],
         tasks: ['jekyll']
@@ -147,7 +162,7 @@ module.exports = function(grunt) {
   grunt.registerTask('compile', ['compile:css', 'compile:js']);
   grunt.registerTask('compile:css', ['sass', 'autoprefixer', 'csslint']);
   grunt.registerTask('compile:js', ['coffee', 'jshint']);
-  grunt.registerTask('compress', ['htmlmin', 'cssmin', 'uglify']);
+  grunt.registerTask('compress', ['htmlmin', 'imagemin', 'cssmin', 'uglify']);
 
   // Default task.
   grunt.registerTask('default', ['watch']);
