@@ -29,7 +29,7 @@ module.exports = function(grunt) {
     clean: {
       all: [destDir + '*'],
       images: [destDir + '**/*.{gif,jpg,png,svg}'],
-      markup: [destDir + '**/*.html', destDir + '**/*.txt'],
+      markup: [destDir + '**/*.{html,txt}'],
       scripts: [destAssetsDir + scriptsDir + '*'],
       styles: [destAssetsDir + stylesDir + '*']
     },
@@ -143,7 +143,7 @@ module.exports = function(grunt) {
         tasks: ['imagemin']
       },
       markup: {
-        files: [srcDir + '**/*.html', srcDir + '**/*.md', srcDir + '**/*.txt'],
+        files: [srcDir + '**/*.{html,md,txt}'],
         tasks: ['jekyll']
       },
       scripts: {
