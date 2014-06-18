@@ -27,8 +27,7 @@ module.exports = function(grunt) {
       check: {
         expand: true,
         cwd: 'public/assets/styles',
-        src: ['**/*.css', '**/!*.min.css'],
-        dest: 'public/assets/styles'
+        src: ['**/*.css', '**/!*.min.css']
       }
     },
 
@@ -69,7 +68,11 @@ module.exports = function(grunt) {
     },
 
     jshint: {
-      check: ['Gruntfile.js', 'source/**/*.js']
+      check: {
+        expand: true,
+        cwd: 'public',
+        src: ['**/*.js', '**/!*.min.js'],
+      }
     },
 
     sass: {
