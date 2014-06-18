@@ -116,16 +116,22 @@ module.exports = function(grunt) {
         files: ['source/**/*.html', 'source/**/*.md', 'source/**/*.txt'],
         tasks: ['jekyll']
       },
+      scripts: {
+        files: ['source/**/*.coffee'],
+        tasks: ['compile:js']
+      },
       styles: {
         files: ['source/**/*.scss'],
-        tasks: ['compile']
+        tasks: ['compile:css']
       }
     }
   });
 
   // Compile styles.
   grunt.registerTask('build', ['jekyll', 'compile']);
-  grunt.registerTask('compile', ['sass', 'autoprefixer', 'csslint', 'coffee', 'jshint']);
+  grunt.registerTask('compile', ['compile:css', 'compile:js']);
+  grunt.registerTask('compile:css', ['sass', 'autoprefixer', 'csslint']);
+  grunt.registerTask('compile:js', ['coffee', 'jshint']);
   grunt.registerTask('compress', ['htmlmin', 'cssmin', 'uglify']);
 
   // Default task.
