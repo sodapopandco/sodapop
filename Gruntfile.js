@@ -158,7 +158,7 @@ module.exports = function(grunt) {
   });
 
   // Main tasks.
-  grunt.registerTask('build', ['jekyll', 'compile']);
+  grunt.registerTask('build', ['clean', 'jekyll', 'compile', 'compress']);
   grunt.registerTask('compile', ['compile:css', 'compile:js']);
   grunt.registerTask('compile:css', ['sass', 'autoprefixer', 'csslint']);
   grunt.registerTask('compile:js', ['coffee', 'jshint']);
