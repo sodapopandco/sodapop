@@ -13,6 +13,10 @@ module.exports = function(grunt) {
   scriptsDir = 'scripts/';
   stylesDir = 'styles/';
 
+  // Project domains.
+  localDomain = 'domain';
+  remoteDomain = 'domain.com';
+
   // Project configuration.
   grunt.initConfig({
 
@@ -125,7 +129,12 @@ module.exports = function(grunt) {
     },
 
     shell: {
-      
+      pow: {
+        command: [
+          'ln -s `pwd` ~/.pow/' + localDomain,
+          'echo "Done. Now serving this site locally at http:\/\/' + localDomain + '.dev."'
+        ].join('&&')
+      }
     },
 
     uglify: {
