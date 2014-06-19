@@ -140,6 +140,12 @@ module.exports = function(grunt) {
       },
       preview: {
         command: 'open http://' + localDomain + '.dev'
+      },
+      xip: {
+        command: [
+          "ip=$(ifconfig | grep 'inet ' | grep -v '127.0.0.1' | awk '{ print $2 }')",
+          'open http://' + localDomain + '.$ip.xip.io'
+        ].join('&&')
       }
     },
 
@@ -184,6 +190,7 @@ module.exports = function(grunt) {
   grunt.registerTask('view', ['build', 'shell:preview']);
   grunt.registerTask('view:live', ['shell:production']);
   grunt.registerTask('view:repo', ['shell:github']);
+  grunt.registerTask('view:virtual', ['shell:xip']);
 
   // Default task.
   grunt.registerTask('default', ['watch']);
