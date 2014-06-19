@@ -26,7 +26,7 @@ module.exports = function(grunt) {
       prefix: {
         expand: true,
         cwd: destAssetsDir + stylesDir,
-        src: ['**/*.css', '!**/*.min.css'],
+        src: ['**/*.css'],
         dest: destAssetsDir + stylesDir
       }
     },
@@ -56,7 +56,7 @@ module.exports = function(grunt) {
       check: {
         expand: true,
         cwd: destAssetsDir + stylesDir,
-        src: ['**/*.css', '!**/*.min.css']
+        src: ['**/*.css']
       }
     },
 
@@ -67,9 +67,8 @@ module.exports = function(grunt) {
       compress: {
         expand: true,
         cwd: destAssetsDir + stylesDir,
-        src: ['**/*.css', '!**/*.min.css'],
-        dest: destAssetsDir + stylesDir,
-        ext: '.min.css'
+        src: ['**/*.css'],
+        dest: destAssetsDir + stylesDir
       }
     },
 
@@ -112,7 +111,7 @@ module.exports = function(grunt) {
       check: {
         expand: true,
         cwd: destAssetsDir + scriptsDir,
-        src: ['**/*.js', '!**/*.min.js'],
+        src: ['**/*.js'],
       }
     },
 
@@ -151,9 +150,8 @@ module.exports = function(grunt) {
       compile: {
         expand: true,
         cwd: destAssetsDir + scriptsDir,
-        src: ['**/*.js', '!**/*.min.js'],
-        dest: destAssetsDir + scriptsDir,
-        ext: '.min.js'
+        src: ['**/*.js'],
+        dest: destAssetsDir + scriptsDir
       }
     },
 
