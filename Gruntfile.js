@@ -124,6 +124,10 @@ module.exports = function(grunt) {
       }
     },
 
+    shell: {
+      
+    },
+
     uglify: {
       compile: {
         expand: true,
