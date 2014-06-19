@@ -15,7 +15,8 @@ module.exports = function(grunt) {
 
   // Project domains.
   localDomain = 'domain';
-  remoteDomain = 'domain.com';
+  liveDomain = 'domain.com';
+  repoDomain = 'user/repository';
 
   // Project configuration.
   grunt.initConfig({
@@ -129,6 +130,12 @@ module.exports = function(grunt) {
     },
 
     shell: {
+      github: {
+        command: 'open http://github.com/' + repoDomain
+      },
+      production: {
+        command: 'open http://' + liveDomain
+      },
       pow: {
         command: [
           'ln -s `pwd` ~/.pow/' + localDomain,
@@ -179,6 +186,9 @@ module.exports = function(grunt) {
   grunt.registerTask('compile:css', ['sass', 'autoprefixer', 'csslint']);
   grunt.registerTask('compile:js', ['coffee', 'jshint']);
   grunt.registerTask('compress', ['htmlmin', 'imagemin', 'cssmin', 'uglify']);
+  grunt.registerTask('view', ['build', 'shell:preview']);
+  grunt.registerTask('view:live', ['shell:production']);
+  grunt.registerTask('view:repo', ['shell:github']);
 
   // Default task.
   grunt.registerTask('default', ['watch']);
