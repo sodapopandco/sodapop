@@ -136,10 +136,7 @@ module.exports = function(grunt) {
         command: 'open http://' + liveDomain
       },
       pow: {
-        command: [
-          'ln -s `pwd` ~/.pow/' + localDomain,
-          'echo "Done. Now serving this site locally at http://' + localDomain + '.dev."'
-        ].join('&&')
+        command: 'ln -s `pwd` ~/.pow/' + localDomain
       },
       preview: {
         command: 'open http://' + localDomain + '.dev'
