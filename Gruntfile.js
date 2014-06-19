@@ -132,7 +132,7 @@ module.exports = function(grunt) {
       pow: {
         command: [
           'ln -s `pwd` ~/.pow/' + localDomain,
-          'echo "Done. Now serving this site locally at http:\/\/' + localDomain + '.dev."'
+          'echo "Done. Now serving this site locally at http://' + localDomain + '.dev."'
         ].join('&&')
       }
     },
