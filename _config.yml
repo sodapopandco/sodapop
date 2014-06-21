@@ -1,6 +1,7 @@
 title: Website Name
-description: A short description about the website.
 author: Author Name
+description: A short description about the website.
+keywords: comma, separated, keywords
 
 source: source
 destination: public
