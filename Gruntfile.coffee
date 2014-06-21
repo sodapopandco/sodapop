@@ -126,7 +126,7 @@ module.exports = (grunt) ->
 
     watch:
       options:
-        livereload: 9000
+        livereload: 9001
       images:
         files: [srcDir + "**/*.{gif,jpg,png,svg}"]
         tasks: ["imagemin"]
