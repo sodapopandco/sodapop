@@ -54,18 +54,14 @@ header h1 {
     line-height: 1em;
     text-transform: capitalize;
 }
-header h1 a {
+header h1 a, header h1 a:visited {
     display: block;
     padding-top: 205px;
-    color: #f37421;
+    color: #444;
 }
 header h1 em {
-    color: #444;
     font-weight: 700;
     text-transform: uppercase;
-}
-header a {
-    color: #ccc;
 }
 div[role="main"] {
     margin: 60px 0;
