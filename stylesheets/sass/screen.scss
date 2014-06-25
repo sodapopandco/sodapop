@@ -28,7 +28,7 @@ figure { margin: 0; }
 body {
     margin: 0 auto;
     padding: 60px 20px;
-    width: 700px;
+    max-width: 700px;
     background: #fff;
     color: #444;
     font-family: "futura-pt", Verdana, sans-serif;
@@ -41,7 +41,7 @@ header p, div[role="main"] p {
     letter-spacing: 4px;
 }
 header {
-    width: 700px;
+    max-width: 700px;
     text-transform: uppercase;
 }
 header h1 {
@@ -75,6 +75,7 @@ figure {
 }
 img {
     position: relative;
+    width: 100%;
     -webkit-border-radius: 3px;
     border-radius: 3px;
     -webkit-box-shadow: 0 2px 3px #ccc;
