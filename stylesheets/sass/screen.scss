@@ -79,6 +79,10 @@ img {
     border: 1px solid #e5e5e5;
     -webkit-border-radius: 3px;
     border-radius: 3px;
+
+    &:hover, &:focus {
+      border-color: #ccc;
+    }
 }
 footer {
     margin-top: percentage(48/320);
