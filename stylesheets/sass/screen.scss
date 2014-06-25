@@ -27,17 +27,17 @@ figure { margin: 0; }
 
 body {
     margin: 0 auto;
-    padding: 60px 20px;
+    padding: percentage(30/320) 20px;
     max-width: 700px;
     background: #fff;
     color: #444;
     font-family: "futura-pt", Verdana, sans-serif;
     text-align: center;
 }
-header p, div[role="main"] p {
+header p, div[role="main"] {
     margin: 0;
-    color: #e5e5e5;
-    font-size: 14px;
+    color: #ccc;
+    font-size: 16px;
     letter-spacing: 4px;
 }
 header {
@@ -64,35 +64,42 @@ header h1 em {
     text-transform: uppercase;
 }
 div[role="main"] {
-    margin: 60px 0;
-}
-div[role="main"] p {
+    margin: percentage(30/320) 0;
     color: #444;
+}
+p {
     text-transform: uppercase;
 }
 figure {
-    margin-bottom: 60px;
+    margin-bottom: percentage(30/320);
 }
 img {
     position: relative;
     width: 100%;
+    border: 1px solid #e5e5e5;
     -webkit-border-radius: 3px;
     border-radius: 3px;
-    -webkit-box-shadow: 0 2px 3px #ccc;
-    box-shadow: 0 2px 3px #ccc;
-}
-a:hover img, a:focus img {
-    top: -3px;
-    -webkit-box-shadow: 0 3px 6px #999;
-    box-shadow: 0 3px 6px #999;
 }
 footer {
-    margin-bottom: 36px;
+    margin-top: percentage(48/320);
     color: #ccc;
-    font-size: 12px;
-    letter-spacing: 1px;
+    font-size: 14px;
 }
-footer a {
-    letter-spacing: 2px;
-    text-transform: uppercase;
+
+@media screen and (max-width: 480px) {
+    header p, div[role="main"] {
+      font-size: 14px;
+      letter-spacing: 3px;
+    }
+    header h1 {
+      background-size: 105px;
+      font-size: 30px;
+      letter-spacing: 3px;
+    }
+    header h1 a, header h1 a:visited {
+      padding-top: 123px;
+    }
+    footer {
+      font-size: 12px;
+    }
 }
