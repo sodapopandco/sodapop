@@ -2,4 +2,5 @@
 .scssc
 node_modules
 npm-debug.log
+ruby_gems
 public
