@@ -1,9 +1,10 @@
 var gulp = require('gulp'),
-    sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
+    browserSync = require('browser-sync'),
     minifyCSS = require('gulp-minify-css'),
     rename = require('gulp-rename'),
-    browserSync = require('browser-sync'),
+    sass = require('gulp-sass'),
+    shell = require('gulp-shell'),
     reload = browserSync.reload;
 
 gulp.task('browser-sync', function() {
@@ -25,6 +26,13 @@ gulp.task('css', function () {
     .pipe(reload({stream:true}));
 });
 
-gulp.task('default', ['css', 'browser-sync'], function() {
+gulp.task('build', function () {
+  return gulp.src('source/**/*.html')
+    .pipe(shell(['jekyll build']))
+    .pipe(reload({stream:true}));
+})
+
+gulp.task('default', ['build', 'css', 'browser-sync'], function() {
   gulp.watch('source/**/*.scss', ['css']);
+  gulp.watch('source/**/*.html', ['build']);
 });
