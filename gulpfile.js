@@ -15,7 +15,7 @@ gulp.task('browser-sync', function() {
   });
 });
 
-gulp.task('css', function () {
+gulp.task('styles', function () {
   return gulp.src('source/_assets/styles/*.scss')
     .pipe(sass({
       // This is needed to stop the build failing.
@@ -36,7 +36,7 @@ gulp.task('build', function () {
     .pipe(reload({stream:true}));
 })
 
-gulp.task('default', ['build', 'css', 'browser-sync'], function() {
-  gulp.watch('source/**/*.scss', ['css']);
+gulp.task('default', ['build', 'styles', 'browser-sync'], function() {
+  gulp.watch('source/**/*.scss', ['styles']);
   gulp.watch('source/**/*.html', ['build']);
 });
