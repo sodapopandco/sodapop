@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     shell = require('gulp-shell'),
     reload = browserSync.reload;
 
+// Serves and reloads the browser when stuff happens.
 gulp.task('browser-sync', function() {
   browserSync({
     notify: false,
@@ -15,6 +16,7 @@ gulp.task('browser-sync', function() {
   });
 });
 
+// Compiles any Sass files, minifies them, and injects any changed CSS into the browser.
 gulp.task('styles', function () {
   return gulp.src('source/_assets/styles/*.scss')
     .pipe(sass({
@@ -30,15 +32,18 @@ gulp.task('styles', function () {
     .pipe(reload({stream:true}));
 });
 
+// Builds the site.
 gulp.task('build', function (done) {
   return childProcess.spawn('jekyll', ['build'], {stdio: 'inherit'})
     .on('close', done);
 });
 
+// Builds and reloads the site.
 gulp.task('rebuild', ['build'], function () {
   reload();
 });
 
+// Builds the site, compiles its CSS, and syncs the changes to the browser.
 gulp.task('default', ['build', 'styles', 'browser-sync'], function() {
   gulp.watch('source/**/*.scss', ['styles']);
   gulp.watch(['*.yml', 'source/**/*.html', 'source/**/*.md', 'source/**/*.txt'], ['rebuild']);
