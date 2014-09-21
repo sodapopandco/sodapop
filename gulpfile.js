@@ -16,6 +16,13 @@ gulp.task('browser-sync', function() {
   });
 });
 
+// Minifies any images.
+gulp.task('images', function () {
+  return gulp.src('source/_assets/images/**/*')
+    // Image stuff goes here.
+    .pipe(reload({stream:true}));
+});
+
 // Compiles any Sass files, minifies them, and injects any changed CSS into the browser.
 gulp.task('styles', function () {
   return gulp.src('source/_assets/styles/*.scss')
