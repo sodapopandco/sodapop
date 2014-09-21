@@ -11,8 +11,7 @@ var gulp = require('gulp'),
 gulp.task('browser-sync', function() {
   browserSync({
     notify: false,
-    proxy: "heft.dev",
-    xip: true
+    proxy: "heft.dev"
   });
 });
 
