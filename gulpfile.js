@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     browserSync = require('browser-sync'),
     childProcess = require('child_process'),
+    imagemin = require('gulp-imagemin'),
     minifyCSS = require('gulp-minify-css'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
@@ -19,7 +20,10 @@ gulp.task('browser-sync', function() {
 // Minifies any images.
 gulp.task('images', function () {
   return gulp.src('source/_assets/images/**/*')
-    // Image stuff goes here.
+    .pipe(imagemin({
+      progressive: true
+    }))
+    .pipe(gulp.dest('public/assets/images'))
     .pipe(reload({stream:true}));
 });
 
