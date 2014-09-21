@@ -41,5 +41,5 @@ gulp.task('rebuild', ['build'], function () {
 
 gulp.task('default', ['build', 'styles', 'browser-sync'], function() {
   gulp.watch('source/**/*.scss', ['styles']);
-  gulp.watch(['*.md', '*.yml', 'source/**/*.html'], ['rebuild']);
+  gulp.watch(['*.yml', 'source/**/*.html', 'source/**/*.md', 'source/**/*.txt'], ['rebuild']);
 });
