@@ -17,7 +17,11 @@ gulp.task('browser-sync', function() {
 
 gulp.task('css', function () {
   return gulp.src('source/_assets/styles/main.scss')
-    .pipe(sass({ errLogToConsole: true, sourceComments: 'map', sourceMap: 'sass' }))
+    .pipe(sass({
+      errLogToConsole: true,
+      sourceComments: 'map',
+      sourceMap: 'sass'
+    }))
     .pipe(autoprefixer('last 4 version'))
     .pipe(gulp.dest('public/assets/styles'))
     .pipe(minifyCSS())
