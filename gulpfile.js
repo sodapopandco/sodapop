@@ -16,7 +16,7 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('css', function () {
-  return gulp.src('source/_assets/styles/main.scss')
+  return gulp.src('source/_assets/styles/*.scss')
     .pipe(sass({
       errLogToConsole: true,
       sourceComments: 'map',
