@@ -18,6 +18,8 @@ gulp.task('browser-sync', function() {
 gulp.task('css', function () {
   return gulp.src('source/_assets/styles/*.scss')
     .pipe(sass({
+      // This is needed to stop the build failing.
+      // Maybe source maps are required now?
       sourceComments: 'map'
     }))
     .pipe(autoprefixer('last 4 version'))
