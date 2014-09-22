@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     childProcess = require('child_process'),
     concat = require('gulp-concat'),
     imagemin = require('gulp-imagemin'),
-    minifyCSS = require('gulp-minify-css'),
+    mincss = require('gulp-minify-css'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
     shell = require('gulp-shell'),
@@ -53,7 +53,7 @@ gulp.task('styles', function () {
     }))
     .pipe(autoprefixer('last 4 version'))
     .pipe(gulp.dest('public/assets/styles'))
-    .pipe(minifyCSS())
+    .pipe(mincss())
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('public/assets/styles'))
     .pipe(reload({stream:true}));
