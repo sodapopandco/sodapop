@@ -56,7 +56,8 @@ gulp.task('rebuild', ['build'], function () {
 });
 
 // Builds the site, compiles its CSS, and syncs the changes to the browser.
-gulp.task('default', ['build', 'styles', 'browser-sync'], function() {
+gulp.task('default', ['build', 'images', 'styles', 'browser-sync'], function() {
+  gulp.watch('source/_assets/images/**/*', ['images']);
   gulp.watch('source/**/*.scss', ['styles']);
   gulp.watch(['*.yml', 'source/**/*.html', 'source/**/*.md', 'source/**/*.txt'], ['rebuild']);
 });
