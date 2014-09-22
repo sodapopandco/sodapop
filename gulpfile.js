@@ -1,6 +1,7 @@
 var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     browserSync = require('browser-sync'),
+    changed = require('gulp-changed'),
     childProcess = require('child_process'),
     imagemin = require('gulp-imagemin'),
     minifyCSS = require('gulp-minify-css'),
@@ -20,6 +21,7 @@ gulp.task('browser-sync', function() {
 // Minifies any images.
 gulp.task('images', function () {
   return gulp.src('source/_assets/images/**/*')
+    .pipe(changed('public/assets/images'))
     .pipe(imagemin({
       progressive: true,
       svgoPlugins: [{removeViewBox: false}]
