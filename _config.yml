@@ -5,4 +5,4 @@ keywords: comma, separated, keywords
 
 source: source
 destination: public
-keep_files:  ['assets']
+keep_files: ['assets']
