@@ -1,6 +1,5 @@
 var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
-    sync = require('browser-sync'),
     changed = require('gulp-changed'),
     child = require('child_process'),
     concat = require('gulp-concat'),
@@ -9,6 +8,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
     shell = require('gulp-shell'),
+    sync = require('browser-sync'),
     uglify = require('gulp-uglify'),
     reload = sync.reload;
 
