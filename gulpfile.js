@@ -32,6 +32,7 @@ gulp.task('images', function () {
     .pipe(reload({stream:true}));
 });
 
+// Compiles any JavaScript files, minifies them, and reloads the browser.
 gulp.task('scripts', function () {
   return gulp.src('source/_assets/scripts/*.js')
     .pipe(concat('main.js'))
