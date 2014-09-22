@@ -30,6 +30,13 @@ gulp.task('images', function () {
     .pipe(reload({stream:true}));
 });
 
+gulp.task('scripts', function () {
+  return gulp.src('source/_assets/scripts/*.js')
+    // Script specific stuff goes here.
+    .pipe(gulp.dest('public/assets/scripts'))
+    .pipe(reload({stream:true}));
+});
+
 // Compiles any Sass files, minifies them, and injects any changed CSS into the browser.
 gulp.task('styles', function () {
   return gulp.src('source/_assets/styles/*.scss')
