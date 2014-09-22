@@ -20,6 +20,17 @@ gulp.task('browser-sync', function() {
   });
 });
 
+// Builds the site.
+gulp.task('build', function (done) {
+  return child.spawn('jekyll', ['build'], {stdio: 'inherit'})
+    .on('close', done);
+});
+
+// Builds and reloads the site.
+gulp.task('rebuild', ['build'], function () {
+  reload();
+});
+
 // Minifies any images.
 gulp.task('images', function () {
   return gulp.src('source/_assets/images/**/*')
@@ -57,17 +68,6 @@ gulp.task('styles', function () {
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('public/assets/styles'))
     .pipe(reload({stream:true}));
-});
-
-// Builds the site.
-gulp.task('build', function (done) {
-  return child.spawn('jekyll', ['build'], {stdio: 'inherit'})
-    .on('close', done);
-});
-
-// Builds and reloads the site.
-gulp.task('rebuild', ['build'], function () {
-  reload();
 });
 
 // Builds the site, compiles its CSS, and syncs the changes to the browser.
