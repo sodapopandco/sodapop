@@ -7,7 +7,7 @@
     <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
     <meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% else %}{{ site.keywords }}{% endif %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="assets/styles/main.min.css">
+    <link rel="stylesheet" href="/assets/styles/main.min.css">
   </head>
 
   <body{% if page.class %} class="{{ page.class }}"{% endif %}>
@@ -16,6 +16,6 @@
     {{ content }}
 
     {% include footer.html %}
-    <script src="assets/scripts/main.min.js"></script>
+    <script src="/assets/scripts/main.min.js"></script>
   </body>
 </html>
