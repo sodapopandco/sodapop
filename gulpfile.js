@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
-    browserSync = require('browser-sync'),
+    sync = require('browser-sync'),
     changed = require('gulp-changed'),
     childProcess = require('child_process'),
     concat = require('gulp-concat'),
@@ -10,11 +10,11 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     shell = require('gulp-shell'),
     uglify = require('gulp-uglify'),
-    reload = browserSync.reload;
+    reload = sync.reload;
 
 // Serves and reloads the browser when stuff happens.
 gulp.task('browser-sync', function() {
-  browserSync({
+  sync({
     notify: false,
     proxy: "heft.dev"
   });
