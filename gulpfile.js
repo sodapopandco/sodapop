@@ -2,7 +2,7 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     sync = require('browser-sync'),
     changed = require('gulp-changed'),
-    childProcess = require('child_process'),
+    child = require('child_process'),
     concat = require('gulp-concat'),
     imagemin = require('gulp-imagemin'),
     mincss = require('gulp-minify-css'),
@@ -61,7 +61,7 @@ gulp.task('styles', function () {
 
 // Builds the site.
 gulp.task('build', function (done) {
-  return childProcess.spawn('jekyll', ['build'], {stdio: 'inherit'})
+  return child.spawn('jekyll', ['build'], {stdio: 'inherit'})
     .on('close', done);
 });
 
