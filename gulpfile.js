@@ -65,7 +65,7 @@ gulp.task('styles', function () {
     .pipe(autoprefixer('last 4 version'))
     .pipe(gulp.dest('public/assets/styles'))
     .pipe(mincss())
-    .pipe(rename({ suffix: '.min' }))
+    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('public/assets/styles'))
     .pipe(reload({stream:true}));
 });
