@@ -21,7 +21,8 @@ gulp.task('browser-sync', function() {
 gulp.task('images', function () {
   return gulp.src('source/_assets/images/**/*')
     .pipe(imagemin({
-      progressive: true
+      progressive: true,
+      svgoPlugins: [{removeViewBox: false}]
     }))
     .pipe(gulp.dest('public/assets/images'))
     .pipe(reload({stream:true}));
