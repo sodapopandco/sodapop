@@ -53,7 +53,6 @@ gulp.task('images', function () {
 gulp.task('scripts', function () {
   return gulp.src('source/_assets/scripts/*.js')
     .pipe(concat('main.js'))
-    .pipe(gulp.dest('public/assets/scripts'))
     .pipe(uglify())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('public/assets/scripts'))
@@ -69,7 +68,6 @@ gulp.task('styles', function () {
       sourceComments: 'map'
     }))
     .pipe(autoprefixer('last 4 version'))
-    .pipe(gulp.dest('public/assets/styles'))
     .pipe(mincss())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('public/assets/styles'))
