@@ -49,7 +49,8 @@ gulp.task('images', function() {
       progressive: true,
       svgoPlugins: [{removeViewBox: false}]
     }))
-    .pipe(gulp.dest(destinationDir + destinationAssetsDir + imagesDir));
+    .pipe(gulp.dest(destinationDir + destinationAssetsDir + imagesDir))
+    .pipe(sync.reload({stream:true}));
 });
 
 // Builds the site.
@@ -64,7 +65,8 @@ gulp.task('scripts', function() {
     .pipe(concat('main.js'))
     .pipe(uglify())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest(destinationDir + destinationAssetsDir + scriptsDir));
+    .pipe(gulp.dest(destinationDir + destinationAssetsDir + scriptsDir))
+    .pipe(sync.reload({stream:true}));
 });
 
 // Compiles any Sass files, minifies them, and injects any changed CSS into the browser.
@@ -78,7 +80,8 @@ gulp.task('styles', function() {
     .pipe(autoprefixer())
     .pipe(mincss())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest(destinationDir + destinationAssetsDir + stylesDir));
+    .pipe(gulp.dest(destinationDir + destinationAssetsDir + stylesDir))
+    .pipe(sync.reload({stream:true}));
 });
 
 // Builds then reloads the site.
@@ -86,15 +89,10 @@ gulp.task('rebuild', ['jekyll'], function() {
   sync.reload();
 });
 
-// Reloads whatever is thrown at it.
-gulp.task('reload', function() {
-  sync.reload();
-});
-
 // Builds the site, compiles its CSS, and syncs the changes to the browser.
 gulp.task('default', ['jekyll', 'images', 'scripts', 'styles', 'browser-sync'], function() {
-  gulp.watch(sourceDir + sourceAssetsDir + imagesDir + '**/*', ['images', 'reload']);
-  gulp.watch(sourceDir + '**/*.js', ['scripts', 'reload']);
-  gulp.watch(sourceDir + '**/*.scss', ['styles', 'reload']);
+  gulp.watch(sourceDir + sourceAssetsDir + imagesDir + '**/*', ['images']);
+  gulp.watch(sourceDir + '**/*.js', ['scripts']);
+  gulp.watch(sourceDir + '**/*.scss', ['styles']);
   gulp.watch(['*.yml', sourceDir + '**/*.html', sourceDir + '**/*.md', sourceDir + '**/*.txt'], ['rebuild']);
 });
