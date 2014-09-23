@@ -60,7 +60,7 @@ gulp.task('styles', function() {
       // Maybe source maps are required now?
       sourceComments: 'map'
     }))
-    .pipe(autoprefixer('last 4 version'))
+    .pipe(autoprefixer())
     .pipe(mincss())
     .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('public/assets/styles'));
