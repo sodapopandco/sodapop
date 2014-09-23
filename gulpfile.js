@@ -22,23 +22,23 @@ gulp.task('browser-sync', function() {
 });
 
 // Builds the site.
-gulp.task('build', function (done) {
+gulp.task('build', function(done) {
   return child.spawn('jekyll', ['build'], {stdio: 'inherit'})
     .on('close', done);
 });
 
 // Builds and reloads the site.
-gulp.task('rebuild', ['build'], function () {
+gulp.task('rebuild', ['build'], function() {
   reload();
 });
 
-gulp.task('clean', function () {
+gulp.task('clean', function() {
   return gulp.src('public')
     .pipe(clean());
 });
 
 // Minifies any images.
-gulp.task('images', function () {
+gulp.task('images', function() {
   return gulp.src('source/_assets/images/**/*')
     .pipe(changed('public/assets/images'))
     .pipe(imagemin({
@@ -50,7 +50,7 @@ gulp.task('images', function () {
 });
 
 // Compiles any JavaScript files, minifies them, and reloads the browser.
-gulp.task('scripts', function () {
+gulp.task('scripts', function() {
   return gulp.src('source/_assets/scripts/*.js')
     .pipe(concat('main.js'))
     .pipe(uglify())
@@ -60,7 +60,7 @@ gulp.task('scripts', function () {
 });
 
 // Compiles any Sass files, minifies them, and injects any changed CSS into the browser.
-gulp.task('styles', function () {
+gulp.task('styles', function() {
   return gulp.src('source/_assets/styles/*.scss')
     .pipe(sass({
       // This is needed to stop the build failing.
