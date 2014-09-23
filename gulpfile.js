@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     changed = require('gulp-changed'),
     child = require('child_process'),
+    clean = require('gulp-clean'),
     concat = require('gulp-concat'),
     imagemin = require('gulp-imagemin'),
     mincss = require('gulp-minify-css'),
@@ -29,6 +30,11 @@ gulp.task('build', function (done) {
 // Builds and reloads the site.
 gulp.task('rebuild', ['build'], function () {
   reload();
+});
+
+gulp.task('clean', function () {
+  return gulp.src('public')
+    .pipe(clean());
 });
 
 // Minifies any images.
