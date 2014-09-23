@@ -1,7 +1,7 @@
 // Project directories.
-var sourceDir = './source/',
+var sourceDir = 'source/',
     sourceAssetsDir = '_assets/',
-    destinationDir = './public/',
+    destinationDir = 'public/',
     destinationAssetsDir = 'assets/',
     imagesDir = 'images/',
     scriptsDir = 'scripts/',
