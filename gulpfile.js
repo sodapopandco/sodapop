@@ -1,6 +1,8 @@
 // Project directories.
 var sourceDir = './source/',
+    sourceAssetsDir = '_assets/',
     destinationDir = './public/',
+    destinationAssetsDir = 'assets/',
     imagesDir = 'images/',
     scriptsDir = 'scripts/',
     stylesDir = 'styles/';
