@@ -37,19 +37,19 @@ gulp.task('browser-sync', function() {
 
 // Clean the destination directory.
 gulp.task('clean', function() {
-  return gulp.src('public')
+  return gulp.src('destinationDir')
     .pipe(clean());
 });
 
 // Minifies any images.
 gulp.task('images', function() {
-  return gulp.src('source/_assets/images/**/*')
-    .pipe(changed('public/assets/images'))
+  return gulp.src(sourceDir + sourceAssetsDir + imagesDir + '**/*')
+    .pipe(changed(destinationDir + destinationAssetsDir + imagesDir))
     .pipe(imagemin({
       progressive: true,
       svgoPlugins: [{removeViewBox: false}]
     }))
-    .pipe(gulp.dest('public/assets/images'));
+    .pipe(gulp.dest(destinationDir + destinationAssetsDir + imagesDir));
 });
 
 // Builds the site.
@@ -60,16 +60,16 @@ gulp.task('jekyll', function(done) {
 
 // Compiles any JavaScript files, minifies them, and reloads the browser.
 gulp.task('scripts', function() {
-  return gulp.src('source/_assets/scripts/*.js')
+  return gulp.src(sourceDir + sourceAssetsDir + scriptsDir + '*.js')
     .pipe(concat('main.js'))
     .pipe(uglify())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest('public/assets/scripts'));
+    .pipe(gulp.dest(destinationDir + destinationAssetsDir + scriptsDir));
 });
 
 // Compiles any Sass files, minifies them, and injects any changed CSS into the browser.
 gulp.task('styles', function() {
-  return gulp.src('source/_assets/styles/*.scss')
+  return gulp.src(sourceDir + sourceAssetsDir + stylesDir + '*.scss')
     .pipe(sass({
       // This is needed to stop the build failing.
       // Maybe source maps are required now?
@@ -78,7 +78,7 @@ gulp.task('styles', function() {
     .pipe(autoprefixer())
     .pipe(mincss())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest('public/assets/styles'));
+    .pipe(gulp.dest(destinationDir + destinationAssetsDir + stylesDir));
 });
 
 // Builds then reloads the site.
@@ -93,8 +93,8 @@ gulp.task('reload', function() {
 
 // Builds the site, compiles its CSS, and syncs the changes to the browser.
 gulp.task('default', ['jekyll', 'images', 'scripts', 'styles', 'browser-sync'], function() {
-  gulp.watch('source/_assets/images/**/*', ['images', 'reload']);
-  gulp.watch('source/**/*.js', ['scripts', 'reload']);
-  gulp.watch('source/**/*.scss', ['styles', 'reload']);
-  gulp.watch(['*.yml', 'source/**/*.html', 'source/**/*.md', 'source/**/*.txt'], ['rebuild']);
+  gulp.watch(sourceDir + sourceAssetsDir + imagesDir + '**/*', ['images', 'reload']);
+  gulp.watch(sourceDir + '**/*.js', ['scripts', 'reload']);
+  gulp.watch(sourceDir + '**/*.scss', ['styles', 'reload']);
+  gulp.watch(['*.yml', sourceDir + '**/*.html', sourceDir + '**/*.md', sourceDir + '**/*.txt'], ['rebuild']);
 });
