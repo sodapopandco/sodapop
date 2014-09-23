@@ -1,3 +1,15 @@
+// Project directories.
+var sourceDir = './source/',
+    destinationDir = './public/',
+    imagesDir = 'images/',
+    scriptsDir = 'scripts/',
+    stylesDir = 'styles/';
+
+// Project domains.
+var localDomain = 'domain',
+    liveDomain = 'domain.com',
+    repoDomain = 'user/repository';
+
 // Gulp variables.
 var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
