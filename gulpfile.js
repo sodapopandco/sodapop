@@ -20,12 +20,6 @@ gulp.task('browser-sync', function() {
   });
 });
 
-// Builds the site.
-gulp.task('build', function(done) {
-  return child.spawn('jekyll', ['build'], {stdio: 'inherit'})
-    .on('close', done);
-});
-
 // Clean the destination directory.
 gulp.task('clean', function() {
   return gulp.src('public')
@@ -41,6 +35,12 @@ gulp.task('images', function() {
       svgoPlugins: [{removeViewBox: false}]
     }))
     .pipe(gulp.dest('public/assets/images'));
+});
+
+// Builds the site.
+gulp.task('jekyll', function(done) {
+  return child.spawn('jekyll', ['build'], {stdio: 'inherit'})
+    .on('close', done);
 });
 
 // Compiles any JavaScript files, minifies them, and reloads the browser.
@@ -67,7 +67,7 @@ gulp.task('styles', function() {
 });
 
 // Builds then reloads the site.
-gulp.task('rebuild', ['build'], function() {
+gulp.task('rebuild', ['jekyll'], function() {
   sync.reload();
 });
 
@@ -77,7 +77,7 @@ gulp.task('reload', function() {
 });
 
 // Builds the site, compiles its CSS, and syncs the changes to the browser.
-gulp.task('default', ['build', 'images', 'scripts', 'styles', 'browser-sync'], function() {
+gulp.task('default', ['jekyll', 'images', 'scripts', 'styles', 'browser-sync'], function() {
   gulp.watch('source/_assets/images/**/*', ['images', 'reload']);
   gulp.watch('source/**/*.js', ['scripts', 'reload']);
   gulp.watch('source/**/*.scss', ['styles', 'reload']);
