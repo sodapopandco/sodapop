@@ -1,3 +1,4 @@
+// Gulp variables.
 var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     changed = require('gulp-changed'),
