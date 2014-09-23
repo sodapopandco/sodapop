@@ -32,6 +32,7 @@ gulp.task('rebuild', ['build'], function() {
   reload();
 });
 
+// Clean the destination directory.
 gulp.task('clean', function() {
   return gulp.src('public')
     .pipe(clean());
