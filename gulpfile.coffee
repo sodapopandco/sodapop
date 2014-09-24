@@ -32,19 +32,23 @@ gulp.task "browser-sync", ->
   sync
     notify: false
     proxy: "heft.dev"
-
   return
 
 # Clean the destination directory.
 gulp.task "clean", ->
-  gulp.src("destinationDir").pipe clean()
+  gulp.src("destinationDir")
+    .pipe clean()
 
 # Minifies any images.
 gulp.task "images", ->
-  gulp.src(sourceDir + sourceAssetsDir + imagesDir + "**/*").pipe(changed(destinationDir + destinationAssetsDir + imagesDir)).pipe(imagemin(
-    progressive: true
-    svgoPlugins: [removeViewBox: false]
-  )).pipe(gulp.dest(destinationDir + destinationAssetsDir + imagesDir)).pipe sync.reload(stream: true)
+  gulp.src(sourceDir + sourceAssetsDir + imagesDir + "**/*")
+    .pipe(changed(destinationDir + destinationAssetsDir + imagesDir))
+    .pipe(imagemin(
+      progressive: true
+      svgoPlugins: [removeViewBox: false]
+    ))
+    .pipe(gulp.dest(destinationDir + destinationAssetsDir + imagesDir))
+    .pipe sync.reload(stream: true)
 
 # Builds the site.
 gulp.task "jekyll", (done) ->
@@ -54,14 +58,26 @@ gulp.task "jekyll", (done) ->
 
 # Compiles any JavaScript files, minifies them, and reloads the browser.
 gulp.task "scripts", ->
-  gulp.src(sourceDir + sourceAssetsDir + scriptsDir + "*.js").pipe(concat("main.js")).pipe(uglify()).pipe(rename(suffix: ".min")).pipe(gulp.dest(destinationDir + destinationAssetsDir + scriptsDir)).pipe sync.reload(stream: true)
+  gulp.src(sourceDir + sourceAssetsDir + scriptsDir + "*.js")
+    .pipe(concat("main.js"))
+    .pipe(uglify())
+    .pipe(rename(suffix: ".min"))
+    .pipe(gulp.dest(destinationDir + destinationAssetsDir + scriptsDir))
+    .pipe sync.reload(stream: true)
 
 # Compiles any Sass files, minifies them, and injects any changed CSS into the browser.
 gulp.task "styles", ->
-
-  # This is needed to stop the build failing.
-  # Maybe source maps are required now?
-  gulp.src(sourceDir + sourceAssetsDir + stylesDir + "*.scss").pipe(sass(sourceComments: "map")).pipe(autoprefixer()).pipe(mincss()).pipe(rename(suffix: ".min")).pipe(gulp.dest(destinationDir + destinationAssetsDir + stylesDir)).pipe sync.reload(stream: true)
+  gulp.src(sourceDir + sourceAssetsDir + stylesDir + "*.scss")
+    .pipe(sass(
+      # This is needed to stop the build failing.
+      # Maybe source maps are required now?
+      sourceComments: "map"
+    ))
+    .pipe(autoprefixer())
+    .pipe(mincss())
+    .pipe(rename(suffix: ".min"))
+    .pipe(gulp.dest(destinationDir + destinationAssetsDir + stylesDir))
+    .pipe sync.reload(stream: true)
 
 # Builds then reloads the site.
 gulp.task "rebuild", ["jekyll"], ->
