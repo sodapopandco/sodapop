@@ -1,3 +1,9 @@
+# Gulp variables.
+gulp = require("gulp")
+plugins = require("gulp-load-plugins")()
+child = require("child_process")
+sync = require("browser-sync")
+
 # Project directories.
 sourceDir = "source/"
 sourceAssetsDir = "_assets/"
@@ -11,21 +17,6 @@ stylesDir = "styles/"
 localDomain = "domain"
 liveDomain = "domain.com"
 repoDomain = "user/repository"
-
-# Gulp variables.
-gulp = require("gulp")
-autoprefixer = require("gulp-autoprefixer")
-changed = require("gulp-changed")
-child = require("child_process")
-clean = require("gulp-clean")
-concat = require("gulp-concat")
-imagemin = require("gulp-imagemin")
-mincss = require("gulp-minify-css")
-rename = require("gulp-rename")
-sass = require("gulp-sass")
-shell = require("gulp-shell")
-sync = require("browser-sync")
-uglify = require("gulp-uglify")
 
 # Serves and reloads the browser when stuff happens.
 gulp.task "browser-sync", ->
@@ -42,8 +33,8 @@ gulp.task "clean", ->
 # Minifies any images.
 gulp.task "images", ->
   gulp.src(sourceDir + sourceAssetsDir + imagesDir + "**/*")
-    .pipe(changed(destinationDir + destinationAssetsDir + imagesDir))
-    .pipe(imagemin(
+    .pipe(plugins.changed(destinationDir + destinationAssetsDir + imagesDir))
+    .pipe(plugins.imagemin(
       progressive: true
       svgoPlugins: [removeViewBox: false]
     ))
@@ -59,23 +50,23 @@ gulp.task "jekyll", (done) ->
 # Compiles any JavaScript files, minifies them, and reloads the browser.
 gulp.task "scripts", ->
   gulp.src(sourceDir + sourceAssetsDir + scriptsDir + "*.js")
-    .pipe(concat("main.js"))
-    .pipe(uglify())
-    .pipe(rename(suffix: ".min"))
+    .pipe(plugins.concat("main.js"))
+    .pipe(plugins.uglify())
+    .pipe(plugins.rename(suffix: ".min"))
     .pipe(gulp.dest(destinationDir + destinationAssetsDir + scriptsDir))
     .pipe sync.reload(stream: true)
 
 # Compiles any Sass files, minifies them, and injects any changed CSS into the browser.
 gulp.task "styles", ->
   gulp.src(sourceDir + sourceAssetsDir + stylesDir + "*.scss")
-    .pipe(sass(
+    .pipe(plugins.sass(
       # This is needed to stop the build failing.
       # Maybe source maps are required now?
       sourceComments: "map"
     ))
-    .pipe(autoprefixer())
-    .pipe(mincss())
-    .pipe(rename(suffix: ".min"))
+    .pipe(plugins.autoprefixer())
+    .pipe(plugins.minifyCss())
+    .pipe(plugins.rename(suffix: ".min"))
     .pipe(gulp.dest(destinationDir + destinationAssetsDir + stylesDir))
     .pipe sync.reload(stream: true)
 
