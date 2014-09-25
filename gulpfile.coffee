@@ -29,7 +29,7 @@ gulp.task "browser-sync", ->
 # Clean the destination directory.
 gulp.task "clean", ->
   gulp.src(paths.destination)
-    .pipe clean()
+    .pipe plugins.clean()
 
 # Minifies any images.
 gulp.task "images", ->
