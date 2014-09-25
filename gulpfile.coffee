@@ -34,7 +34,7 @@ gulp.task "clean", ->
 
 # Minifies any images.
 gulp.task "images", ->
-  gulp.src(paths.source + paths.sourceAssets + paths.images + "**/*")
+  gulp.src(paths.source + paths.sourceAssets + paths.images + "**/*.{gif,jpg,png,svg}")
     .pipe plugins.changed(paths.destination + paths.destinationAssets + paths.images)
     .pipe plugins.imagemin(
       progressive: true
@@ -85,7 +85,7 @@ gulp.task "default", [
   "styles"
   "browser-sync"
 ], ->
-  gulp.watch paths.source + paths.sourceAssets + paths.images + "**/*", ["images"]
+  gulp.watch paths.source + "**/*.{gif,jpg,png,svg}", ["images"]
   gulp.watch paths.source + "**/*.js", ["scripts"]
   gulp.watch paths.source + "**/*.scss", ["styles"]
   gulp.watch [
