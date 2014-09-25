@@ -31,6 +31,16 @@ gulp.task "clean", ->
   gulp.src(paths.destination)
     .pipe plugins.clean()
 
+# Minifies any HTML.
+gulp.task "html", ["jekyll"], ->
+  gulp.src(paths.destination + "**/*.html")
+    .pipe plugins.htmlmin(
+      collapseWhitespace: true
+      removeComments: true
+    )
+    .pipe gulp.dest(paths.destination)
+    .pipe sync.reload(stream: true)
+
 # Minifies any images.
 gulp.task "images", ->
   gulp.src(paths.source + "_assets/" + paths.images + "**/*.{gif,jpg,png,svg}")
@@ -66,19 +76,20 @@ gulp.task "styles", ->
       sourceComments: "map"
     )
     .pipe plugins.autoprefixer()
+    .pipe gulp.dest(paths.destination + paths.assets + paths.styles)
     .pipe plugins.minifyCss()
     .pipe plugins.rename(suffix: ".min")
     .pipe gulp.dest(paths.destination + paths.assets + paths.styles)
     .pipe sync.reload(stream: true)
 
 # Builds then reloads the site.
-gulp.task "rebuild", ["jekyll"], ->
+gulp.task "rebuild", ["html"], ->
   sync.reload()
   return
 
 # Builds the site, compiles its CSS, and syncs the changes to the browser.
 gulp.task "default", [
-  "jekyll"
+  "html"
   "images"
   "scripts"
   "styles"
