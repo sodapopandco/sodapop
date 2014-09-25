@@ -5,18 +5,20 @@ child = require("child_process")
 sync = require("browser-sync")
 
 # Project directories.
-sourceDir = "source/"
-sourceAssetsDir = "_assets/"
-destinationDir = "public/"
-destinationAssetsDir = "assets/"
-imagesDir = "images/"
-scriptsDir = "scripts/"
-stylesDir = "styles/"
+paths =
+  source: "source/"
+  sourceAssets: "_assets/"
+  destination: "public/"
+  destinationAssets: "assets/"
+  images: "images/"
+  scripts: "scripts/"
+  styles: "styles/"
 
 # Project domains.
-localDomain = "domain"
-liveDomain = "domain.com"
-repoDomain = "user/repository"
+domains =
+  local: "domain"
+  live: "domain.com"
+  repo: "user/repository"
 
 # Serves and reloads the browser when stuff happens.
 gulp.task "browser-sync", ->
@@ -27,18 +29,18 @@ gulp.task "browser-sync", ->
 
 # Clean the destination directory.
 gulp.task "clean", ->
-  gulp.src("destinationDir")
+  gulp.src(paths.destination)
     .pipe clean()
 
 # Minifies any images.
 gulp.task "images", ->
-  gulp.src(sourceDir + sourceAssetsDir + imagesDir + "**/*")
-    .pipe plugins.changed(destinationDir + destinationAssetsDir + imagesDir)
+  gulp.src(paths.source + paths.sourceAssets + paths.images + "**/*")
+    .pipe plugins.changed(paths.destination + paths.destinationAssets + paths.images)
     .pipe plugins.imagemin(
       progressive: true
       svgoPlugins: [removeViewBox: false]
     )
-    .pipe gulp.dest(destinationDir + destinationAssetsDir + imagesDir)
+    .pipe gulp.dest(paths.destination + paths.destinationAssets + paths.images)
     .pipe sync.reload(stream: true)
 
 # Builds the site.
@@ -49,16 +51,16 @@ gulp.task "jekyll", (done) ->
 
 # Compiles any JavaScript files, minifies them, and reloads the browser.
 gulp.task "scripts", ->
-  gulp.src(sourceDir + sourceAssetsDir + scriptsDir + "*.js")
+  gulp.src(paths.source + paths.sourceAssets + paths.scripts + "*.js")
     .pipe plugins.concat("main.js")
     .pipe plugins.uglify()
     .pipe plugins.rename(suffix: ".min")
-    .pipe gulp.dest(destinationDir + destinationAssetsDir + scriptsDir)
+    .pipe gulp.dest(paths.destination + paths.destinationAssets + paths.scripts)
     .pipe sync.reload(stream: true)
 
 # Compiles any Sass files, minifies them, and injects any changed CSS into the browser.
 gulp.task "styles", ->
-  gulp.src(sourceDir + sourceAssetsDir + stylesDir + "*.scss")
+  gulp.src(paths.source + paths.sourceAssets + paths.styles + "*.scss")
     .pipe plugins.sass(
       # This is needed to stop the build failing.
       # Maybe source maps are required now?
@@ -67,7 +69,7 @@ gulp.task "styles", ->
     .pipe plugins.autoprefixer()
     .pipe plugins.minifyCss()
     .pipe plugins.rename(suffix: ".min")
-    .pipe gulp.dest(destinationDir + destinationAssetsDir + stylesDir)
+    .pipe gulp.dest(paths.destination + paths.destinationAssets + paths.styles)
     .pipe sync.reload(stream: true)
 
 # Builds then reloads the site.
@@ -83,13 +85,13 @@ gulp.task "default", [
   "styles"
   "browser-sync"
 ], ->
-  gulp.watch sourceDir + sourceAssetsDir + imagesDir + "**/*", ["images"]
-  gulp.watch sourceDir + "**/*.js", ["scripts"]
-  gulp.watch sourceDir + "**/*.scss", ["styles"]
+  gulp.watch paths.source + paths.sourceAssets + paths.images + "**/*", ["images"]
+  gulp.watch paths.source + "**/*.js", ["scripts"]
+  gulp.watch paths.source + "**/*.scss", ["styles"]
   gulp.watch [
     "*.yml"
-    sourceDir + "**/*.html"
-    sourceDir + "**/*.md"
-    sourceDir + "**/*.txt"
+    paths.source + "**/*.html"
+    paths.source + "**/*.md"
+    paths.source + "**/*.txt"
   ], ["rebuild"]
   return
