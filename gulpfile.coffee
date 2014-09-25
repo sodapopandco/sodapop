@@ -7,9 +7,8 @@ sync = require("browser-sync")
 # Project directories.
 paths =
   source: "source/"
-  sourceAssets: "_assets/"
   destination: "public/"
-  destinationAssets: "assets/"
+  assets: "assets/"
   images: "images/"
   scripts: "scripts/"
   styles: "styles/"
@@ -34,13 +33,13 @@ gulp.task "clean", ->
 
 # Minifies any images.
 gulp.task "images", ->
-  gulp.src(paths.source + paths.sourceAssets + paths.images + "**/*.{gif,jpg,png,svg}")
-    .pipe plugins.changed(paths.destination + paths.destinationAssets + paths.images)
+  gulp.src(paths.source + "_assets/" + paths.images + "**/*.{gif,jpg,png,svg}")
+    .pipe plugins.changed(paths.destination + paths.assets + paths.images)
     .pipe plugins.imagemin(
       progressive: true
       svgoPlugins: [removeViewBox: false]
     )
-    .pipe gulp.dest(paths.destination + paths.destinationAssets + paths.images)
+    .pipe gulp.dest(paths.destination + paths.assets + paths.images)
     .pipe sync.reload(stream: true)
 
 # Builds the site.
@@ -51,16 +50,16 @@ gulp.task "jekyll", (done) ->
 
 # Compiles any JavaScript files, minifies them, and reloads the browser.
 gulp.task "scripts", ->
-  gulp.src(paths.source + paths.sourceAssets + paths.scripts + "*.js")
+  gulp.src(paths.source + "_assets/" + paths.scripts + "*.js")
     .pipe plugins.concat("main.js")
     .pipe plugins.uglify()
     .pipe plugins.rename(suffix: ".min")
-    .pipe gulp.dest(paths.destination + paths.destinationAssets + paths.scripts)
+    .pipe gulp.dest(paths.destination + paths.assets + paths.scripts)
     .pipe sync.reload(stream: true)
 
 # Compiles any Sass files, minifies them, and injects any changed CSS into the browser.
 gulp.task "styles", ->
-  gulp.src(paths.source + paths.sourceAssets + paths.styles + "*.scss")
+  gulp.src(paths.source + "_assets/" + paths.styles + "*.scss")
     .pipe plugins.sass(
       # This is needed to stop the build failing.
       # Maybe source maps are required now?
@@ -69,7 +68,7 @@ gulp.task "styles", ->
     .pipe plugins.autoprefixer()
     .pipe plugins.minifyCss()
     .pipe plugins.rename(suffix: ".min")
-    .pipe gulp.dest(paths.destination + paths.destinationAssets + paths.styles)
+    .pipe gulp.dest(paths.destination + paths.assets + paths.styles)
     .pipe sync.reload(stream: true)
 
 # Builds then reloads the site.
