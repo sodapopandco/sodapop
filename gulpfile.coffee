@@ -33,12 +33,12 @@ gulp.task "clean", ->
 # Minifies any images.
 gulp.task "images", ->
   gulp.src(sourceDir + sourceAssetsDir + imagesDir + "**/*")
-    .pipe(plugins.changed(destinationDir + destinationAssetsDir + imagesDir))
-    .pipe(plugins.imagemin(
+    .pipe plugins.changed(destinationDir + destinationAssetsDir + imagesDir)
+    .pipe plugins.imagemin(
       progressive: true
       svgoPlugins: [removeViewBox: false]
-    ))
-    .pipe(gulp.dest(destinationDir + destinationAssetsDir + imagesDir))
+    )
+    .pipe gulp.dest(destinationDir + destinationAssetsDir + imagesDir)
     .pipe sync.reload(stream: true)
 
 # Builds the site.
@@ -50,24 +50,24 @@ gulp.task "jekyll", (done) ->
 # Compiles any JavaScript files, minifies them, and reloads the browser.
 gulp.task "scripts", ->
   gulp.src(sourceDir + sourceAssetsDir + scriptsDir + "*.js")
-    .pipe(plugins.concat("main.js"))
-    .pipe(plugins.uglify())
-    .pipe(plugins.rename(suffix: ".min"))
-    .pipe(gulp.dest(destinationDir + destinationAssetsDir + scriptsDir))
+    .pipe plugins.concat("main.js")
+    .pipe plugins.uglify()
+    .pipe plugins.rename(suffix: ".min")
+    .pipe gulp.dest(destinationDir + destinationAssetsDir + scriptsDir)
     .pipe sync.reload(stream: true)
 
 # Compiles any Sass files, minifies them, and injects any changed CSS into the browser.
 gulp.task "styles", ->
   gulp.src(sourceDir + sourceAssetsDir + stylesDir + "*.scss")
-    .pipe(plugins.sass(
+    .pipe plugins.sass(
       # This is needed to stop the build failing.
       # Maybe source maps are required now?
       sourceComments: "map"
-    ))
-    .pipe(plugins.autoprefixer())
-    .pipe(plugins.minifyCss())
-    .pipe(plugins.rename(suffix: ".min"))
-    .pipe(gulp.dest(destinationDir + destinationAssetsDir + stylesDir))
+    )
+    .pipe plugins.autoprefixer()
+    .pipe plugins.minifyCss()
+    .pipe plugins.rename(suffix: ".min")
+    .pipe gulp.dest(destinationDir + destinationAssetsDir + stylesDir)
     .pipe sync.reload(stream: true)
 
 # Builds then reloads the site.
