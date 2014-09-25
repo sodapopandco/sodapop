@@ -90,8 +90,6 @@ gulp.task "default", [
   gulp.watch paths.source + "**/*.scss", ["styles"]
   gulp.watch [
     "*.yml"
-    paths.source + "**/*.html"
-    paths.source + "**/*.md"
-    paths.source + "**/*.txt"
+    paths.source + "**/*.{html,md,txt}"
   ], ["rebuild"]
   return
