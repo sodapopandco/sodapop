@@ -23,7 +23,7 @@ domains =
 gulp.task "browser-sync", ->
   browser
     notify: false
-    proxy: "heft.dev"
+    proxy: domains.local + ".dev"
   return
 
 # Clean the destination directory.
