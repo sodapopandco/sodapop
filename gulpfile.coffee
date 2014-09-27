@@ -35,7 +35,7 @@ gulp.task "build", ["clean"], ->
 
 # Clean the destination directory.
 gulp.task "clean", ->
-  gulp.src(paths.destination, read: false)
+  gulp.src "#{paths.destination}", read: false
     .pipe plugins.clean()
 
 # Compress the site.
@@ -48,35 +48,35 @@ gulp.task "compress", [
 
 # Minifies the HTML.
 gulp.task "compress:html", ["compile:html"], ->
-  gulp.src(paths.destination + "**/*.html")
+  gulp.src "#{paths.destination}**/*.html"
     .pipe plugins.htmlmin(
       collapseWhitespace: true
       removeComments: true
     )
-    .pipe gulp.dest(paths.destination)
+    .pipe gulp.dest "#{paths.destination}"
 
 # Minifies any image files.
 gulp.task "compress:images", ["compile:images"], ->
-  gulp.src(paths.destination + paths.assets + paths.images + "**/*.{gif,jpg,png,svg}")
+  gulp.src "#{paths.destination}#{paths.assets}#{paths.images}**/*.{gif,jpg,png,svg}"
     .pipe plugins.imagemin(
       progressive: true
       svgoPlugins: [removeViewBox: false]
     )
-    .pipe gulp.dest(paths.destination + paths.assets + paths.images)
+    .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.images}"
 
 # Minifies any JavaScript files.
 gulp.task "compress:scripts", ["compile:scripts"], ->
-  gulp.src(paths.destination + paths.assets + paths.scripts + "*.js")
+  gulp.src "#{paths.destination}#{paths.assets}#{paths.scripts}*.js"
     .pipe plugins.uglify()
     .pipe plugins.rename(suffix: ".min")
-    .pipe gulp.dest(paths.destination + paths.assets + paths.scripts)
+    .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.scripts}"
 
 # Minifies any CSS files.
 gulp.task "compress:styles", ["compile:styles"], ->
-  gulp.src(paths.destination + paths.assets + paths.styles + "*.css")
+  gulp.src "#{paths.destination}#{paths.assets}#{paths.styles}*.css"
     .pipe plugins.minifyCss()
     .pipe plugins.rename(suffix: ".min")
-    .pipe gulp.dest(paths.destination + paths.assets + paths.styles)
+    .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.styles}"
 
 # Compiles the site.
 gulp.task "compile", [
@@ -94,30 +94,30 @@ gulp.task "compile:html", (done) ->
 
 # Copies any image files to the destination directory and reloads the browser.
 gulp.task "compile:images", ->
-  gulp.src(paths.source + "_assets/images/**/*.{gif,jpg,png,svg}")
-    .pipe plugins.changed(paths.destination + paths.assets + paths.images)
-    .pipe gulp.dest(paths.destination + paths.assets + paths.images)
+  gulp.src "#{paths.source}_assets/images/**/*.{gif,jpg,png,svg}"
+    .pipe plugins.changed "#{paths.destination}#{paths.assets}#{paths.images}"
+    .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.images}"
     .pipe browser.reload(stream: true)
 
 # Compiles any JavaScript files and reloads the browser.
 gulp.task "compile:scripts", ->
-  gulp.src(paths.source + "_assets/scripts/*.coffee")
+  gulp.src "#{paths.source}_assets/scripts/*.coffee"
     .pipe plugins.coffee(bare:true)
-    .pipe gulp.dest(paths.destination + paths.assets + paths.scripts)
+    .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.scripts}"
     .pipe plugins.concat("main.js")
-    .pipe gulp.dest(paths.destination + paths.assets + paths.scripts)
+    .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.scripts}"
     .pipe browser.reload(stream: true)
 
 # Compiles any Sass files and injects any new or changed CSS into the browser.
 gulp.task "compile:styles", ->
-  gulp.src(paths.source + "_assets/styles/*.scss")
+  gulp.src "#{paths.source}_assets/styles/*.scss"
     .pipe plugins.sass(
       errLogToConsole: true
       # The task fails without this. Maybe source maps are required now?
       sourceComments: "map"
     )
     .pipe plugins.autoprefixer()
-    .pipe gulp.dest(paths.destination + paths.assets + paths.styles)
+    .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.styles}"
     .pipe browser.reload(stream: true)
 
 # Compiles the HTML and reloads the browser.
@@ -135,34 +135,34 @@ gulp.task "view", [
 
 # View the local domain.
 gulp.task "view:local", ["compile"], ->
-  gulp.src("")
-    .pipe plugins.shell("open http://" + domains.local + ".dev")
+  gulp.src ""
+    .pipe plugins.shell("open http://#{domains.local}.dev")
 
 # View the virtual domain.
 gulp.task "view:xip", ["compile"], ->
-  gulp.src("")
-    .pipe plugins.shell("ip=$(ifconfig | grep 'inet ' | grep -v '127.0.0.1' | awk '{ print $2 }') && open http://" + domains.local + ".$ip.xip.io")
+  gulp.src ""
+    .pipe plugins.shell("ip=$(ifconfig | grep 'inet ' | grep -v '127.0.0.1' | awk '{ print $2 }') && open http://#{domains.local}.$ip.xip.io")
 
 # View the live domain.
 gulp.task "view:live", ->
-  gulp.src("")
-    .pipe plugins.shell("open http://" + domains.live)
+  gulp.src ""
+    .pipe plugins.shell("open http://#{domains.live}")
 
 # View the repository on GitHub.
 gulp.task "view:repo", ->
-  gulp.src("")
-    .pipe plugins.shell("open http://github.com/" + domains.repository)
+  gulp.src ""
+    .pipe plugins.shell("open http://github.com/#{domains.repository}")
 
 # Compiles the site and syncs any changes to the browser.
 gulp.task "default", [
   "compile"
   "browser-sync"
 ], ->
-  gulp.watch paths.source + "**/*.{gif,jpg,png,svg}", ["compile:images"]
-  gulp.watch paths.source + "**/*.coffee", ["compile:scripts"]
-  gulp.watch paths.source + "**/*.scss", ["compile:styles"]
+  gulp.watch "#{paths.source}**/*.{gif,jpg,png,svg}", ["compile:images"]
+  gulp.watch "#{paths.source}**/*.coffee", ["compile:scripts"]
+  gulp.watch "#{paths.source}**/*.scss", ["compile:styles"]
   gulp.watch [
     "*.yml"
-    paths.source + "**/*.{html,md,txt}"
+    "#{paths.source}**/*.{html,md,txt}"
   ], ["rebuild"]
   return
