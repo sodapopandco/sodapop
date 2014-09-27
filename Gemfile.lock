@@ -13,7 +13,7 @@ GEM
     colorator (0.1)
     execjs (2.2.1)
     fast-stemmer (1.0.2)
-    ffi (1.9.3)
+    ffi (1.9.5)
     hitimes (1.2.2)
     jekyll (2.4.0)
       classifier-reborn (~> 2.0)
@@ -40,7 +40,7 @@ GEM
       listen (~> 2.7)
     kramdown (1.4.2)
     liquid (2.6.1)
-    listen (2.7.9)
+    listen (2.7.11)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -67,6 +67,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  coffee-script
   jekyll
   sass
