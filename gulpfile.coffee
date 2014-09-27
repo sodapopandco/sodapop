@@ -20,7 +20,7 @@ domains =
   repository: "user/repository"
 
 # Serves and reloads the browser when stuff happens.
-gulp.task "browser-sync", ->
+gulp.task "browser-sync", ["compile"], ->
   browser
     notify: false
     proxy: domains.local + ".dev"
@@ -87,27 +87,27 @@ gulp.task "compile", [
 ], ->
 
 # Compiles the HTML using Jekyll.
-gulp.task "compile:html", ["clean"], (done) ->
+gulp.task "compile:html", (done) ->
   process.spawn("jekyll", ["build"],
     stdio: "inherit"
   ).on "close", done
 
 # Copies any image files to the destination directory and reloads the browser.
-gulp.task "compile:images", ["clean"], ->
+gulp.task "compile:images", ->
   gulp.src(paths.source + "_assets/" + paths.images + "**/*.{gif,jpg,png,svg}")
     .pipe plugins.changed(paths.destination + paths.assets + paths.images)
     .pipe gulp.dest(paths.destination + paths.assets + paths.images)
     .pipe browser.reload(stream: true)
 
 # Compiles any JavaScript files and reloads the browser.
-gulp.task "compile:scripts", ["clean"], ->
+gulp.task "compile:scripts", ->
   gulp.src(paths.source + "_assets/" + paths.scripts + "*.js")
     .pipe plugins.concat("main.js")
     .pipe gulp.dest(paths.destination + paths.assets + paths.scripts)
     .pipe browser.reload(stream: true)
 
 # Compiles any Sass files and injects any new or changed CSS into the browser.
-gulp.task "compile:styles", ["clean"], ->
+gulp.task "compile:styles", ->
   gulp.src(paths.source + "_assets/" + paths.styles + "*.scss")
     .pipe plugins.sass(
       errLogToConsole: true
