@@ -1,8 +1,8 @@
 # Gulp variables.
 gulp = require("gulp")
 plugins = require("gulp-load-plugins")()
-child = require("child_process")
-sync = require("browser-sync")
+process = require("child_process")
+browser = require("browser-sync")
 
 # Project directories.
 paths =
@@ -21,7 +21,7 @@ domains =
 
 # Serves and reloads the browser when stuff happens.
 gulp.task "browser-sync", ->
-  sync
+  browser
     notify: false
     proxy: "heft.dev"
   return
@@ -39,7 +39,7 @@ gulp.task "html", ["jekyll"], ->
       removeComments: true
     )
     .pipe gulp.dest(paths.destination)
-    .pipe sync.reload(stream: true)
+    .pipe browser.reload(stream: true)
 
 # Minifies any images.
 gulp.task "images", ->
@@ -50,11 +50,11 @@ gulp.task "images", ->
       svgoPlugins: [removeViewBox: false]
     )
     .pipe gulp.dest(paths.destination + paths.assets + paths.images)
-    .pipe sync.reload(stream: true)
+    .pipe browser.reload(stream: true)
 
 # Builds the site.
 gulp.task "jekyll", (done) ->
-  child.spawn("jekyll", ["build"],
+  process.spawn("jekyll", ["build"],
     stdio: "inherit"
   ).on "close", done
 
@@ -65,7 +65,7 @@ gulp.task "scripts", ->
     .pipe plugins.uglify()
     .pipe plugins.rename(suffix: ".min")
     .pipe gulp.dest(paths.destination + paths.assets + paths.scripts)
-    .pipe sync.reload(stream: true)
+    .pipe browser.reload(stream: true)
 
 # Compiles any Sass files, minifies them, and injects any changed CSS into the browser.
 gulp.task "styles", ->
@@ -81,11 +81,11 @@ gulp.task "styles", ->
     .pipe plugins.minifyCss()
     .pipe plugins.rename(suffix: ".min")
     .pipe gulp.dest(paths.destination + paths.assets + paths.styles)
-    .pipe sync.reload(stream: true)
+    .pipe browser.reload(stream: true)
 
 # Builds then reloads the site.
 gulp.task "rebuild", ["html"], ->
-  sync.reload()
+  browser.reload()
   return
 
 # View various project related URLs.
