@@ -16,7 +16,7 @@ paths =
 # Project domains.
 domains =
   local: "domain"
-  remote: "domain.com"
+  live: "domain.com"
   repository: "user/repository"
 
 # Serves and reloads the browser when stuff happens.
@@ -87,6 +87,24 @@ gulp.task "styles", ->
 gulp.task "rebuild", ["html"], ->
   sync.reload()
   return
+
+# View various project related URLs.
+gulp.task "view", [
+  "html"
+  "images"
+  "scripts"
+  "styles"
+], ->
+  gulp.src('')
+    .pipe plugins.shell("open http://" + domains.local + ".dev")
+
+gulp.task "view:live", ->
+  gulp.src('')
+    .pipe plugins.shell("open http://" + domains.live)
+
+gulp.task "view:repo", ->
+  gulp.src('')
+    .pipe plugins.shell("open http://github.com/" + domains.repository)
 
 # Builds the site, compiles its CSS, and syncs the changes to the browser.
 gulp.task "default", [
