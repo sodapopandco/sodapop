@@ -126,6 +126,7 @@ gulp.task "rebuild", ["compile:html"], ->
 # View the local, live, and GitHub domain.
 gulp.task "view", [
   "view:local"
+  "view:xip"
   "view:live"
   "view:repo"
 ], ->
@@ -134,6 +135,11 @@ gulp.task "view", [
 gulp.task "view:local", ["compile"], ->
   gulp.src("")
     .pipe plugins.shell("open http://" + domains.local + ".dev")
+
+# View the virtual domain.
+gulp.task "view:xip", ["compile"], ->
+  gulp.src("")
+    .pipe plugins.shell("ip=$(ifconfig | grep 'inet ' | grep -v '127.0.0.1' | awk '{ print $2 }') && open http://" + domains.local + ".$ip.xip.io")
 
 # View the live domain.
 gulp.task "view:live", ->
