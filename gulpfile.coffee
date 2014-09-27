@@ -26,6 +26,13 @@ gulp.task "browser-sync", ->
     proxy: domains.local + ".dev"
   return
 
+# Build the site.
+gulp.task "build", [
+  "clean"
+  "compile"
+  "compress"
+], ->
+
 # Clean the destination directory.
 gulp.task "clean", ->
   gulp.src(paths.destination)
@@ -39,7 +46,7 @@ gulp.task "compress", [
   "compress:styles"
 ], ->
 
-gulp.task "compress:html", ["html"], ->
+gulp.task "compress:html", ["compile:html"], ->
   gulp.src(paths.destination + "**/*.html")
     .pipe plugins.htmlmin(
       collapseWhitespace: true
@@ -47,7 +54,7 @@ gulp.task "compress:html", ["html"], ->
     )
     .pipe gulp.dest(paths.destination)
 
-gulp.task "compress:images", ["images"], ->
+gulp.task "compress:images", ["compile:images"], ->
   gulp.src(paths.destination + paths.assets + paths.images + "**/*.{gif,jpg,png,svg}")
     .pipe plugins.imagemin(
       progressive: true
@@ -55,40 +62,47 @@ gulp.task "compress:images", ["images"], ->
     )
     .pipe gulp.dest(paths.destination + paths.assets + paths.images)
 
-gulp.task "compress:scripts", ["scripts"], ->
+gulp.task "compress:scripts", ["compile:scripts"], ->
   gulp.src(paths.destination + paths.assets + paths.scripts + "*.js")
     .pipe plugins.uglify()
     .pipe plugins.rename(suffix: ".min")
     .pipe gulp.dest(paths.destination + paths.assets + paths.scripts)
 
-gulp.task "compress:styles", ["styles"], ->
+gulp.task "compress:styles", ["compile:styles"], ->
   gulp.src(paths.destination + paths.assets + paths.styles + "*.css")
     .pipe plugins.minifyCss()
     .pipe plugins.rename(suffix: ".min")
     .pipe gulp.dest(paths.destination + paths.assets + paths.styles)
 
-# Builds the site.
-gulp.task "html", (done) ->
+gulp.task "compile", [
+  "compile:html"
+  "compile:images"
+  "compile:scripts"
+  "compile:styles"
+], ->
+
+# Compiles the HTML using Jekyll.
+gulp.task "compile:html", ["clean"], (done) ->
   process.spawn("jekyll", ["build"],
     stdio: "inherit"
   ).on "close", done
 
-# Copies images to the destination directory.
-gulp.task "images", ->
+# Copies any images to the destination directory.
+gulp.task "compile:images", ["clean"], ->
   gulp.src(paths.source + "_assets/" + paths.images + "**/*.{gif,jpg,png,svg}")
     .pipe plugins.changed(paths.destination + paths.assets + paths.images)
     .pipe gulp.dest(paths.destination + paths.assets + paths.images)
     .pipe browser.reload(stream: true)
 
 # Compiles any JavaScript files, minifies them, and reloads the browser.
-gulp.task "scripts", ->
+gulp.task "compile:scripts", ["clean"], ->
   gulp.src(paths.source + "_assets/" + paths.scripts + "*.js")
     .pipe plugins.concat("main.js")
     .pipe gulp.dest(paths.destination + paths.assets + paths.scripts)
     .pipe browser.reload(stream: true)
 
 # Compiles any Sass files, minifies them, and injects any changed CSS into the browser.
-gulp.task "styles", ->
+gulp.task "compile:styles", ["clean"], ->
   gulp.src(paths.source + "_assets/" + paths.styles + "*.scss")
     .pipe plugins.sass(
       errLogToConsole: true
@@ -101,17 +115,12 @@ gulp.task "styles", ->
     .pipe browser.reload(stream: true)
 
 # Builds then reloads the site.
-gulp.task "rebuild", ["html"], ->
+gulp.task "rebuild", ["compile:html"], ->
   browser.reload()
   return
 
 # View various project related URLs.
-gulp.task "view", [
-  "html"
-  "images"
-  "scripts"
-  "styles"
-], ->
+gulp.task "view", ["compile"], ->
   gulp.src('')
     .pipe plugins.shell("open http://" + domains.local + ".dev")
 
@@ -125,15 +134,12 @@ gulp.task "view:repo", ->
 
 # Builds the site, compiles its CSS, and syncs the changes to the browser.
 gulp.task "default", [
-  "html"
-  "images"
-  "scripts"
-  "styles"
+  "compile"
   "browser-sync"
 ], ->
-  gulp.watch paths.source + "**/*.{gif,jpg,png,svg}", ["images"]
-  gulp.watch paths.source + "**/*.js", ["scripts"]
-  gulp.watch paths.source + "**/*.scss", ["styles"]
+  gulp.watch paths.source + "**/*.{gif,jpg,png,svg}", ["compile:images"]
+  gulp.watch paths.source + "**/*.js", ["compile:scripts"]
+  gulp.watch paths.source + "**/*.scss", ["compile:styles"]
   gulp.watch [
     "*.yml"
     paths.source + "**/*.{html,md,txt}"
