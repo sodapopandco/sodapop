@@ -120,7 +120,13 @@ gulp.task "rebuild", ["compile:html"], ->
   return
 
 # View various project related URLs.
-gulp.task "view", ["compile"], ->
+gulp.task "view", [
+  "view:local"
+  "view:live"
+  "view:repo"
+], ->
+
+gulp.task "view:local", ["compile"], ->
   gulp.src("")
     .pipe plugins.shell("open http://" + domains.local + ".dev")
 
