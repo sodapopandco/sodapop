@@ -24,7 +24,7 @@ domains =
 gulp.task "browser-sync", ["compile"], ->
   browser
     notify: false
-    proxy: domains.local + ".dev"
+    proxy: "#{domains.local}.dev"
   return
 
 # Build the site.
