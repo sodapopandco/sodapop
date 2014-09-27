@@ -101,7 +101,9 @@ gulp.task "compile:images", ->
 
 # Compiles any JavaScript files and reloads the browser.
 gulp.task "compile:scripts", ->
-  gulp.src(paths.source + "_assets/" + paths.scripts + "*.js")
+  gulp.src(paths.source + "_assets/" + paths.scripts + "*.coffee")
+    .pipe plugins.coffee(bare:true)
+    .pipe gulp.dest(paths.destination + paths.assets + paths.scripts)
     .pipe plugins.concat("main.js")
     .pipe gulp.dest(paths.destination + paths.assets + paths.scripts)
     .pipe browser.reload(stream: true)
@@ -157,7 +159,7 @@ gulp.task "default", [
   "browser-sync"
 ], ->
   gulp.watch paths.source + "**/*.{gif,jpg,png,svg}", ["compile:images"]
-  gulp.watch paths.source + "**/*.js", ["compile:scripts"]
+  gulp.watch paths.source + "**/*.coffee", ["compile:scripts"]
   gulp.watch paths.source + "**/*.scss", ["compile:styles"]
   gulp.watch [
     "*.yml"
