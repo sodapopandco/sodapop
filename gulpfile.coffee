@@ -3,7 +3,6 @@ gulp = require("gulp")
 plugins = require("gulp-load-plugins")()
 browser = require("browser-sync")
 merge = require("merge-stream")
-process = require("child_process")
 
 # Project directories.
 paths =
@@ -88,10 +87,9 @@ gulp.task "compile", [
 ], ->
 
 # Compiles the HTML using Jekyll.
-gulp.task "compile:html", (done) ->
-  process.spawn("jekyll", ["build"],
-    stdio: "inherit"
-  ).on "close", done
+gulp.task "compile:html", ->
+  gulp.src "#{paths.source}"
+    .pipe plugins.shell("jekyll build", stdout: true)
 
 # Copies any image files to the destination directory and reloads the browser.
 gulp.task "compile:images", ->
