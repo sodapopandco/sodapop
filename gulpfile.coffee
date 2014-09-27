@@ -71,6 +71,7 @@ gulp.task "scripts", ->
 gulp.task "styles", ->
   gulp.src(paths.source + "_assets/" + paths.styles + "*.scss")
     .pipe plugins.sass(
+      errLogToConsole: true
       # This is needed to stop the build failing.
       # Maybe source maps are required now?
       sourceComments: "map"
