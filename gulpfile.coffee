@@ -27,15 +27,15 @@ gulp.task "browser-sync", ["compile"], ->
   return
 
 # Build the site.
-gulp.task "build", [
-  "clean"
-  "compile"
-  "compress"
-], ->
+gulp.task "build", ["clean"], ->
+  gulp.start(
+    "compile"
+    "compress"
+  )
 
 # Clean the destination directory.
 gulp.task "clean", ->
-  gulp.src(paths.destination)
+  gulp.src(paths.destination, read: false)
     .pipe plugins.clean()
 
 # Compress the site.
