@@ -10,8 +10,8 @@ paths =
   destination: "public/"
   assets: "assets/"
   images: "images/"
-  scripts: "scripts/"
-  styles: "styles/"
+  scripts: "javascripts/"
+  styles: "stylesheets/"
 
 # Project domains.
 domains =
