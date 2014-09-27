@@ -31,39 +31,59 @@ gulp.task "clean", ->
   gulp.src(paths.destination)
     .pipe plugins.clean()
 
-# Minifies any HTML.
-gulp.task "html", ["jekyll"], ->
+# Compress HTML, images, CSS, and JS.
+gulp.task "compress", [
+  "compress:html"
+  "compress:images"
+  "compress:scripts"
+  "compress:styles"
+], ->
+
+gulp.task "compress:html", ["html"], ->
   gulp.src(paths.destination + "**/*.html")
     .pipe plugins.htmlmin(
       collapseWhitespace: true
       removeComments: true
     )
     .pipe gulp.dest(paths.destination)
-    .pipe browser.reload(stream: true)
 
-# Minifies any images.
-gulp.task "images", ->
-  gulp.src(paths.source + "_assets/" + paths.images + "**/*.{gif,jpg,png,svg}")
-    .pipe plugins.changed(paths.destination + paths.assets + paths.images)
+gulp.task "compress:images", ["images"], ->
+  gulp.src(paths.destination + paths.assets + paths.images + "**/*.{gif,jpg,png,svg}")
     .pipe plugins.imagemin(
       progressive: true
       svgoPlugins: [removeViewBox: false]
     )
     .pipe gulp.dest(paths.destination + paths.assets + paths.images)
-    .pipe browser.reload(stream: true)
+
+gulp.task "compress:scripts", ["scripts"], ->
+  gulp.src(paths.destination + paths.assets + paths.scripts + "*.js")
+    .pipe plugins.uglify()
+    .pipe plugins.rename(suffix: ".min")
+    .pipe gulp.dest(paths.destination + paths.assets + paths.scripts)
+
+gulp.task "compress:styles", ["styles"], ->
+  gulp.src(paths.destination + paths.assets + paths.styles + "*.css")
+    .pipe plugins.minifyCss()
+    .pipe plugins.rename(suffix: ".min")
+    .pipe gulp.dest(paths.destination + paths.assets + paths.styles)
 
 # Builds the site.
-gulp.task "jekyll", (done) ->
+gulp.task "html", (done) ->
   process.spawn("jekyll", ["build"],
     stdio: "inherit"
   ).on "close", done
+
+# Copies images to the destination directory.
+gulp.task "images", ->
+  gulp.src(paths.source + "_assets/" + paths.images + "**/*.{gif,jpg,png,svg}")
+    .pipe plugins.changed(paths.destination + paths.assets + paths.images)
+    .pipe gulp.dest(paths.destination + paths.assets + paths.images)
+    .pipe browser.reload(stream: true)
 
 # Compiles any JavaScript files, minifies them, and reloads the browser.
 gulp.task "scripts", ->
   gulp.src(paths.source + "_assets/" + paths.scripts + "*.js")
     .pipe plugins.concat("main.js")
-    .pipe plugins.uglify()
-    .pipe plugins.rename(suffix: ".min")
     .pipe gulp.dest(paths.destination + paths.assets + paths.scripts)
     .pipe browser.reload(stream: true)
 
@@ -77,9 +97,6 @@ gulp.task "styles", ->
       sourceComments: "map"
     )
     .pipe plugins.autoprefixer()
-    .pipe gulp.dest(paths.destination + paths.assets + paths.styles)
-    .pipe plugins.minifyCss()
-    .pipe plugins.rename(suffix: ".min")
     .pipe gulp.dest(paths.destination + paths.assets + paths.styles)
     .pipe browser.reload(stream: true)
 
