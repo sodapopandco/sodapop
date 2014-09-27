@@ -1,8 +1,8 @@
 # Gulp variables.
 gulp = require("gulp")
 plugins = require("gulp-load-plugins")()
-process = require("child_process")
 browser = require("browser-sync")
+process = require("child_process")
 
 # Project directories.
 paths =
