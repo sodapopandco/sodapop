@@ -121,15 +121,15 @@ gulp.task "rebuild", ["compile:html"], ->
 
 # View various project related URLs.
 gulp.task "view", ["compile"], ->
-  gulp.src('')
+  gulp.src("")
     .pipe plugins.shell("open http://" + domains.local + ".dev")
 
 gulp.task "view:live", ->
-  gulp.src('')
+  gulp.src("")
     .pipe plugins.shell("open http://" + domains.live)
 
 gulp.task "view:repo", ->
-  gulp.src('')
+  gulp.src("")
     .pipe plugins.shell("open http://github.com/" + domains.repository)
 
 # Builds the site, compiles its CSS, and syncs the changes to the browser.
