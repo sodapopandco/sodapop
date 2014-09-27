@@ -16,8 +16,8 @@ paths =
 # Project domains.
 domains =
   local: "domain"
-  live: "domain.com"
-  repo: "user/repository"
+  remote: "domain.com"
+  repository: "user/repository"
 
 # Serves and reloads the browser when stuff happens.
 gulp.task "browser-sync", ->
