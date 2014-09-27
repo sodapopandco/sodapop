@@ -2,6 +2,7 @@
 gulp = require("gulp")
 plugins = require("gulp-load-plugins")()
 browser = require("browser-sync")
+merge = require("merge-stream")
 process = require("child_process")
 
 # Project directories.
@@ -57,12 +58,12 @@ gulp.task "compress:html", ["compile:html"], ->
 
 # Minifies any image files.
 gulp.task "compress:images", ["compile:images"], ->
-  gulp.src "#{paths.destination}#{paths.assets}#{paths.images}**/*.{gif,jpg,png,svg}"
+  gulp.src "#{paths.destination}**/*.{gif,jpg,png,svg}"
     .pipe plugins.imagemin(
       progressive: true
       svgoPlugins: [removeViewBox: false]
     )
-    .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.images}"
+    .pipe gulp.dest "#{paths.destination}"
 
 # Minifies any JavaScript files.
 gulp.task "compress:scripts", ["compile:scripts"], ->
@@ -94,10 +95,20 @@ gulp.task "compile:html", (done) ->
 
 # Copies any image files to the destination directory and reloads the browser.
 gulp.task "compile:images", ->
-  gulp.src "#{paths.source}_assets/images/**/*.{gif,jpg,png,svg}"
+  allImages = gulp.src [
+    "#{paths.source}**/*.{gif,ico,jpg,png,svg}"
+    "!#{paths.source}_assets/**/*.{gif,ico,jpg,png,svg}"
+  ]
+    .pipe plugins.changed "#{paths.destination}"
+    .pipe gulp.dest "#{paths.destination}"
+    .pipe browser.reload(stream: true)
+
+  assetImages = gulp.src "#{paths.source}_assets/images/**/*.{gif,ico,jpg,png,svg}"
     .pipe plugins.changed "#{paths.destination}#{paths.assets}#{paths.images}"
     .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.images}"
     .pipe browser.reload(stream: true)
+
+  return merge(allImages, assetImages)
 
 # Compiles any JavaScript files and reloads the browser.
 gulp.task "compile:scripts", ->
@@ -158,7 +169,7 @@ gulp.task "default", [
   "compile"
   "browser-sync"
 ], ->
-  gulp.watch "#{paths.source}**/*.{gif,jpg,png,svg}", ["compile:images"]
+  gulp.watch "#{paths.source}**/*.{gif,ico,jpg,png,svg}", ["compile:images"]
   gulp.watch "#{paths.source}**/*.coffee", ["compile:scripts"]
   gulp.watch "#{paths.source}**/*.scss", ["compile:styles"]
   gulp.watch [
