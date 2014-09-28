@@ -2,7 +2,6 @@
 gulp = require("gulp")
 plugins = require("gulp-load-plugins")()
 browser = require("browser-sync")
-merge = require("merge-stream")
 
 # Project directories.
 paths =
@@ -18,13 +17,6 @@ domains =
   local: "domain"
   live: "domain.com"
   repository: "user/repository"
-
-# Serves and reloads the browser when stuff happens.
-gulp.task "browser-sync", ["compile"], ->
-  browser
-    notify: false
-    proxy: "#{domains.local}.dev"
-  return
 
 # Build the site.
 gulp.task "build", ["clean"], ->
@@ -47,7 +39,7 @@ gulp.task "compress", [
 ], ->
 
 # Minifies the HTML.
-gulp.task "compress:html", ["compile:html"], ->
+gulp.task "compress:html", ["jekyll:build"], ->
   gulp.src "#{paths.destination}**/*.html"
     .pipe plugins.htmlmin(
       collapseWhitespace: true
@@ -80,33 +72,18 @@ gulp.task "compress:styles", ["compile:styles"], ->
 
 # Compiles the site.
 gulp.task "compile", [
-  "compile:html"
+  "jekyll:build"
   "compile:images"
   "compile:scripts"
   "compile:styles"
 ], ->
 
-# Compiles the HTML using Jekyll.
-gulp.task "compile:html", ->
-  gulp.src "#{paths.source}"
-    .pipe plugins.shell("jekyll build", stdout: true)
-
 # Copies any image files to the destination directory and reloads the browser.
 gulp.task "compile:images", ->
-  allImages = gulp.src [
-    "#{paths.source}**/*.{gif,ico,jpg,png,svg}"
-    "!#{paths.source}_assets/**/*.{gif,ico,jpg,png,svg}"
-  ]
-    .pipe plugins.changed "#{paths.destination}"
-    .pipe gulp.dest "#{paths.destination}"
-    .pipe browser.reload(stream: true)
-
-  assetImages = gulp.src "#{paths.source}_assets/images/**/*.{gif,ico,jpg,png,svg}"
+  gulp.src "#{paths.source}_assets/images/**/*"
     .pipe plugins.changed "#{paths.destination}#{paths.assets}#{paths.images}"
     .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.images}"
     .pipe browser.reload(stream: true)
-
-  return merge(allImages, assetImages)
 
 # Compiles any JavaScript files and reloads the browser.
 gulp.task "compile:scripts", ->
@@ -129,10 +106,11 @@ gulp.task "compile:styles", ->
     .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.styles}"
     .pipe browser.reload(stream: true)
 
-# Compiles the HTML and reloads the browser.
-gulp.task "rebuild", ["compile:html"], ->
-  browser.reload()
-  return
+# Compiles the site using Jekyll.
+gulp.task "jekyll:build", plugins.shell.task "jekyll build"
+
+# Compiles the site using Jekyll and recompiles when there are changes.
+gulp.task "jekyll:watch", plugins.shell.task "jekyll build -w"
 
 # View the local, live, and GitHub domain.
 gulp.task "view", [
@@ -163,15 +141,19 @@ gulp.task "view:repo", ->
     .pipe plugins.shell("open http://github.com/#{domains.repository}")
 
 # Compiles the site and syncs any changes to the browser.
-gulp.task "default", [
-  "compile"
-  "browser-sync"
-], ->
-  gulp.watch "#{paths.source}**/*.{gif,ico,jpg,png,svg}", ["compile:images"]
-  gulp.watch "#{paths.source}**/*.coffee", ["compile:scripts"]
-  gulp.watch "#{paths.source}**/*.scss", ["compile:styles"]
+gulp.task "default", ["compile"], ->
+  browser
+    notify: false
+    proxy: "#{domains.local}.dev"
+
+  gulp.watch "#{paths.source}_assets/images/**/*", ["compile:images"]
+  gulp.watch "#{paths.source}_assets/**/*.coffee", ["compile:scripts"]
+  gulp.watch "#{paths.source}_assets/**/*.scss", ["compile:styles"]
   gulp.watch [
-    "*.yml"
-    "#{paths.source}**/*.{html,md,txt}"
-  ], ["rebuild"]
+      "#{paths.source}**/*"
+      "!#{paths.source}_assets/"
+      "!#{paths.source}_assets/**/*"
+    ], ["jekyll:watch"]
+  gulp.watch "#{paths.destination}**/*.html", browser.reload
+
   return
