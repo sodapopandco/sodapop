@@ -5,4 +5,5 @@ keywords: comma, separated, keywords
 
 source: source
 destination: public
+exclude: [_assets]
 keep_files: ['assets']
