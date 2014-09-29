@@ -20,9 +20,7 @@ domains =
 
 # Build the site.
 gulp.task "build", ["clean"], ->
-  gulp.start(
-    "compile"
-  )
+  gulp.start "compile"
 
 # Clean the destination directory.
 gulp.task "clean", ->
@@ -99,8 +97,7 @@ gulp.task "compile", [
 
 # Copies any image files to the destination directory and reloads the browser.
 gulp.task "compile:images", ->
-  gulp.src "#{paths.source}_assets/images/**/*"
-    .pipe plugins.changed "#{paths.destination}#{paths.assets}#{paths.images}"
+  gulp.src "#{paths.source}_assets/images/**/*.{gif,jpg,png,svg}"
     .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.images}"
     .pipe browser.reload(stream: true)
 
@@ -131,6 +128,12 @@ gulp.task "jekyll:build", plugins.shell.task "jekyll build"
 # Compiles the site using Jekyll and recompiles when there are changes.
 gulp.task "jekyll:watch", plugins.shell.task "jekyll build -w"
 
+# Build and serve the site.
+gulp.task "serve", ["build"], ->
+  browser
+    notify: true
+    proxy: "#{domains.local}.dev"
+
 # View the local, live, and GitHub domain.
 gulp.task "view", [
   "view:local"
@@ -152,19 +155,29 @@ gulp.task "view:live", plugins.shell.task "open http://#{domains.live}"
 gulp.task "view:repo", plugins.shell.task "open http://github.com/#{domains.repository}"
 
 # Compiles the site and syncs any changes to the browser.
-gulp.task "default", ["build"], ->
-  browser
-    notify: false
-    proxy: "#{domains.local}.dev"
+gulp.task "default", ->
+  gulp.start "serve"
 
-  gulp.watch "#{paths.source}_assets/images/**/*", ["compile:images"]
-  gulp.watch "#{paths.source}_assets/**/*.coffee", ["compile:scripts"]
-  gulp.watch "#{paths.source}_assets/**/*.scss", ["compile:styles"]
-  gulp.watch [
+  plugins.watch [
+      "#{paths.source}_assets/images/"
+      "#{paths.source}_assets/**/*.{gif,jpg,png,svg}"
+    ], ->
+    gulp.start "compile:images"
+
+  plugins.watch "#{paths.source}_assets/scripts/**/*.coffee", ->
+    gulp.start "compile:scripts"
+
+  plugins.watch "#{paths.source}_assets/styles/**/*.scss", ->
+    gulp.start "compile:styles"
+
+  plugins.watch [
+      "#{paths.destination}**/*"
+      "!#{paths.destination}#{paths.assets}**/*"
+    ], ->
+    browser.reload()
+
+  plugins.watch [
       "#{paths.source}**/*"
-      "!#{paths.source}_assets/"
       "!#{paths.source}_assets/**/*"
-    ], ["jekyll:watch"]
-  gulp.watch "#{paths.destination}**/*.html", browser.reload
-
-  return
+    ], ->
+    gulp.start "jekyll:watch"
