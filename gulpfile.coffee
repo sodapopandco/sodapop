@@ -25,12 +25,9 @@ gulp.task "build", ["clean"], ->
   )
 
 # Clean the destination directory.
-gulp.task "clean", [
-  "clean:images"
-  "clean:markup"
-  "clean:scripts"
-  "clean:styles"
-], ->
+gulp.task "clean", ->
+  gulp.src "#{paths.destination}", read: false
+    .pipe plugins.clean()
 
 # Clean the destination images directory.
 gulp.task "clean:images", ->
