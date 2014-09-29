@@ -22,7 +22,6 @@ domains =
 gulp.task "build", ["clean"], ->
   gulp.start(
     "compile"
-    "compress"
   )
 
 # Clean the destination directory.
@@ -121,10 +120,10 @@ gulp.task "view", [
 ], ->
 
 # View the local domain.
-gulp.task "view:local", ["compile"], plugins.shell.task "open http://#{domains.local}.dev"
+gulp.task "view:local", ["build"], plugins.shell.task "open http://#{domains.local}.dev"
 
 # View the virtual domain.
-gulp.task "view:xip", ["compile"], plugins.shell.task "ip=$(ifconfig | grep 'inet ' | grep -v '127.0.0.1' | awk '{ print $2 }') && open http://#{domains.local}.$ip.xip.io"
+gulp.task "view:xip", ["build"], plugins.shell.task "ip=$(ifconfig | grep 'inet ' | grep -v '127.0.0.1' | awk '{ print $2 }') && open http://#{domains.local}.$ip.xip.io"
 
 # View the live domain.
 gulp.task "view:live", plugins.shell.task "open http://#{domains.live}"
@@ -133,7 +132,7 @@ gulp.task "view:live", plugins.shell.task "open http://#{domains.live}"
 gulp.task "view:repo", plugins.shell.task "open http://github.com/#{domains.repository}"
 
 # Compiles the site and syncs any changes to the browser.
-gulp.task "default", ["compile"], ->
+gulp.task "default", ["build"], ->
   browser
     notify: false
     proxy: "#{domains.local}.dev"
