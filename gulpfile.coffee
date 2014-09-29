@@ -158,16 +158,13 @@ gulp.task "view:repo", plugins.shell.task "open http://github.com/#{domains.repo
 gulp.task "default", ->
   gulp.start "serve"
 
-  plugins.watch [
-      "#{paths.source}_assets/images/"
-      "#{paths.source}_assets/**/*.{gif,jpg,png,svg}"
-    ], ->
+  plugins.watch "#{paths.source}**/*.{gif,jpg,png,svg}", ->
     gulp.start "compile:images"
 
-  plugins.watch "#{paths.source}_assets/scripts/**/*.coffee", ->
+  plugins.watch "#{paths.source}**/*.coffee", ->
     gulp.start "compile:scripts"
 
-  plugins.watch "#{paths.source}_assets/styles/**/*.scss", ->
+  plugins.watch "#{paths.source}**/*.scss", ->
     gulp.start "compile:styles"
 
   plugins.watch [
