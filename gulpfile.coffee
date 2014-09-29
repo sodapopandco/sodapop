@@ -25,8 +25,31 @@ gulp.task "build", ["clean"], ->
   )
 
 # Clean the destination directory.
-gulp.task "clean", ->
-  gulp.src "#{paths.destination}", read: false
+gulp.task "clean", [
+  "clean:images"
+  "clean:markup"
+  "clean:scripts"
+  "clean:styles"
+], ->
+
+# Clean the destination images directory.
+gulp.task "clean:images", ->
+  gulp.src "#{paths.destination}#{paths.assets}#{paths.images}", read: false
+    .pipe plugins.clean()
+
+# Clean any markup in the destination directory.
+gulp.task "clean:markup", ->
+  gulp.src "#{paths.destination}*.{html,txt}", read: false
+    .pipe plugins.clean()
+
+# Clean the destination scripts directory.
+gulp.task "clean:scripts", ->
+  gulp.src "#{paths.destination}#{paths.assets}#{paths.scripts}", read: false
+    .pipe plugins.clean()
+
+# Clean the destination styles directory.
+gulp.task "clean:styles", ->
+  gulp.src "#{paths.destination}#{paths.assets}#{paths.styles}", read: false
     .pipe plugins.clean()
 
 # Compress the site.
