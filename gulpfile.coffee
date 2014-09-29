@@ -159,6 +159,12 @@ gulp.task "default", ->
   gulp.start "serve"
 
   plugins.watch [
+      "#{paths.destination}**/*"
+      "!#{paths.destination}#{paths.assets}**/*"
+    ], ->
+    browser.reload()
+
+  plugins.watch [
       "#{paths.source}_assets/images/"
       "#{paths.source}**/*.{gif,jpg,png,svg}"
     ], ->
@@ -169,12 +175,6 @@ gulp.task "default", ->
 
   plugins.watch "#{paths.source}**/*.scss", ->
     gulp.start "compile:styles"
-
-  plugins.watch [
-      "#{paths.destination}**/*"
-      "!#{paths.destination}#{paths.assets}**/*"
-    ], ->
-    browser.reload()
 
   plugins.watch [
       "#{paths.source}**/*"
