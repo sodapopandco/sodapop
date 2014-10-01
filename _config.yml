@@ -1,0 +1,9 @@
+title: Website Name
+author: Author Name
+description: A short description about the website.
+keywords: comma, separated, keywords
+
+source: source
+destination: public
+exclude: [_assets]
+keep_files: ['assets']
