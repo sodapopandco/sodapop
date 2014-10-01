@@ -112,13 +112,13 @@ gulp.task "compile:scripts", ->
 
 # Compiles any Sass files and injects any new or changed CSS into the browser.
 gulp.task "compile:styles", ->
-  gulp.src "#{paths.source}_assets/styles/*.scss"
-    .pipe plugins.sass(
-      errLogToConsole: true
-      # The task fails without this. Maybe source maps are required now?
-      sourceComments: "map"
-    )
+  gulp.src [
+      "bower_components/normalize-css/normalize.css"
+      "#{paths.source}_assets/styles/*.scss"
+    ]
+    .pipe plugins.sass(errLogToConsole: true)
     .pipe plugins.autoprefixer()
+    .pipe plugins.concat("main.css")
     .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.styles}"
     .pipe browser.reload(stream: true)
 
