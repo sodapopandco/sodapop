@@ -14,9 +14,9 @@ paths =
 
 # Project domains.
 domains =
-  local: "domain"
-  live: "domain.com"
-  repository: "user/repository"
+  local: "sodapop"
+  live: "sodapopandco.com"
+  repository: "everycopy/sodapop"
 
 # Build the site.
 gulp.task "build", ["clean"], ->
