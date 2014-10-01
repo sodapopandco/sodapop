@@ -1,3 +1,3 @@
-# Tincture
+# Sodapop & Co.
 
-A happy little Jekyll and Gulp based starting point for static web projects.
+The web-based headquarters of Sodapop & Co.
