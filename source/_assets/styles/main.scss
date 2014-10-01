@@ -4,6 +4,22 @@
 @import "defaults";
 @import "helpers";
 
+// Client List
+////////////////////////////////////////////////////////////////////////////////
+
+.client {
+    display: inline;
+}
+
+.client-logo {
+    width: auto;
+    max-height: 120px;
+    vertical-align: middle;
+
+    &.automattic {
+        max-height: 160px;
+    }
+}
 
 // Animations
 @import "animations";
