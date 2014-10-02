@@ -84,10 +84,14 @@ header[role="banner"] {
 
   &.secondary {
     z-index: 2;
+    position: absolute;
+    bottom: -24px;
   }
 
   &.tertiary {
     z-index: 3;
+    position: absolute;
+    bottom: -24px;
   }
 
   img {
@@ -101,6 +105,14 @@ header[role="banner"] {
   width: 100%;
   border-radius: 8px;
 
+  &.secondary {
+    left: percentage(-160/640);
+  }
+
+  &.tertiary {
+    right: percentage(-160/640);
+  }
+
   img {
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
@@ -108,8 +120,6 @@ header[role="banner"] {
 }
 
 .tablet {
-  position: absolute;
-  bottom: -24px;
   border-radius: 8px;
 
   &.portrait {
@@ -136,8 +146,6 @@ header[role="banner"] {
 }
 
 .phone {
-  position: absolute;
-  bottom: -24px;
   padding: 24px 4px;
   width: percentage(120/640);
   border-radius: 8px;
