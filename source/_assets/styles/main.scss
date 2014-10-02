@@ -10,7 +10,7 @@
 .content-container {
   overflow: hidden;
   padding: percentage(24/320) 0;
-  font: #{$body-font-size}px/1.5 $text-font;
+  font: bold #{$body-font-size}px/1.5 $display-font;
   text-align: center;
 }
 
@@ -70,7 +70,18 @@ header[role="banner"] {
   width: 100%;
 
   + .showcase {
-    margin-top: 20%;
+    margin-top: 10%;
+  }
+
+  h1 {
+    margin: 0 0 .25em;
+  }
+
+  footer {
+    $font-size: 18;
+
+    margin-top: percentage(36/640);
+    font-size: em($font-size);
   }
 }
 
@@ -81,7 +92,7 @@ header[role="banner"] {
 
   &.secondary, &.tertiary {
     position: absolute;
-    bottom: -24px;
+    bottom: percentage(60/640);
   }
 
   &.secondary {
