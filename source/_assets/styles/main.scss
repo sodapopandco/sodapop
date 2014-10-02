@@ -146,9 +146,17 @@ header[role="banner"] {
 
 .phone {
   z-index: 3;
-  padding: 24px 4px;
-  width: percentage(120/640);
-  border-radius: 8px;
+  border-radius: 12px;
+
+  &.small, &.medium {
+    padding: 24px 6px;
+    width: percentage(120/640);
+  }
+
+  &.large {
+    padding: 30px 6px;
+    width: percentage(160/640);
+  }
 
   &.secondary {
     left: percentage(-80/640);
