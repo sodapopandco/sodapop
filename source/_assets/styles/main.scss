@@ -16,7 +16,7 @@
 
 .main-section {
   margin-right: auto;
-  margin-bottom: percentage(16/320);
+  margin-bottom: percentage(32/320);
   margin-left: auto;
   width: percentage(288/320);
   max-width: em(640);
@@ -74,14 +74,19 @@ header[role="banner"] {
   }
 
   h1 {
+    $font-size: 36;
+
     margin: 0 0 .25em;
+    font-size: em($font-size);
+    letter-spacing: to-em(.5, $font-size);
   }
 
   footer {
     $font-size: 18;
 
-    margin-top: percentage(36/640);
+    margin-top: percentage(18/640);
     font-size: em($font-size);
+    letter-spacing: to-em(.5, $font-size);
   }
 }
 
