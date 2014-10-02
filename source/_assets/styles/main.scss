@@ -42,10 +42,21 @@
   img {
     width: 100%;
   }
+
+  &.primary {
+    z-index: 1;
+  }
+
+  &.secondary {
+    z-index: 2;
+  }
+
+  &.tertiary {
+    z-index: 3;
+  }
 }
 
 .desktop {
-  z-index: 1;
   padding-top: 24px;
   width: 640px;
   border-radius: 8px;
@@ -57,12 +68,18 @@
 }
 
 .tablet {
-  z-index: 2;
   bottom: -24px;
-  left: -160px;
   padding: 24px 8px;
   width: 240px;
   border-radius: 8px;
+
+  &.secondary {
+    left: -160px;
+  }
+
+  &.tertiary {
+    right: -160px;
+  }
 
   img {
     border-radius: 2px;
@@ -70,12 +87,18 @@
 }
 
 .phone {
-  z-index: 3;
-  right: -80px;
   bottom: -24px;
   padding: 24px 4px;
   width: 120px;
   border-radius: 8px;
+
+  &.secondary {
+    left: -80px;
+  }
+
+  &.tertiary {
+    right: -80px;
+  }
 
   img {
     border-radius: 2px;
