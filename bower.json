@@ -1,0 +1,6 @@
+{
+  "name": "Sodapop & Co.",
+  "dependencies": {
+    "normalize-css": "~3.0.1"
+  }
+}
