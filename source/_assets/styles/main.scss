@@ -27,11 +27,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 header[role="banner"] {
-  a {
-    display: block;
-    color: $primary-black;
-  }
-
   svg {
     width: percentage(160/640);
     max-width: 180px;
