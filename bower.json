@@ -1,6 +1,7 @@
 {
   "name": "sodapop",
   "dependencies": {
-    "normalize-css": "~3.0.1"
+    "normalize-css": "~3.0.1",
+    "html5shiv": "~3.7.2"
   }
 }
