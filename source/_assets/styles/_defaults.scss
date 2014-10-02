@@ -1,6 +1,24 @@
 // Defaults
 
+// Body
+// Fade in the entire body on page load
+body {
+  opacity: 1;
+  transition: all .25s;
+}
+
+.wf-loading {
+  body {
+    opacity: 0;
+  }
+}
+
 // Headings
 h1 {
-    font-family: $display-font;
+  font-family: $display-font;
+}
+
+// Anchors
+a {
+  text-decoration: none;
 }

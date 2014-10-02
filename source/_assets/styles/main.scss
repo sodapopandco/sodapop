@@ -16,39 +16,39 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 header[role="banner"] {
-    a {
-        display: block;
+  a {
+    display: block;
+  }
+
+  h1 {
+    $font-size: 48;
+
+    font-size: em($font-size);
+    font-weight: normal;
+    letter-spacing: to-em(4, $font-size);
+    line-height: 1;
+
+    strong {
+      text-transform: uppercase;
     }
+  }
+  
+  p {
+    $font-size: 24;
 
-    h1 {
-        $font-size: 48;
-
-        font-size: em($font-size);
-        font-weight: normal;
-        letter-spacing: to-em(4, $font-size);
-        line-height: 1;
-
-        strong {
-            text-transform: uppercase;
-        }
-    }
-
-    p {
-        $font-size: 24;
-
-        font: bold em($font-size) $display-font;
-    }
+    font: bold em($font-size) $display-font;
+  }
 }
 
 // Client List
 ////////////////////////////////////////////////////////////////////////////////
 
 .client-item {
-    display: inline;
+  display: inline;
 }
 
 .client-logo {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 // Animations
