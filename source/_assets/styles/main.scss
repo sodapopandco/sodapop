@@ -118,6 +118,7 @@ header[role="banner"] {
   h1 {
     $font-size: 48;
 
+    margin: .5em 0 1em;
     font-size: em($font-size);
     font-weight: normal;
     letter-spacing: to-em(4, $font-size);
@@ -131,6 +132,7 @@ header[role="banner"] {
   p {
     $font-size: 24;
 
+    display: none;
     font: bold em($font-size) $display-font;
   }
 }
