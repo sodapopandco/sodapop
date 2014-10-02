@@ -141,6 +141,7 @@ gulp.task "serve", ["build"], ->
   browser
     notify: true
     proxy: "#{domains.local}.dev"
+    xip: true
 
 # View the local, live, and GitHub domain.
 gulp.task "view", [
