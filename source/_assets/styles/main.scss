@@ -12,6 +12,14 @@
   text-align: center;
 }
 
+.main-section {
+  margin-right: auto;
+  margin-bottom: percentage(16/320);
+  margin-left: auto;
+  width: percentage(288/320);
+  max-width: em(864);
+}
+
 // Header
 ////////////////////////////////////////////////////////////////////////////////
 
