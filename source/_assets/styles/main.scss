@@ -92,6 +92,7 @@ header[role="banner"] {
 
   img {
     width: 100%;
+    height: auto;
   }
 }
 
@@ -109,9 +110,17 @@ header[role="banner"] {
 .tablet {
   position: absolute;
   bottom: -24px;
-  padding: 24px 8px;
-  width: percentage(240/640);
   border-radius: 8px;
+
+  &.portrait {
+    padding: 24px 8px;
+    width: percentage(240/640);
+  }
+
+  &.landscape {
+    padding: 8px 24px;
+    width: percentage(360/640);
+  }
 
   &.secondary {
     left: percentage(-160/640);
