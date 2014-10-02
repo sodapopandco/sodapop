@@ -79,15 +79,16 @@ header[role="banner"] {
   margin: 0;
   background: $secondary-grey;
 
-  &.secondary {
+  &.secondary, &.tertiary {
     position: absolute;
     bottom: -24px;
+  }
+
+  &.secondary {
     transform: rotate(-3deg);
   }
 
   &.tertiary {
-    position: absolute;
-    bottom: -24px;
     transform: rotate(2deg);
   }
 
@@ -125,17 +126,24 @@ header[role="banner"] {
     width: percentage(240/640);
 
     &.landscape {
-      padding: 8px 24px;
       width: percentage(360/640);
     }
   }
 
   &.large {
     padding: 30px;
+
+    &.landscape {
+      padding: 30px;
+    }
   }
 
   &.medium {
     padding: 24px 8px;
+
+    &.landscape {
+      padding: 8px 24px;
+    }
   }
 
   &.small {
