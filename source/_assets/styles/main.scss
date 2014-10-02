@@ -8,6 +8,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 .content-container {
+  overflow: hidden;
   font: #{$body-font-size}px/1.5 $text-font;
   text-align: center;
 }
@@ -17,7 +18,7 @@
   margin-bottom: percentage(16/320);
   margin-left: auto;
   width: percentage(288/320);
-  max-width: em(864);
+  max-width: em(640);
 }
 
 // Work
@@ -26,17 +27,15 @@
 .showcase {
   position: relative;
   margin: 0 auto;
-  width: 640px;
-  height: 424px;
+  width: 100%;
 
   + .showcase {
-    margin-top: 10%;
+    margin-top: 20%;
   }
 }
 
 .screenshot {
   margin: 0;
-  position: absolute;
   background: $secondary-grey;
 
   &.primary {
@@ -58,7 +57,7 @@
 
 .desktop {
   padding-top: 24px;
-  width: 640px;
+  width: 100%;
   border-radius: 8px;
 
   img {
@@ -68,17 +67,18 @@
 }
 
 .tablet {
+  position: absolute;
   bottom: -24px;
   padding: 24px 8px;
-  width: 240px;
+  width: percentage(240/640);
   border-radius: 8px;
 
   &.secondary {
-    left: -160px;
+    left: percentage(-160/640);
   }
 
   &.tertiary {
-    right: -160px;
+    right: percentage(-160/640);
   }
 
   img {
@@ -87,17 +87,18 @@
 }
 
 .phone {
+  position: absolute;
   bottom: -24px;
   padding: 24px 4px;
-  width: 120px;
+  width: percentage(120/640);
   border-radius: 8px;
 
   &.secondary {
-    left: -80px;
+    left: percentage(-80/640);
   }
 
   &.tertiary {
-    right: -80px;
+    right: percentage(-80/640);
   }
 
   img {
