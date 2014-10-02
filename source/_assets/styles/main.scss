@@ -170,14 +170,38 @@ header[role="banner"] {
   z-index: 3;
   border-radius: 12px;
 
-  &.small, &.medium {
-    padding: 24px 6px;
-    width: percentage(120/640);
-  }
-
   &.large {
     padding: 30px 6px;
     width: percentage(160/640);
+
+    &.landscape {
+      padding: 6px 30px;
+      width: percentage(280/640);
+    }
+  }
+
+  &.medium, &.small {
+    padding: 24px 6px;
+
+    &.landscape {
+      padding: 6px 24px;
+    }
+  }
+
+  &.medium {
+    width: percentage(140/640);
+
+    &.landscape {
+      width: percentage(245/640);
+    }
+  }
+
+  &.small {
+    width: percentage(120/640);
+
+    &.landscape {
+      width: percentage(210/640);
+    }
   }
 
   &.secondary {
