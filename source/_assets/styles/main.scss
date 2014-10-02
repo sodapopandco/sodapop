@@ -23,11 +23,15 @@
 // Work
 ////////////////////////////////////////////////////////////////////////////////
 
-#dummy {
+.showcase {
   position: relative;
   margin: 0 auto;
   width: 640px;
   height: 424px;
+
+  + .showcase {
+    margin-top: 10%;
+  }
 }
 
 .screenshot {
@@ -54,7 +58,7 @@
 
 .tablet {
   z-index: 2;
-  bottom: -32px;
+  bottom: -24px;
   left: -160px;
   padding: 24px 8px;
   width: 240px;
@@ -68,7 +72,7 @@
 .phone {
   z-index: 3;
   right: -80px;
-  bottom: -32px;
+  bottom: -24px;
   padding: 24px 4px;
   width: 120px;
   border-radius: 8px;
