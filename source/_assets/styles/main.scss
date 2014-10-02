@@ -121,9 +121,31 @@ header[role="banner"] {
   z-index: 2;
   border-radius: 8px;
 
-  &.portrait {
-    padding: 24px 8px;
+  &.large, &.medium {
     width: percentage(240/640);
+
+    &.landscape {
+      padding: 8px 24px;
+      width: percentage(360/640);
+    }
+  }
+
+  &.large {
+    padding: 30px;
+  }
+
+  &.medium {
+    padding: 24px 8px;
+  }
+
+  &.small {
+    padding: 24px 6px;
+    width: percentage(200/640);
+
+    &.landscape {
+      padding: 8px 24px;
+      width: percentage(300/640);
+    }
   }
 
   &.landscape {
