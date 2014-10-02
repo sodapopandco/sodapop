@@ -113,6 +113,10 @@ gulp.task "compile:scripts", ->
   gulp.src "bower_components/html5shiv/dist/html5shiv.js"
     .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.scripts}vendor/"
 
+  gulp.src "bower_components/jquery/dist/jquery.js"
+    .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.scripts}vendor/"
+
+
 # Compiles any Sass files and injects any new or changed CSS into the browser.
 gulp.task "compile:styles", ->
   gulp.src "#{paths.source}_assets/styles/*.scss"
