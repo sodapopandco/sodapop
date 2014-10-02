@@ -1,1 +1,13 @@
 // Animations
+
+// Fade in the entire body on page load.
+body {
+  opacity: 1;
+  transition: all .25s;
+}
+
+.wf-loading {
+  body {
+    opacity: 0;
+  }
+}
