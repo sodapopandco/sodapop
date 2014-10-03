@@ -60,7 +60,6 @@ header[role="banner"] {
 ////////////////////////////////////////////////////////////////////////////////
 
 .showcase {
-  position: relative;
   margin: 0 auto;
   width: 100%;
 
@@ -85,6 +84,10 @@ header[role="banner"] {
   }
 }
 
+.gallery {
+  position: relative;
+}
+
 .screenshot {
   position: relative;
   margin: 0;
@@ -92,7 +95,7 @@ header[role="banner"] {
 
   &.secondary, &.tertiary {
     position: absolute;
-    bottom: percentage(60/640);
+    bottom: percentage(32/640);
   }
 
   &.secondary {
