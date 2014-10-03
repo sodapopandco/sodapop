@@ -81,6 +81,13 @@ header[role="banner"] {
     margin-top: percentage(18/640);
     font-size: em($font-size);
     letter-spacing: to-em(.5, $font-size);
+
+    a {
+      $font-size: 12;
+
+      font-size: em($font-size);
+      text-transform: uppercase;
+    }
   }
 }
 
