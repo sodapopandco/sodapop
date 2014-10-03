@@ -99,7 +99,6 @@ header[role="banner"] {
 .screenshot {
   position: relative;
   margin: 0;
-  background: $secondary-grey;
 
   &.secondary, &.tertiary {
     position: absolute;
@@ -117,13 +116,12 @@ header[role="banner"] {
   img {
     width: 100%;
     height: auto;
+    border-radius: 2px;
   }
 }
 
 .desktop {
   z-index: 1;
-  padding-top: 24px;
-  border-radius: 8px;
 
   &.large {
     width: 100%;
@@ -140,16 +138,10 @@ header[role="banner"] {
   &.tertiary {
     right: percentage(-160/640);
   }
-
-  img {
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-  }
 }
 
 .tablet {
   z-index: 2;
-  border-radius: 8px;
 
   &.large, &.medium {
     width: percentage(240/640);
@@ -159,35 +151,16 @@ header[role="banner"] {
     }
   }
 
-  &.large {
-    padding: 30px;
-
-    &.landscape {
-      padding: 30px;
-    }
-  }
-
-  &.medium {
-    padding: 24px 8px;
-
-    &.landscape {
-      padding: 8px 24px;
-    }
-  }
-
   &.small {
-    padding: 24px 6px;
     width: percentage(200/640);
 
     &.landscape {
-      padding: 8px 24px;
       width: percentage(300/640);
     }
   }
 
   &.landscape {
     z-index: 0;
-    padding: 8px 24px;
     width: percentage(360/640);
   }
 
@@ -200,27 +173,22 @@ header[role="banner"] {
   }
 
   img {
-    border-radius: 2px;
+    border-radius: 4px;
   }
 }
 
 .phone {
   z-index: 3;
-  border-radius: 12px;
 
   &.large {
-    padding: 30px 6px;
     width: percentage(160/640);
 
     &.landscape {
-      padding: 6px 30px;
       width: percentage(280/640);
     }
   }
 
   &.medium, &.small {
-    padding: 24px 6px;
-
     &.landscape {
       padding: 6px 24px;
     }
@@ -251,7 +219,7 @@ header[role="banner"] {
   }
 
   img {
-    border-radius: 2px;
+    border-radius: 8px;
   }
 }
 
