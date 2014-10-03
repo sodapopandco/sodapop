@@ -36,10 +36,10 @@ header[role="banner"] {
   h1 {
     $font-size: 48;
 
-    margin: .5em 0 1em;
+    margin: percentage(8/640) 0 percentage(4/640);
     font-size: em($font-size);
     font-weight: normal;
-    letter-spacing: to-em(4, $font-size);
+    letter-spacing: to-em(2, $font-size);
     line-height: 1;
 
     strong {
@@ -50,7 +50,7 @@ header[role="banner"] {
   p {
     $font-size: 24;
 
-    display: none;
+    margin: 0 0 percentage(24/640);
     font: bold em($font-size) $display-font;
   }
 }
