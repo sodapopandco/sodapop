@@ -84,11 +84,19 @@ header[role="banner"] {
     line-height: 1.25em;
     letter-spacing: to-em(2px, $font-size);
 
-    a {
+    a, .note {
       $font-size: 12;
 
       font-size: em($font-size);
       text-transform: uppercase;
+    }
+
+    .note {
+      color: $secondary-grey;
+
+      a {
+        font-size: 1em;
+      }
     }
   }
 }
