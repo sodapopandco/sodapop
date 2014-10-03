@@ -81,7 +81,8 @@ header[role="banner"] {
 
     margin-top: percentage(18/640);
     font-size: em($font-size);
-    letter-spacing: to-em(.5, $font-size);
+    line-height: 1.25em;
+    letter-spacing: to-em(2px, $font-size);
 
     a {
       $font-size: 12;
