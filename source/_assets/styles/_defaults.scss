@@ -7,7 +7,20 @@ body {
 
 // Headings
 h1 {
+  margin: 0 0 .25em;
   font-family: $display-font;
+
+  &.title {
+    $font-size: 30;
+
+    font-size: em($font-size);
+  }
+
+  &.subtitle {
+    $font-size: 24;
+
+    font-size: em($font-size);
+  }
 }
 
 // Anchors
