@@ -216,7 +216,16 @@ header[role="banner"] {
   }
 }
 
+.about-text {
+  text-align: left;
+}
 
+.services-list {
+
+  li {
+    display: inline-block;
+  }
+}
 
 // Client List
 ////////////////////////////////////////////////////////////////////////////////
