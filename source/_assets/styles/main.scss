@@ -95,11 +95,11 @@ header[role="banner"] {
 
   &.secondary, &.tertiary {
     position: absolute;
-    bottom: percentage(32/640);
+    bottom: percentage(24/640);
   }
 
   &.secondary {
-    transform: rotate(-3deg);
+    transform: rotate(-4deg);
   }
 
   &.tertiary {
@@ -115,8 +115,15 @@ header[role="banner"] {
 .desktop {
   z-index: 1;
   padding-top: 24px;
-  width: 100%;
   border-radius: 8px;
+
+  &.large {
+    width: 100%;
+  }
+
+  &.medium {
+    width: percentage(560/640);
+  }
 
   &.secondary {
     left: percentage(-160/640);
