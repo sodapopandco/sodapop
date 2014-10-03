@@ -12,7 +12,12 @@ h1 {
 
 // Anchors
 a {
+  color: $brand-orange;
   text-decoration: none;
+
+  &:hover, &:focus {
+    color: $secondary-grey;
+  }
 }
 
 // Images
