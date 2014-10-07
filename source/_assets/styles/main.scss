@@ -20,6 +20,10 @@
   margin-left: auto;
   width: percentage(280/320);
   max-width: em(640);
+
+  &:last-child {
+    margin-bottom: percentage(12/320);
+  }
 }
 
 
@@ -283,6 +287,21 @@ header[role="banner"] {
     max-width: 44px;
   }
 }
+
+
+// Client List
+///////////////////////////////////////////////////////////////////////////////
+
+.contact-text {
+  $font-size: 24;
+
+  font: bold em($font-size) $display-font;
+
+  a {
+    font: bold to-em(36, $font-size) $display-font;
+  }
+}
+
 
 // Animations
 @import "animations";
