@@ -27,6 +27,7 @@ h1 {
 a {
   color: $brand-orange;
   text-decoration: none;
+  transition: all .125s;
 
   &:hover, &:focus {
     color: $secondary-grey;
