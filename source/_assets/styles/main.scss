@@ -66,6 +66,36 @@ header[role="banner"] {
     margin-top: percentage(24/320);
   }
 
+  &.encounters {
+    .title {
+      color: #3191fb;
+    }
+  }
+
+  &.cute-fight {
+    .title {
+      color: #ff8ee5;
+    }
+  }
+
+  &.everyday {
+    .title {
+      color: #f80725;
+    }
+  }
+
+  &.fray {
+    .title {
+      color: #7c2250;
+    }
+  }
+
+  &.magcloud {
+    .title {
+      color: #044280;
+    }
+  }
+
   footer {
     $font-size: 18;
 
