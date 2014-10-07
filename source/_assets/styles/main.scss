@@ -51,11 +51,15 @@ header[role="banner"] {
   }
 
   p {
-    $font-size: 24;
+    $font-size: 18;
 
     margin: 0 0 percentage(24/640);
     color: $secondary-grey;
-    font: em($font-size) $script-font;
+    font: bold em($font-size) $display-font;
+  }
+
+  em {
+    font-style: normal;
   }
 }
 
