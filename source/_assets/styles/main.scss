@@ -161,6 +161,10 @@ header[role="banner"] {
     width: percentage(560/640);
   }
 
+  &.secondary, &.tertiary {
+    z-index: 0;
+  }
+
   &.secondary {
     left: percentage(-160/640);
   }
