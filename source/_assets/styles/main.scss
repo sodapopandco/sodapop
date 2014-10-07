@@ -132,6 +132,30 @@ header[role="banner"] {
 
 .gallery {
   position: relative;
+
+  &:hover, &:focus {
+    .screenshot {
+      &.secondary {
+        left: percentage(-170/640);
+        transform: rotate(-3.5deg);
+      }
+
+      &.tertiary {
+        right: percentage(-170/640);
+        transform: rotate(2.5deg);
+      }
+    }
+
+    .phone {
+      &.secondary {
+        left: percentage(-90/640);
+      }
+
+      &.tertiary {
+        right: percentage(-90/640);
+      }
+    }
+  }
 }
 
 .screenshot {
@@ -140,11 +164,11 @@ header[role="banner"] {
 
   &.secondary, &.tertiary {
     position: absolute;
-    bottom: percentage(24/640);
+    bottom: percentage(36/640);
   }
 
   &.secondary {
-    transform: rotate(-4deg);
+    transform: rotate(-3deg);
   }
 
   &.tertiary {
