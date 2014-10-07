@@ -14,16 +14,19 @@
   text-align: center;
 }
 
-.main-section {
+.content-section {
   margin-right: auto;
-  margin-bottom: percentage(24/320);
   margin-left: auto;
   width: percentage(280/320);
   max-width: em(640);
+}
 
-  &:last-child {
-    margin-bottom: percentage(12/320);
-  }
+.main-section {
+  margin-bottom: percentage(24/320);
+}
+
+.about-section {
+  margin-bottom: percentage(12/320);
 }
 
 
@@ -279,17 +282,6 @@ header[role="banner"] {
 
   &.tertiary {
     right: percentage(-80/640);
-  }
-}
-
-.about-text {
-  text-align: left;
-}
-
-.services-list {
-
-  li {
-    display: inline-block;
   }
 }
 
