@@ -39,10 +39,14 @@ header[role="banner"] {
     max-width: 120px;
   }
 
+  a {
+    color: $primary-black;
+  }
+
   h1 {
     $font-size: 36;
 
-    margin: percentage(8/640) 0 percentage(4/640);
+    margin-top: percentage(8/640);
     font-size: em($font-size);
     font-weight: normal;
     letter-spacing: to-em(1, $font-size);
