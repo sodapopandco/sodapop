@@ -140,12 +140,12 @@ header[role="banner"] {
     .screenshot {
       &.secondary {
         left: percentage(-170/640);
-        transform: rotate(-3.5deg);
+        transform: rotate(-1deg);
       }
 
       &.tertiary {
         right: percentage(-170/640);
-        transform: rotate(2.5deg);
+        transform: rotate(.5deg);
       }
     }
 
@@ -168,14 +168,6 @@ header[role="banner"] {
   &.secondary, &.tertiary {
     position: absolute;
     bottom: percentage(36/640);
-  }
-
-  &.secondary {
-    transform: rotate(-3deg);
-  }
-
-  &.tertiary {
-    transform: rotate(2deg);
   }
 
   img {
