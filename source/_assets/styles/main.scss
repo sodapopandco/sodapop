@@ -84,51 +84,62 @@ header[role="banner"] {
   + .showcase {
     margin-top: percentage(24/320);
   }
+}
 
-  &.encounters {
-    .title, a {
-      color: #3191fb;
-    }
-  }
+.encounters-showcase,
+.encounters-showcase .showcase-link {
+  color: #3191fb;
+}
 
-  &.cute-fight {
-    .title, a {
-      color: #ff8ee5;
-    }
-  }
+.cute-fight-showcase,
+.cute-fight-showcase .showcase-link {
+  color: #ff8ee5;
+}
 
-  &.everyday {
-    .title, a {
-      color: #e33f3f;
-    }
-  }
+.everyday-showcase,
+.everyday-showcase .showcase-link {
+  color: #e33f3f;
+}
 
-  &.fray {
-    .title, a {
-      color: #7c2250;
-    }
-  }
+.fray-showcase,
+.fray-showcase .showcase-link {
+  color: #7c2250;
+}
 
-  &.magcloud {
-    .title, a {
-      color: #1569bc;
-    }
-  }
+.magcloud-showcase,
+.magcloud-showcase .showcase-link {
+  color: #1569bc;
 }
 
 .showcase-tagline {
   $font-size: 18;
 
+  color: $primary-black;
   font-size: em($font-size);
   line-height: 1.25em;
 }
 
-.showcase-link {
+.showcase-link,
+.showcase-note {
   $font-size: 12;
 
-  color: $secondary-grey;
   font-size: em($font-size);
   text-transform: uppercase;
+
+  &:hover, &:focus {
+    transform: scale(1.15);
+    color: $secondary-grey;
+  }
+}
+
+.showcase-link {
+  &:hover, &:focus {
+    transform: scale(1.15);
+  }
+}
+
+.showcase-note {
+  color: $secondary-grey;
 }
 
 .showcase-gallery {
