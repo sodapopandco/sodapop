@@ -108,28 +108,22 @@ header[role="banner"] {
     }
   }
 
-  footer {
+  p {
     $font-size: 18;
 
-    margin-top: percentage(18/640);
     font-size: em($font-size);
     line-height: 1.25em;
-    letter-spacing: to-em(2px, $font-size);
+  }
 
-    a, .note {
-      $font-size: 12;
+  a, span {
+    $font-size: 12;
 
-      font-size: em($font-size);
-      text-transform: uppercase;
-    }
+    font-size: em($font-size);
+    text-transform: uppercase;
+  }
 
-    .note {
-      color: $secondary-grey;
-
-      a {
-        font-size: 1em;
-      }
-    }
+  a:hover, a:focus, span {
+    color: $secondary-grey;
   }
 }
 
