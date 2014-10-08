@@ -12,7 +12,7 @@ body {
   }
 }
 
-// Screenshots
-.screenshot {
+// Transition all anchor and screenshot properties
+a, .screenshot {
   transition: all .125s;
 }

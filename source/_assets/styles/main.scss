@@ -4,14 +4,13 @@
 @import "defaults";
 @import "helpers";
 
+
 // Layout
-////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 .content-container {
   overflow: hidden;
   padding: percentage(16/320) 0;
-  font: bold #{$body-font-size}px/1.5 $display-font;
-  text-align: center;
 }
 
 .content-section {
@@ -30,8 +29,30 @@
 }
 
 
+// Type
+///////////////////////////////////////////////////////////////////////////////
+
+.content-container {
+  color: $primary-black;
+  font: bold #{$body-font-size}px/1.5 $display-font;
+  text-align: center;
+}
+
+.title {
+  $font-size: 30;
+
+  font-size: em($font-size);
+}
+
+.subtitle {
+  $font-size: 24;
+
+  font-size: em($font-size);
+}
+
+
 // Header
-////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 header[role="banner"] {
   margin-bottom: percentage(24/640);
@@ -74,8 +95,8 @@ header[role="banner"] {
 }
 
 
-// Work
-////////////////////////////////////////////////////////////////////////////////
+// Showcases
+///////////////////////////////////////////////////////////////////////////////
 
 .showcase {
   margin: 0 auto;
@@ -174,6 +195,10 @@ header[role="banner"] {
   }
 }
 
+
+// Screenshots
+///////////////////////////////////////////////////////////////////////////////
+
 .screenshot {
   $position: percentage(-160/640);
 
@@ -242,8 +267,9 @@ header[role="banner"] {
   }
 }
 
+
 // Client List
-////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 .client-list {
   margin: 0;
@@ -266,16 +292,24 @@ header[role="banner"] {
 }
 
 
-// Client List
+// Contact
 ///////////////////////////////////////////////////////////////////////////////
 
 .contact-text {
   $font-size: 24;
 
-  font: bold em($font-size) $display-font;
+  font-size: em($font-size);
+  font-weight: bold;
+}
 
-  a {
-    font: bold to-em(36, $font-size) $display-font;
+.contact-link {
+  $font-size: 24;
+
+  color: $brand-orange;
+  font-size: to-em(36, $font-size);
+
+  &:hover, &:focus {
+    color: $secondary-grey;
   }
 }
 
