@@ -150,7 +150,7 @@ header[role="banner"] {
       }
     }
 
-    .phone {
+    .phone-screenshot {
       &.secondary {
         left: percentage(-90/640);
       }
@@ -187,7 +187,7 @@ header[role="banner"] {
   }
 }
 
-.desktop {
+.desktop-screenshot {
   z-index: 1;
   width: 100%;
 
@@ -208,7 +208,7 @@ header[role="banner"] {
   }
 }
 
-.tablet {
+.tablet-screenshot {
   width: percentage(240/640);
 
   &.landscape {
@@ -225,7 +225,7 @@ header[role="banner"] {
   }
 }
 
-.phone {
+.phone-screenshot {
   width: percentage(160/640);
 
   &.landscape {
