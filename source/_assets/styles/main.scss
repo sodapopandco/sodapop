@@ -139,30 +139,36 @@ header[role="banner"] {
 
   &:hover, &:focus {
     .screenshot {
+      $position: percentage(-170/640);
+
       &.secondary {
-        left: percentage(-170/640);
+        left: $position;
         transform: rotate(-1deg);
       }
 
       &.tertiary {
-        right: percentage(-170/640);
+        right: $position;
         transform: rotate(.5deg);
       }
     }
 
     .phone-screenshot {
+      $position: percentage(-90/640);
+
       &.secondary {
-        left: percentage(-90/640);
+        left: $position;
       }
 
       &.tertiary {
-        right: percentage(-90/640);
+        right: $position;
       }
     }
   }
 }
 
 .screenshot {
+  $position: percentage(-160/640);
+
   position: relative;
   margin: 0;
 
@@ -173,10 +179,12 @@ header[role="banner"] {
 
   &.secondary {
     z-index: 0;
+    left: $position;
   }
 
   &.tertiary {
     z-index: 2;
+    right: $position;
   }
 
   img {
@@ -198,34 +206,19 @@ header[role="banner"] {
   &.secondary, &.tertiary {
     z-index: 0;
   }
-
-  &.secondary {
-    left: percentage(-160/640);
-  }
-
-  &.tertiary {
-    right: percentage(-160/640);
-  }
 }
 
 .tablet-screenshot {
   width: percentage(240/640);
 
   &.landscape {
-
     width: percentage(360/640);
-  }
-
-  &.secondary {
-    left: percentage(-160/640);
-  }
-
-  &.tertiary {
-    right: percentage(-160/640);
   }
 }
 
 .phone-screenshot {
+  $position: percentage(-80/640);
+
   width: percentage(160/640);
 
   &.landscape {
@@ -233,11 +226,11 @@ header[role="banner"] {
   }
 
   &.secondary {
-    left: percentage(-80/640);
+    left: $position;
   }
 
   &.tertiary {
-    right: percentage(-80/640);
+    right: $position;
   }
 }
 
