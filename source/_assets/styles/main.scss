@@ -114,27 +114,24 @@ header[role="banner"] {
       color: #1569bc;
     }
   }
-
-  p {
-    $font-size: 18;
-
-    font-size: em($font-size);
-    line-height: 1.25em;
-  }
-
-  a, span {
-    $font-size: 12;
-
-    font-size: em($font-size);
-    text-transform: uppercase;
-  }
-
-  a:hover, a:focus, span {
-    color: $secondary-grey;
-  }
 }
 
-.gallery {
+.showcase-tagline {
+  $font-size: 18;
+
+  font-size: em($font-size);
+  line-height: 1.25em;
+}
+
+.showcase-link {
+  $font-size: 12;
+
+  color: $secondary-grey;
+  font-size: em($font-size);
+  text-transform: uppercase;
+}
+
+.showcase-gallery {
   position: relative;
 
   &:hover, &:focus {
