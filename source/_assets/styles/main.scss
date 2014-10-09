@@ -10,13 +10,13 @@
 
 .content-container {
   overflow: hidden;
-  padding: percentage(16/320) 0;
+  padding: percentage(24/320) 0;
 }
 
 .content-section {
   margin-right: auto;
   margin-left: auto;
-  width: percentage(280/320);
+  width: percentage(272/320);
   max-width: em(640);
 }
 
@@ -64,17 +64,17 @@ header[role="banner"] {
 }
 
 .header-logo {
-  max-width: 120px;
+  width: 120px;
 }
 
 .header-title {
   $font-size: 36;
 
-  margin-top: percentage(8/640);
+  margin-top: percentage(24/640);
   font-size: em($font-size);
   font-weight: normal;
-  letter-spacing: to-em(1, $font-size);
   line-height: 1;
+  letter-spacing: to-em(1, $font-size);
 
   strong {
     text-transform: uppercase;
@@ -91,6 +91,7 @@ header[role="banner"] {
 
   span, img {
     display: inline-block;
+    height: to-em(24, $font-size);
     vertical-align: middle;
   }
 }
