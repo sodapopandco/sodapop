@@ -20,3 +20,8 @@ shuffle = ->
 
   $(".header-tagline em").html word
   setTimeout shuffle, 2000
+
+$(".header-link").hover ->
+  $(".nimble").attr("src", "/assets/images/nimble.gif")
+, ->
+  $(".nimble").attr("src", "/assets/images/nimble-animated.gif")

@@ -56,14 +56,14 @@
 
 header[role="banner"] {
   margin-bottom: percentage(24/640);
+}
 
-  a {
-    color: $primary-black;
-  }
+.header-link {
+  display: inline-block;
+  color: $primary-black;
 }
 
 .header-logo {
-  width: percentage(160/640);
   max-width: 120px;
 }
 
@@ -92,10 +92,6 @@ header[role="banner"] {
   span, img {
     display: inline-block;
     vertical-align: middle;
-  }
-
-  img {
-    margin-right: to-em(2, $font-size)
   }
 }
 
