@@ -42,11 +42,19 @@
   $font-size: 30;
 
   font-size: em($font-size);
+
+  @media screen and (max-width: 30em) {
+    $font-size: 24;
+
+    font-size: em($font-size);
+  }
 }
 
 .subtitle {
   $font-size: 24;
 
+  margin: 0;
+  color: $secondary-grey;
   font-size: em($font-size);
 }
 
@@ -134,12 +142,16 @@ header[role="banner"] {
   color: #1569bc;
 }
 
+.showcase-title {
+  margin-bottom: percentage(3/320);
+}
+
 .showcase-tagline {
   $font-size: 18;
 
   color: $primary-black;
   font-size: em($font-size);
-  line-height: 1.25em;
+  line-height: to-em(24, $font-size);
 }
 
 .showcase-link,
@@ -150,7 +162,6 @@ header[role="banner"] {
   text-transform: uppercase;
 
   &:hover, &:focus {
-    transform: scale(1.15);
     color: $secondary-grey;
   }
 }
@@ -305,6 +316,7 @@ header[role="banner"] {
 .about-text {
   $font-size: 18;
 
+  margin-top: percentage(6/640);
   font-size: em($font-size);
 }
 
@@ -320,6 +332,12 @@ header[role="banner"] {
     &:hover, &:focus {
       color: $secondary-grey;
     }
+  }
+
+  @media screen and (max-width: 30em) {
+    $font-size: 21;
+
+    font-size: em($font-size);
   }
 }
 
