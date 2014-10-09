@@ -90,7 +90,8 @@ header[role="banner"] {
   font-weight: bold;
 
   em {
-    font-style: normal;
+    font-family: $text-font;
+    font-weight: normal;
   }
 }
 
