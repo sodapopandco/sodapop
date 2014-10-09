@@ -294,24 +294,32 @@ header[role="banner"] {
 }
 
 
-// Contact
+// About & Contact
 ///////////////////////////////////////////////////////////////////////////////
+
+.about-text,
+.contact-text {
+  font-weight: bold;
+}
+
+.about-text {
+  $font-size: 18;
+
+  font-size: em($font-size);
+}
 
 .contact-text {
   $font-size: 24;
 
   font-size: em($font-size);
-  font-weight: bold;
-}
 
-.contact-link {
-  $font-size: 24;
+  a {
+    color: $brand-orange;
+    font-size: to-em(36, $font-size);
 
-  color: $brand-orange;
-  font-size: to-em(36, $font-size);
-
-  &:hover, &:focus {
-    color: $secondary-grey;
+    &:hover, &:focus {
+      color: $secondary-grey;
+    }
   }
 }
 
