@@ -89,9 +89,13 @@ header[role="banner"] {
   font-size: em($font-size);
   font-weight: bold;
 
-  em {
-    font-family: $text-font;
-    font-weight: normal;
+  span, img {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  img {
+    margin-right: to-em(2, $font-size)
   }
 }
 
