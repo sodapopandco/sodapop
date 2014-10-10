@@ -83,6 +83,7 @@ gulp.task "compress:scripts", ["compile:scripts"], ->
 # Minifies any CSS files.
 gulp.task "compress:styles", ["compile:styles"], ->
   gulp.src "#{paths.destination}#{paths.assets}#{paths.styles}*.css"
+    .pipe plugins.base64(baseDir: "public")
     .pipe plugins.minifyCss()
     .pipe plugins.rename(suffix: ".min")
     .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.styles}"
