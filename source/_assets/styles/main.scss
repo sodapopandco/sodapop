@@ -55,7 +55,7 @@
   $font-size: 24;
 
   font-size: em($font-size);
-  line-height: to-em(30, $font-size);
+  line-height: to-em(32, $font-size);
 
   @media screen and (max-width: 30em) {
     $font-size: 21;
@@ -320,8 +320,16 @@ header[role="banner"] {
 }
 
 .about-subtitle {
+  $font-size: 24;
+
   margin: 0 0 percentage(8/320);
   color: $secondary-grey;
+
+  span, img {
+    display: inline-block;
+    height: to-em(32, $font-size);
+    vertical-align: middle;
+  }
 }
 
 .about-text {
