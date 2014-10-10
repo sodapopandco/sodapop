@@ -354,13 +354,16 @@ header[role="banner"] {
 }
 
 .contact-text {
-  $font-size: 24;
+  $font-size: 18;
 
   font-size: em($font-size);
+  font-family: $handwritten-font;
 
   .contact-link {
+    display: block;
     color: $brand-orange;
     font-size: to-em(36, $font-size);
+    font-family: $display-font;
 
     &:hover, &:focus {
       color: $secondary-grey;
