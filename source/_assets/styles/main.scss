@@ -108,6 +108,11 @@ header[role="banner"] {
     height: to-em(24, $font-size);
     vertical-align: middle;
   }
+
+  img {
+    width: auto;
+    height: 24;
+  }
 }
 
 
@@ -305,6 +310,18 @@ header[role="banner"] {
     display: inline-block;
     height: to-em(32, $font-size);
     vertical-align: middle;
+  }
+
+  img {
+    width: auto;
+    height: 32;
+
+    @media screen and (max-width: 30em) {
+      $font-size: 21;
+
+      padding-top: to-em(2, $font-size);
+      height: to-em(24, $font-size);
+    }
   }
 }
 
