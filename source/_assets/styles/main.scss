@@ -368,9 +368,8 @@ header[role="banner"] {
 .contact-text {
   $font-size: 18;
 
-  font-size: em($font-size);
-  font-family: $handwritten-font;
-  font-weight: normal;
+  margin-top: percentage(24/320);
+  font: normal em($font-size) $handwritten-font;
 
   .contact-link {
     display: block;
