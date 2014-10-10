@@ -320,8 +320,8 @@ header[role="banner"] {
     @media screen and (max-width: 30em) {
       $font-size: 21;
 
-      padding-top: to-em(2, $font-size);
-      height: to-em(24, $font-size);
+      padding-top: to-em(1, $font-size);
+      height: to-em(27, $font-size);
     }
   }
 }
