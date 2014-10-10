@@ -16,7 +16,7 @@
 .content-section {
   margin-right: auto;
   margin-left: auto;
-  width: percentage(272/320);
+  width: percentage(288/320);
   max-width: em(640);
 }
 
@@ -42,6 +42,7 @@
   $font-size: 30;
 
   font-size: em($font-size);
+  line-height: to-em(36, $font-size);
 
   @media screen and (max-width: 30em) {
     $font-size: 24;
@@ -53,9 +54,14 @@
 .subtitle {
   $font-size: 24;
 
-  margin: 0;
-  color: $secondary-grey;
   font-size: em($font-size);
+  line-height: to-em(30, $font-size);
+
+  @media screen and (max-width: 30em) {
+    $font-size: 21;
+
+    font-size: em($font-size);
+  }
 }
 
 
@@ -143,7 +149,7 @@ header[role="banner"] {
 }
 
 .showcase-title {
-  margin-bottom: percentage(3/320);
+  margin-bottom: percentage(6/320);
 }
 
 .showcase-tagline {
@@ -313,6 +319,11 @@ header[role="banner"] {
   font-weight: bold;
 }
 
+.about-subtitle {
+  margin: 0 0 percentage(8/320);
+  color: $secondary-grey;
+}
+
 .about-text {
   $font-size: 18;
 
@@ -320,12 +331,33 @@ header[role="banner"] {
   font-size: em($font-size);
 }
 
+.services-list {
+  margin: 0;
+  padding: 0;
+  color: $secondary-grey;
+
+  li {
+    display: inline-block;
+    margin: 0 percentage(8/640);
+    width: percentage(180/640);
+  }
+
+  @media screen and (max-width: 40em) {
+    margin-left: percentage(-16/320);
+    width: percentage(320/288);
+
+    li {
+      width: percentage(144/320);
+    }
+  }
+}
+
 .contact-text {
   $font-size: 24;
 
   font-size: em($font-size);
 
-  a {
+  .contact-link {
     color: $brand-orange;
     font-size: to-em(36, $font-size);
 
