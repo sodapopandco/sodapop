@@ -103,15 +103,19 @@ header[role="banner"] {
   font-size: em($font-size);
   font-weight: bold;
 
-  span, img {
+  span {
     display: inline-block;
     height: to-em(24, $font-size);
     vertical-align: middle;
   }
 
-  img {
-    width: auto;
-    height: 24;
+  .replaced-word {
+    @include hide-text;
+
+    width: 70px;
+    height: 24px;
+    background: url(/assets/images/gifs/nimble.gif) no-repeat;
+    background-size: 100%;
   }
 }
 
@@ -309,21 +313,26 @@ header[role="banner"] {
   margin: 0 0 percentage(8/320);
   color: $secondary-grey;
 
-  span, img {
+  span {
     display: inline-block;
     height: to-em(32, $font-size);
     vertical-align: middle;
   }
 
-  img {
-    width: auto;
-    height: 32;
+  .replaced-word {
+    @include hide-text;
+
+    width: 102px;
+    height: 32px;
+    background: url(/assets/images/gifs/sparkle.gif) no-repeat;
+    background-size: 100%;
 
     @media screen and (max-width: 30em) {
       $font-size: 21;
 
-      padding-top: to-em(1, $font-size);
-      height: to-em(27, $font-size);
+      padding-top: 1px;
+      width: 86px;
+      height: 27px;
     }
   }
 }
