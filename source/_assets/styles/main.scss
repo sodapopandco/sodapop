@@ -34,7 +34,7 @@
 
 .content-container {
   color: $primary-black;
-  font: bold #{$body-font-size}px/1.5 $display-font;
+  font: #{$body-font-size}px/1.5 $display-font;
   text-align: center;
 }
 
@@ -162,6 +162,7 @@ header[role="banner"] {
 
   color: $primary-black;
   font-size: em($font-size);
+  font-weight: bold;
   line-height: to-em(24, $font-size);
 }
 
@@ -330,12 +331,21 @@ header[role="banner"] {
 
   margin-top: percentage(6/640);
   font-size: em($font-size);
+
+  a {
+    color: inherit;
+
+    &:hover, &:focus {
+      color: $secondary-grey;
+    }
+  }
 }
 
 .services-list {
   margin: 0;
   padding: 0;
   color: $secondary-grey;
+  font-weight: bold;
 
   li {
     display: inline-block;
@@ -358,22 +368,22 @@ header[role="banner"] {
 
   font-size: em($font-size);
   font-family: $handwritten-font;
+  font-weight: normal;
 
   .contact-link {
     display: block;
     color: $brand-orange;
-    font-size: to-em(36, $font-size);
-    font-family: $display-font;
+    font: bold to-em(36, $font-size) $display-font;
 
     &:hover, &:focus {
+      transform: scale(1.125);
       color: $secondary-grey;
+      -webkit-font-smoothing: antialiased;
     }
-  }
 
-  @media screen and (max-width: 30em) {
-    $font-size: 21;
-
-    font-size: em($font-size);
+    @media screen and (max-width: 30em) {
+      font-size: to-em(30, $font-size);
+    }
   }
 }
 
