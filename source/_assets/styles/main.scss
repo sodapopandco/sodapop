@@ -163,13 +163,15 @@ header[role="banner"] {
   color: $primary-black;
   font-size: em($font-size);
   font-weight: bold;
-  line-height: to-em(24, $font-size);
+  line-height: 1;
 }
 
 .showcase-link,
 .showcase-note {
   $font-size: 12;
 
+  display: block;
+  margin-top: to-em(6, $font-size);
   font-size: em($font-size);
   text-transform: uppercase;
 
@@ -180,7 +182,7 @@ header[role="banner"] {
 
 .showcase-link {
   &:hover, &:focus {
-    transform: scale(1.15);
+    transform: scale(1.1);
   }
 }
 
@@ -376,7 +378,7 @@ header[role="banner"] {
     font: bold to-em(36, $font-size) $display-font;
 
     &:hover, &:focus {
-      transform: scale(1.125);
+      transform: scale(1.1);
       color: $secondary-grey;
       -webkit-font-smoothing: antialiased;
     }
