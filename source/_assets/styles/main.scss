@@ -163,7 +163,7 @@ header[role="banner"] {
   color: $primary-black;
   font-size: em($font-size);
   font-weight: bold;
-  line-height: 1;
+  line-height: to-em(21, $font-size);
 }
 
 .showcase-link,
