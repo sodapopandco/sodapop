@@ -61,6 +61,7 @@
     $font-size: 21;
 
     font-size: em($font-size);
+    line-height: to-em(24, $font-size);
   }
 }
 
@@ -330,10 +331,14 @@ header[role="banner"] {
     @media screen and (max-width: 30em) {
       $font-size: 21;
 
-      padding-top: 1px;
+      margin-top: -3px;
       width: 86px;
       height: 27px;
     }
+  }
+
+  @media screen and (max-width: 30em) {
+    margin-bottom: to-em(12, $font-size);
   }
 }
 
@@ -399,6 +404,7 @@ header[role="banner"] {
   @media screen and (max-width: 30em) {
     $font-size: 21;
 
+    margin-bottom: to-em(42, $font-size);
     font-size: em($font-size);
   }
 }
