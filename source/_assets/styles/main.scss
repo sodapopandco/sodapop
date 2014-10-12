@@ -389,7 +389,6 @@ header[role="banner"] {
     display: block;
     color: $brand-orange;
     font: bold to-em(36, $font-size) $display-font;
-    -webkit-font-smoothing: antialiased;
 
     &:hover, &:focus {
       transform: scale(1.1);
