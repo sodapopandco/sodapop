@@ -375,10 +375,10 @@ header[role="banner"] {
 }
 
 .contact-text {
-  $font-size: 18;
+  $font-size: 24;
 
   margin-top: percentage(24/320);
-  font: normal em($font-size) $handwritten-font;
+  font-size: em($font-size);
 
   .contact-link {
     display: block;
@@ -394,6 +394,12 @@ header[role="banner"] {
     @media screen and (max-width: 30em) {
       font-size: to-em(30, $font-size);
     }
+  }
+
+  @media screen and (max-width: 30em) {
+    $font-size: 21;
+
+    font-size: em($font-size);
   }
 }
 
