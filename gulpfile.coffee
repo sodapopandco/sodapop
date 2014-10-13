@@ -5,6 +5,8 @@ browser = require("browser-sync")
 
 # Project directories.
 paths =
+
+  # Local
   source: "source/"
   destination: "public/"
   assets: "assets/"
@@ -12,11 +14,21 @@ paths =
   scripts: "javascripts/"
   styles: "stylesheets/"
 
+  # Remote
+  remote: "/var/www/sodapop.is/"
+  public: "public/"
+
 # Project domains.
 domains =
   local: "sodapop"
-  live: "sodapopandco.com"
+  live: "sodapop.is"
   repository: "everycopy/sodapop"
+
+# Project server.
+server =
+  user: "domains"
+  address: "ocean.sodapop.is"
+  port: "41284"
 
 # Build the site.
 gulp.task "build", ["clean"], ->
@@ -134,6 +146,11 @@ gulp.task "compile:styles", ->
   gulp.src "bower_components/normalize-css/normalize.css"
     .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.styles}vendor/"
 
+# Deploy the site to the public server.
+gulp.task "deploy", ["clean"], ->
+  gulp.start "deploy:public"
+
+gulp.task "deploy:public", ["compress"], plugins.shell.task "rsync -avze 'ssh -p #{server.port}' --delete #{paths.destination} #{server.user}@#{server.address}:#{paths.remote}#{paths.public}"
 
 # Compiles the site using Jekyll.
 gulp.task "jekyll:build", plugins.shell.task "jekyll build"
