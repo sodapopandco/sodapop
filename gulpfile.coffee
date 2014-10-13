@@ -150,7 +150,9 @@ gulp.task "compile:styles", ->
 gulp.task "deploy", ["clean"], ->
   gulp.start "deploy:public"
 
-gulp.task "deploy:public", ["compress"], plugins.shell.task "rsync -avze 'ssh -p #{server.port}' --delete #{paths.destination} #{server.user}@#{server.address}:#{paths.remote}#{paths.public}"
+gulp.task "deploy:public", ["compress"], plugins.shell.task [
+  "rsync -avze 'ssh -p #{server.port}' --delete #{paths.destination} #{server.user}@#{server.address}:#{paths.remote}#{paths.public}"
+]
 
 # Compiles the site using Jekyll.
 gulp.task "jekyll:build", plugins.shell.task "jekyll build"
