@@ -33,7 +33,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 .content-container {
-  color: $primary-black;
+  color: $black;
   font: #{$body-font-size}px/1.5 $display-font;
   text-align: center;
 }
@@ -67,7 +67,7 @@
 
 ::selection {
   color: #fff;
-  background: $brand-orange;
+  background: $orange;
 }
 
 
@@ -80,7 +80,7 @@ header[role="banner"] {
 
 .header-link {
   display: inline-block;
-  color: $primary-black;
+  color: $black;
 }
 
 .header-title {
@@ -101,7 +101,7 @@ header[role="banner"] {
   $font-size: 18;
 
   margin: 0;
-  color: $secondary-grey;
+  color: $grey;
   font-size: em($font-size);
   font-weight: bold;
 
@@ -166,7 +166,7 @@ header[role="banner"] {
 .showcase-tagline {
   $font-size: 18;
 
-  color: $primary-black;
+  color: $black;
   font-size: em($font-size);
   font-weight: bold;
   line-height: to-em(21, $font-size);
@@ -182,7 +182,7 @@ header[role="banner"] {
   text-transform: uppercase;
 
   &:hover, &:focus {
-    color: $secondary-grey;
+    color: $grey;
   }
 }
 
@@ -193,7 +193,7 @@ header[role="banner"] {
 }
 
 .showcase-note {
-  color: $secondary-grey;
+  color: $grey;
 }
 
 .showcase-gallery {
@@ -313,7 +313,7 @@ header[role="banner"] {
   $font-size: 24;
 
   margin: 0 0 percentage(8/320);
-  color: $secondary-grey;
+  color: $grey;
 
   span {
     display: inline-block;
@@ -353,7 +353,7 @@ header[role="banner"] {
     color: inherit;
 
     &:hover, &:focus {
-      color: $secondary-grey;
+      color: $grey;
     }
   }
 }
@@ -361,7 +361,7 @@ header[role="banner"] {
 .services-list {
   margin: 0;
   padding: 0;
-  color: $secondary-grey;
+  color: $grey;
   font-weight: bold;
 
   li {
@@ -388,12 +388,12 @@ header[role="banner"] {
 
   .contact-link {
     display: block;
-    color: $brand-orange;
+    color: $orange;
     font: bold to-em(36, $font-size) $display-font;
 
     &:hover, &:focus {
       transform: scale(1.1);
-      color: $secondary-grey;
+      color: $grey;
     }
 
     @media screen and (max-width: $breakpoint-small) {
