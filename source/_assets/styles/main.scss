@@ -44,7 +44,7 @@
   font-size: em($font-size);
   line-height: to-em(36, $font-size);
 
-  @media screen and (max-width: 30em) {
+  @media screen and (max-width: $breakpoint-small) {
     $font-size: 24;
 
     font-size: em($font-size);
@@ -57,7 +57,7 @@
   font-size: em($font-size);
   line-height: to-em(32, $font-size);
 
-  @media screen and (max-width: 30em) {
+  @media screen and (max-width: $breakpoint-small) {
     $font-size: 21;
 
     font-size: em($font-size);
@@ -329,7 +329,7 @@ header[role="banner"] {
     background: url(/assets/images/gifs/sparkle.gif) no-repeat;
     background-size: 100%;
 
-    @media screen and (max-width: 30em) {
+    @media screen and (max-width: $breakpoint-small) {
       $font-size: 21;
 
       margin-top: -3px;
@@ -338,7 +338,7 @@ header[role="banner"] {
     }
   }
 
-  @media screen and (max-width: 30em) {
+  @media screen and (max-width: $breakpoint-small) {
     margin-bottom: to-em(12, $font-size);
   }
 }
@@ -370,7 +370,7 @@ header[role="banner"] {
     width: percentage(180/640);
   }
 
-  @media screen and (max-width: 40em) {
+  @media screen and (max-width: $breakpoint-medium) {
     margin-left: percentage(-16/320);
     width: percentage(320/288);
 
@@ -396,12 +396,12 @@ header[role="banner"] {
       color: $secondary-grey;
     }
 
-    @media screen and (max-width: 30em) {
+    @media screen and (max-width: $breakpoint-small) {
       font-size: to-em(30, $font-size);
     }
   }
 
-  @media screen and (max-width: 30em) {
+  @media screen and (max-width: $breakpoint-small) {
     $font-size: 21;
 
     margin-bottom: to-em(42, $font-size);
