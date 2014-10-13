@@ -98,7 +98,10 @@ gulp.task "compile", [
 
 # Copies any image files to the destination directory and reloads the browser.
 gulp.task "compile:images", ->
-  gulp.src "#{paths.source}_assets/images/**/*.{gif,jpg,png,svg}"
+  gulp.src [
+    "#{paths.source}_assets/images/**/*.{gif,jpg,png,svg}"
+    "!#{paths.source}_assets/images/screenshots/**/*.png"
+  ]
     .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.images}"
     .pipe browser.reload(stream: true)
 
