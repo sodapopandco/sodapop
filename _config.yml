@@ -1,0 +1,8 @@
+title: Sodapop & Co.
+author: Sodapop & Co.
+description: A nimble design studio.
+
+source: source
+destination: public
+exclude: [_assets]
+keep_files: ['assets']

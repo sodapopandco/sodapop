@@ -1,0 +1,8 @@
+{
+  "name": "sodapop",
+  "devDependencies": {
+    "html5shiv": "3.7.0",
+    "jquery": "~2.1.1",
+    "normalize-css": "~3.0.1"
+  }
+}

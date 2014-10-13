@@ -1,0 +1,414 @@
+// Imports
+@import "variables";
+@import "functions";
+@import "defaults";
+@import "helpers";
+
+
+// Layout
+///////////////////////////////////////////////////////////////////////////////
+
+.content-container {
+  overflow: hidden;
+  padding: percentage(24/320) 0;
+}
+
+.content-section {
+  margin-right: auto;
+  margin-left: auto;
+  width: percentage(288/320);
+  max-width: em(640);
+}
+
+.main-section {
+  margin-bottom: percentage(24/320);
+}
+
+.about-section {
+  margin-bottom: percentage(12/320);
+}
+
+
+// Type
+///////////////////////////////////////////////////////////////////////////////
+
+.content-container {
+  color: $black;
+  font: #{$body-font-size}px/1.5 $display-font;
+  text-align: center;
+}
+
+.title {
+  $font-size: 30;
+
+  font-size: em($font-size);
+  line-height: to-em(36, $font-size);
+
+  @media screen and (max-width: $breakpoint-small) {
+    $font-size: 24;
+
+    font-size: em($font-size);
+  }
+}
+
+.subtitle {
+  $font-size: 24;
+
+  font-size: em($font-size);
+  line-height: to-em(32, $font-size);
+
+  @media screen and (max-width: $breakpoint-small) {
+    $font-size: 21;
+
+    font-size: em($font-size);
+    line-height: to-em(24, $font-size);
+  }
+}
+
+::selection {
+  color: #fff;
+  background: $orange;
+}
+
+
+// Header
+///////////////////////////////////////////////////////////////////////////////
+
+header[role="banner"] {
+  margin-bottom: percentage(24/640);
+}
+
+.header-link {
+  display: inline-block;
+  color: $black;
+}
+
+.header-title {
+  $font-size: 36;
+
+  margin-top: percentage(24/640);
+  font-size: em($font-size);
+  font-weight: normal;
+  line-height: 1;
+  letter-spacing: to-em(1, $font-size);
+
+  strong {
+    text-transform: uppercase;
+  }
+}
+
+.header-tagline {
+  $font-size: 18;
+
+  margin: 0;
+  color: $grey;
+  font-size: em($font-size);
+  font-weight: bold;
+
+  span {
+    display: inline-block;
+    height: to-em(24, $font-size);
+    vertical-align: middle;
+  }
+
+  .replaced-word {
+    @include hide-text;
+
+    width: 70px;
+    height: 24px;
+    background: url(/assets/images/gifs/nimble.gif) no-repeat;
+    background-size: 100%;
+  }
+}
+
+
+// Showcases
+///////////////////////////////////////////////////////////////////////////////
+
+.showcase {
+  margin: 0 auto;
+  width: 100%;
+
+  + .showcase {
+    margin-top: percentage(24/320);
+  }
+}
+
+.encounters-showcase,
+.encounters-showcase .showcase-link {
+  color: #3191fb;
+}
+
+.cute-fight-showcase,
+.cute-fight-showcase .showcase-link {
+  color: #ff8ee5;
+}
+
+.everyday-showcase,
+.everyday-showcase .showcase-link {
+  color: #e33f3f;
+}
+
+.fray-showcase,
+.fray-showcase .showcase-link {
+  color: #7c2250;
+}
+
+.magcloud-showcase,
+.magcloud-showcase .showcase-link {
+  color: #1569bc;
+}
+
+.showcase-title {
+  margin-bottom: percentage(6/320);
+}
+
+.showcase-tagline {
+  $font-size: 18;
+
+  color: $black;
+  font-size: em($font-size);
+  font-weight: bold;
+  line-height: to-em(21, $font-size);
+}
+
+.showcase-link,
+.showcase-note {
+  $font-size: 12;
+
+  display: block;
+  margin-top: to-em(6, $font-size);
+  font-size: em($font-size);
+  text-transform: uppercase;
+
+  &:hover, &:focus {
+    color: $grey;
+  }
+}
+
+.showcase-link {
+  &:hover, &:focus {
+    transform: scale(1.1);
+  }
+}
+
+.showcase-note {
+  color: $grey;
+}
+
+.showcase-gallery {
+  position: relative;
+
+  &:hover, &:focus {
+    .screenshot {
+      $position: percentage(-170/640);
+
+      &.secondary {
+        left: $position;
+        transform: rotate(-1deg);
+      }
+
+      &.tertiary {
+        right: $position;
+        transform: rotate(.5deg);
+      }
+    }
+
+    .phone-screenshot {
+      $position: percentage(-90/640);
+
+      &.secondary {
+        left: $position;
+      }
+
+      &.tertiary {
+        right: $position;
+      }
+    }
+  }
+}
+
+
+// Screenshots
+///////////////////////////////////////////////////////////////////////////////
+
+.screenshot {
+  $position: percentage(-160/640);
+
+  position: relative;
+  margin: 0;
+
+  &.secondary, &.tertiary {
+    position: absolute;
+    bottom: percentage(36/640);
+  }
+
+  &.secondary {
+    z-index: 0;
+    left: $position;
+  }
+
+  &.tertiary {
+    z-index: 2;
+    right: $position;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border: 1px solid transparentize(black,.9);
+    border-radius: 2px;
+  }
+}
+
+.desktop-screenshot {
+  z-index: 1;
+  width: 100%;
+
+  &.medium {
+    width: percentage(560/640);
+  }
+
+  &.secondary, &.tertiary {
+    z-index: 0;
+  }
+}
+
+.tablet-screenshot {
+  width: percentage(240/640);
+
+  &.landscape {
+    width: percentage(360/640);
+  }
+}
+
+.phone-screenshot {
+  $position: percentage(-80/640);
+
+  width: percentage(160/640);
+
+  &.landscape {
+    width: percentage(280/640);
+  }
+
+  &.secondary {
+    left: $position;
+  }
+
+  &.tertiary {
+    right: $position;
+  }
+}
+
+
+// About & Contact
+///////////////////////////////////////////////////////////////////////////////
+
+.about-text,
+.contact-text {
+  font-weight: bold;
+}
+
+.about-subtitle {
+  $font-size: 24;
+
+  margin: 0 0 percentage(8/320);
+  color: $grey;
+
+  span {
+    display: inline-block;
+    height: to-em(32, $font-size);
+    vertical-align: middle;
+  }
+
+  .replaced-word {
+    @include hide-text;
+
+    width: 102px;
+    height: 32px;
+    background: url(/assets/images/gifs/sparkle.gif) no-repeat;
+    background-size: 100%;
+
+    @media screen and (max-width: $breakpoint-small) {
+      $font-size: 21;
+
+      margin-top: -3px;
+      width: 86px;
+      height: 27px;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-small) {
+    margin-bottom: to-em(12, $font-size);
+  }
+}
+
+.about-text {
+  $font-size: 18;
+
+  margin-top: percentage(6/640);
+  font-size: em($font-size);
+
+  a {
+    color: inherit;
+
+    &:hover, &:focus {
+      color: $grey;
+    }
+  }
+}
+
+.services-list {
+  margin: 0;
+  padding: 0;
+  color: $grey;
+  font-weight: bold;
+
+  li {
+    display: inline-block;
+    margin: 0 percentage(8/640);
+    width: percentage(180/640);
+  }
+
+  @media screen and (max-width: $breakpoint-medium) {
+    margin-left: percentage(-16/320);
+    width: percentage(320/288);
+
+    li {
+      width: percentage(144/320);
+    }
+  }
+}
+
+.contact-text {
+  $font-size: 24;
+
+  margin-top: percentage(24/320);
+  font-size: em($font-size);
+
+  .contact-link {
+    display: block;
+    color: $orange;
+    font: bold to-em(36, $font-size) $display-font;
+
+    &:hover, &:focus {
+      transform: scale(1.1);
+      color: $grey;
+    }
+
+    @media screen and (max-width: $breakpoint-small) {
+      font-size: to-em(30, $font-size);
+    }
+  }
+
+  @media screen and (max-width: $breakpoint-small) {
+    $font-size: 21;
+
+    margin-bottom: to-em(42, $font-size);
+    font-size: em($font-size);
+  }
+}
+
+
+// Animations
+@import "animations";
