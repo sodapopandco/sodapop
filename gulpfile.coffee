@@ -76,6 +76,7 @@ gulp.task "compress:html", ["jekyll:build"], ->
 gulp.task "compress:images", ["compile:images"], ->
   gulp.src "#{paths.destination}**/*.{gif,jpg,png,svg}"
     .pipe plugins.imagemin(
+      interlaced: true
       progressive: true
       svgoPlugins: [removeViewBox: false]
     )
