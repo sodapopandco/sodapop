@@ -2,6 +2,7 @@
 gulp = require("gulp")
 plugins = require("gulp-load-plugins")()
 browser = require("browser-sync")
+del = require("del")
 
 # Project directories.
 paths =
@@ -36,28 +37,23 @@ gulp.task "build", ["clean"], ->
 
 # Clean the destination directory.
 gulp.task "clean", ->
-  gulp.src "#{paths.destination}", read: false
-    .pipe plugins.clean()
+  del "#{paths.destination}"
 
 # Clean the destination images directory.
 gulp.task "clean:images", ->
-  gulp.src "#{paths.destination}#{paths.assets}#{paths.images}", read: false
-    .pipe plugins.clean()
+  del "#{paths.destination}#{paths.assets}#{paths.images}"
 
 # Clean any markup in the destination directory.
 gulp.task "clean:markup", ->
-  gulp.src "#{paths.destination}*.{html,txt}", read: false
-    .pipe plugins.clean()
+  del "#{paths.destination}*.{html,txt}"
 
 # Clean the destination scripts directory.
 gulp.task "clean:scripts", ->
-  gulp.src "#{paths.destination}#{paths.assets}#{paths.scripts}", read: false
-    .pipe plugins.clean()
+  del "#{paths.destination}#{paths.assets}#{paths.scripts}"
 
 # Clean the destination styles directory.
 gulp.task "clean:styles", ->
-  gulp.src "#{paths.destination}#{paths.assets}#{paths.styles}", read: false
-    .pipe plugins.clean()
+  del "#{paths.destination}#{paths.assets}#{paths.styles}"
 
 # Compress the site.
 gulp.task "compress", [
