@@ -36,24 +36,24 @@ gulp.task "build", ["clean"], ->
   gulp.start "compile"
 
 # Clean the destination directory.
-gulp.task "clean", ->
-  del "#{paths.destination}"
+gulp.task "clean", (cb) ->
+  del ["#{paths.destination}"], cb
 
 # Clean the destination images directory.
-gulp.task "clean:images", ->
-  del "#{paths.destination}#{paths.assets}#{paths.images}"
+gulp.task "clean:images", (cb) ->
+  del ["#{paths.destination}#{paths.assets}#{paths.images}"], cb
 
 # Clean any markup in the destination directory.
-gulp.task "clean:markup", ->
-  del "#{paths.destination}*.{html,txt}"
+gulp.task "clean:markup", (cb) ->
+  del ["#{paths.destination}*.{html,txt}"], cb
 
 # Clean the destination scripts directory.
-gulp.task "clean:scripts", ->
-  del "#{paths.destination}#{paths.assets}#{paths.scripts}"
+gulp.task "clean:scripts", (cb) ->
+  del ["#{paths.destination}#{paths.assets}#{paths.scripts}"], cb
 
 # Clean the destination styles directory.
-gulp.task "clean:styles", ->
-  del "#{paths.destination}#{paths.assets}#{paths.styles}"
+gulp.task "clean:styles", (cb) ->
+  del ["#{paths.destination}#{paths.assets}#{paths.styles}"], cb
 
 # Compress the site.
 gulp.task "compress", [
