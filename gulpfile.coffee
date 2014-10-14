@@ -32,20 +32,23 @@ server =
   port: "41284"
 
 # Build the site.
-gulp.task "build", ["clean"], ->
-  gulp.start "compile"
+gulp.task "build", ["compile"], ->
+  gulp.start "compress"
 
 # Clean the destination directory.
 gulp.task "clean", (cb) ->
   del ["#{paths.destination}"], cb
 
+# Clean anything that isn't an asset.
+gulp.task "clean:all", (cb) ->
+  del [
+    "#{paths.destination}**/*"
+    "!#{paths.destination}#{paths.assets}**/*"
+  ], cb
+
 # Clean the destination images directory.
 gulp.task "clean:images", (cb) ->
   del ["#{paths.destination}#{paths.assets}#{paths.images}"], cb
-
-# Clean any markup in the destination directory.
-gulp.task "clean:markup", (cb) ->
-  del ["#{paths.destination}*.{html,txt}"], cb
 
 # Clean the destination scripts directory.
 gulp.task "clean:scripts", (cb) ->
@@ -64,7 +67,7 @@ gulp.task "compress", [
 ], ->
 
 # Minifies the HTML.
-gulp.task "compress:html", ["jekyll:build"], ->
+gulp.task "compress:html", ->
   gulp.src "#{paths.destination}**/*.html"
     .pipe plugins.htmlmin(
       collapseWhitespace: true
@@ -73,7 +76,7 @@ gulp.task "compress:html", ["jekyll:build"], ->
     .pipe gulp.dest "#{paths.destination}"
 
 # Minifies any image files.
-gulp.task "compress:images", ["compile:images"], ->
+gulp.task "compress:images", ->
   gulp.src "#{paths.destination}**/*.{gif,jpg,png,svg}"
     .pipe plugins.imagemin(
       interlaced: true
@@ -83,14 +86,14 @@ gulp.task "compress:images", ["compile:images"], ->
     .pipe gulp.dest "#{paths.destination}"
 
 # Minifies any JavaScript files.
-gulp.task "compress:scripts", ["compile:scripts"], ->
+gulp.task "compress:scripts", ->
   gulp.src "#{paths.destination}#{paths.assets}#{paths.scripts}*.js"
     .pipe plugins.uglify()
     .pipe plugins.rename(suffix: ".min")
     .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.scripts}"
 
 # Minifies any CSS files.
-gulp.task "compress:styles", ["compile:styles"], ->
+gulp.task "compress:styles", ->
   gulp.src "#{paths.destination}#{paths.assets}#{paths.styles}*.css"
     .pipe plugins.base64(baseDir: "public")
     .pipe plugins.minifyCss()
@@ -106,7 +109,7 @@ gulp.task "compile", [
 ], ->
 
 # Copies any image files to the destination directory and reloads the browser.
-gulp.task "compile:images", ->
+gulp.task "compile:images", ["clean:images"], ->
   gulp.src [
     "#{paths.source}_assets/images/**/*.{gif,jpg,png,svg}"
     "!#{paths.source}_assets/images/screenshots/**/*.png"
@@ -115,7 +118,7 @@ gulp.task "compile:images", ->
     .pipe browser.reload(stream: true)
 
 # Compiles any JavaScript files and reloads the browser.
-gulp.task "compile:scripts", ->
+gulp.task "compile:scripts", ["clean:scripts"], ->
   gulp.src "#{paths.source}_assets/scripts/*.coffee"
     .pipe plugins.coffee(bare:true)
     .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.scripts}"
@@ -131,7 +134,7 @@ gulp.task "compile:scripts", ->
 
 
 # Compiles any Sass files and injects any new or changed CSS into the browser.
-gulp.task "compile:styles", ->
+gulp.task "compile:styles", ["clean:styles"], ->
   gulp.src "#{paths.source}_assets/styles/*.scss"
     .pipe plugins.sass(errLogToConsole: true)
     .pipe plugins.autoprefixer()
@@ -144,21 +147,16 @@ gulp.task "compile:styles", ->
     .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.styles}vendor/"
 
 # Deploy the site to the public server.
-gulp.task "deploy", ["clean"], ->
-  gulp.start "deploy:public"
-
-gulp.task "deploy:public", ["compress"], plugins.shell.task [
-  "rsync -avze 'ssh -p #{server.port}' --delete #{paths.destination} #{server.user}@#{server.address}:#{paths.remote}#{paths.public}"
-]
+gulp.task "deploy", ["build"], plugins.shell.task "rsync -avze 'ssh -p #{server.port}' --delete #{paths.destination} #{server.user}@#{server.address}:#{paths.remote}#{paths.public}"
 
 # Compiles the site using Jekyll.
-gulp.task "jekyll:build", plugins.shell.task "jekyll build"
+gulp.task "jekyll:build", ["clean:all"], plugins.shell.task "jekyll build"
 
 # Compiles the site using Jekyll and recompiles when there are changes.
 gulp.task "jekyll:watch", plugins.shell.task "jekyll build -w"
 
 # Build and serve the site.
-gulp.task "serve", ["build"], ->
+gulp.task "serve", ["compile"], ->
   browser
     notify: true
     proxy: "#{domains.local}.dev"
