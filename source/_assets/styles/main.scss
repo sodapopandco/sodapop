@@ -176,7 +176,7 @@ header[role="banner"] {
 .showcase-note {
   $font-size: 12;
 
-  display: block;
+  display: inline-block;
   margin-top: to-em(6, $font-size);
   font-size: em($font-size);
   text-transform: uppercase;
