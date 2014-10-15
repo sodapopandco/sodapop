@@ -62,13 +62,15 @@ gulp.task "clean:styles", (cb) ->
 gulp.task "compress", [
   "compress:html"
   "compress:images"
-  "compress:scripts"
-  "compress:styles"
 ], ->
 
-# Minifies the HTML.
+# Minifies the CSS and JavaScript files and uses them in the minified HTML.
 gulp.task "compress:html", ->
   gulp.src "#{paths.destination}**/*.html"
+    .pipe plugins.usemin(
+      css: [plugins.base64(baseDir: "public"), plugins.minifyCss()]
+      js: [plugins.uglify()]
+    )
     .pipe plugins.htmlmin(
       collapseWhitespace: true
       minifyJS: true
@@ -85,21 +87,6 @@ gulp.task "compress:images", ->
       svgoPlugins: [removeViewBox: false]
     )
     .pipe gulp.dest "#{paths.destination}"
-
-# Minifies any JavaScript files.
-gulp.task "compress:scripts", ->
-  gulp.src "#{paths.destination}#{paths.assets}#{paths.scripts}*.js"
-    .pipe plugins.uglify()
-    .pipe plugins.rename(suffix: ".min")
-    .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.scripts}"
-
-# Minifies any CSS files.
-gulp.task "compress:styles", ->
-  gulp.src "#{paths.destination}#{paths.assets}#{paths.styles}*.css"
-    .pipe plugins.base64(baseDir: "public")
-    .pipe plugins.minifyCss()
-    .pipe plugins.rename(suffix: ".min")
-    .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.styles}"
 
 # Compiles the site.
 gulp.task "compile", [
@@ -130,7 +117,7 @@ gulp.task "compile:scripts", ["clean:scripts"], ->
   gulp.src "bower_components/html5shiv/dist/html5shiv.js"
     .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.scripts}vendor/"
 
-  gulp.src "bower_components/jquery/dist/jquery.js"
+  gulp.src "bower_components/jquery/dist/jquery.min.js"
     .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.scripts}vendor/"
 
 

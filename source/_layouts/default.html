@@ -7,8 +7,10 @@
   <meta name="description" content="{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | escape }}{% endif %}">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
 
+  <!-- build:css /assets/stylesheets/main.min.css -->
   <link rel="stylesheet" href="/assets/stylesheets/vendor/normalize.css">
   <link rel="stylesheet" href="/assets/stylesheets/main.css">
+  <!-- endbuild -->
 
   <script>
     (function(d) {
@@ -36,9 +38,11 @@
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="/assets/javascripts/vendor/jquery.js"><\/script>')</script>
+  <script>window.jQuery || document.write('<script src="/assets/javascripts/vendor/jquery.min.js"><\/script>')</script>
 
+  <!-- build:js /assets/javascripts/main.min.js -->
   <script src="/assets/javascripts/main.js"></script>
+  <!-- endbuild -->
 
   <!-- Clicky -->
   <script>
