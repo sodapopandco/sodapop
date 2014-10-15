@@ -359,7 +359,7 @@ header[role="banner"] {
   }
 
   @media screen and (max-width: $breakpoint-medium) {
-    margin-left: percentage(-16/320);
+    margin-left: percentage(-16/288);
     width: percentage(320/288);
 
     li {
