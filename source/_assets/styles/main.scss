@@ -68,11 +68,16 @@
 
 header[role="banner"] {
   margin-bottom: percentage(24/640);
+  width: em(288);
 }
 
 .header-link {
   display: inline-block;
   color: $black;
+}
+
+.header-wordmark {
+  margin-top: percentage(18/320);
 }
 
 .header-title {
