@@ -20,14 +20,6 @@
   max-width: em(640);
 }
 
-.main-section {
-  margin-bottom: percentage(24/320);
-}
-
-.about-section {
-  margin-bottom: percentage(12/320);
-}
-
 
 // Type
 ///////////////////////////////////////////////////////////////////////////////
@@ -126,12 +118,8 @@ header[role="banner"] {
 ///////////////////////////////////////////////////////////////////////////////
 
 .showcase {
-  margin: 0 auto;
+  margin: percentage(24/320) auto;
   width: 100%;
-
-  + .showcase {
-    margin-top: percentage(24/320);
-  }
 }
 
 .encounters-showcase,
