@@ -71,6 +71,7 @@ gulp.task "compress:html", ->
   gulp.src "#{paths.destination}**/*.html"
     .pipe plugins.htmlmin(
       collapseWhitespace: true
+      minifyJS: true
       removeComments: true
     )
     .pipe gulp.dest "#{paths.destination}"
