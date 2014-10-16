@@ -68,8 +68,14 @@ gulp.task "compress", [
 gulp.task "compress:html", ->
   gulp.src "#{paths.destination}**/*.html"
     .pipe plugins.usemin(
-      css: [plugins.base64(baseDir: "public"), plugins.minifyCss()]
-      js: [plugins.uglify()]
+      css: [
+        plugins.minifyCss()
+        plugins.rev()
+      ]
+      js: [
+        plugins.uglify()
+        plugins.rev()
+      ]
     )
     .pipe plugins.htmlmin(
       collapseWhitespace: true
