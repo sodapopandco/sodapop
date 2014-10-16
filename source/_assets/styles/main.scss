@@ -236,8 +236,9 @@ header[role="banner"] {
   img {
     width: 100%;
     height: auto;
-    border: 1px solid transparentize(black,.9);
+    border: 1px solid transparentize(black,.95);
     border-radius: 2px;
+    box-sizing: content-box;
   }
 }
 
