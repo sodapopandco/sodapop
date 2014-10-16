@@ -80,20 +80,6 @@ header[role="banner"] {
   margin-top: percentage(18/320);
 }
 
-.header-title {
-  $font-size: 36;
-
-  margin-top: percentage(24/640);
-  font-size: em($font-size);
-  font-weight: normal;
-  line-height: 1;
-  letter-spacing: to-em(1, $font-size);
-
-  strong {
-    text-transform: uppercase;
-  }
-}
-
 .header-tagline {
   $font-size: 18;
 
