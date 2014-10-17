@@ -113,31 +113,6 @@ header[role="banner"] {
   width: 100%;
 }
 
-.encounters-showcase,
-.encounters-showcase .showcase-link {
-  color: #3191fb;
-}
-
-.cute-fight-showcase,
-.cute-fight-showcase .showcase-link {
-  color: #ff8ee5;
-}
-
-.everyday-showcase,
-.everyday-showcase .showcase-link {
-  color: #e33f3f;
-}
-
-.fray-showcase,
-.fray-showcase .showcase-link {
-  color: #7c2250;
-}
-
-.magcloud-showcase,
-.magcloud-showcase .showcase-link {
-  color: #1569bc;
-}
-
 .showcase-title {
   margin-bottom: percentage(6/320);
 }
@@ -145,6 +120,7 @@ header[role="banner"] {
 .showcase-tagline {
   $font-size: 18;
 
+  margin-bottom: 0;
   color: $black;
   font-size: em($font-size);
   font-weight: bold;
@@ -153,21 +129,33 @@ header[role="banner"] {
 
 .showcase-link,
 .showcase-note {
-  $font-size: 12;
+  $font-size: 14;
 
   display: inline-block;
+  position: relative;
   margin-top: to-em(6, $font-size);
   font-size: em($font-size);
   text-transform: uppercase;
-
-  &:hover, &:focus {
-    color: $grey;
-  }
+  transform: translate3d(0,0,0);
 }
 
 .showcase-link {
+  color: inherit;
+
+  &:after {
+    content: "→";
+    opacity: 0;
+    transition: inherit;
+    position: absolute;
+    right: 0;
+    font-weight: bold;
+  }
+
   &:hover, &:focus {
-    transform: scale(1.1);
+    &:after {
+      opacity: 1;
+      right: -20px;
+    }
   }
 }
 
@@ -203,6 +191,69 @@ header[role="banner"] {
       &.tertiary {
         right: $position;
       }
+    }
+  }
+}
+
+// Specific Showcases
+///////////////////////////////////////////////////////////////////////////////
+
+.encounters-showcase {
+  $highlight-colour: #3191fb;
+
+  color: $highlight-colour;
+
+  a {
+    &:hover, &:focus {
+      color: lighten($highlight-colour, 20%);
+    }
+  }
+}
+
+.cute-fight-showcase {
+  $highlight-colour: #ff8ee5;
+
+  color: $highlight-colour;
+
+  a {
+    &:hover, &:focus {
+      color: lighten($highlight-colour, 20%);
+    }
+  }
+}
+
+.everyday-showcase {
+  $highlight-colour: #e33f3f;
+
+  color: $highlight-colour;
+
+  a {
+    &:hover, &:focus {
+      color: lighten($highlight-colour, 20%);
+    }
+  }
+}
+
+.fray-showcase {
+  $highlight-colour: #7c2250;
+
+  color: $highlight-colour;
+
+  a {
+    &:hover, &:focus {
+      color: lighten($highlight-colour, 20%);
+    }
+  }
+}
+
+.magcloud-showcase {
+  $highlight-colour: #1569bc;
+
+  color: $highlight-colour;
+
+  a {
+    &:hover, &:focus {
+      color: lighten($highlight-colour, 20%);
     }
   }
 }
@@ -374,7 +425,7 @@ header[role="banner"] {
 
     &:hover, &:focus {
       transform: scale(1.1);
-      color: $grey;
+      color: lighten($orange, 20%);
     }
 
     @media screen and (max-width: $breakpoint-small) {
