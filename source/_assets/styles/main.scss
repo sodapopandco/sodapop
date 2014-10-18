@@ -25,7 +25,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 .content-container {
-  color: $black;
+  color: $black-colour;
   font: #{$body-font-size}px/1.5 $display-font;
   text-align: center;
 }
@@ -36,7 +36,7 @@
   font-size: em($font-size);
   line-height: to-em(36, $font-size);
 
-  @media screen and (max-width: $breakpoint-small) {
+  @media screen and (max-width: $small-breakpoint) {
     $font-size: 24;
 
     font-size: em($font-size);
@@ -49,7 +49,7 @@
   font-size: em($font-size);
   line-height: to-em(32, $font-size);
 
-  @media screen and (max-width: $breakpoint-small) {
+  @media screen and (max-width: $small-breakpoint) {
     $font-size: 21;
 
     font-size: em($font-size);
@@ -59,7 +59,7 @@
 
 ::selection {
   color: #fff;
-  background: $orange;
+  background: $orange-colour;
 }
 
 
@@ -73,7 +73,7 @@ header[role="banner"] {
 
 .header-link {
   display: inline-block;
-  color: $black;
+  color: $black-colour;
 }
 
 .header-wordmark {
@@ -84,7 +84,7 @@ header[role="banner"] {
   $font-size: 18;
 
   margin: 0;
-  color: $grey;
+  color: $grey-colour;
   font-size: em($font-size);
   font-weight: bold;
 
@@ -121,7 +121,7 @@ header[role="banner"] {
   $font-size: 18;
 
   margin-bottom: 0;
-  color: $black;
+  color: $black-colour;
   font-size: em($font-size);
   font-weight: bold;
   line-height: to-em(21, $font-size);
@@ -160,7 +160,7 @@ header[role="banner"] {
 }
 
 .showcase-note {
-  color: $grey;
+  color: $grey-colour;
 }
 
 .showcase-gallery {
@@ -345,7 +345,7 @@ header[role="banner"] {
   $font-size: 24;
 
   margin: 0 0 percentage(8/320);
-  color: $grey;
+  color: $grey-colour;
 
   span {
     display: inline-block;
@@ -361,7 +361,7 @@ header[role="banner"] {
     background: url(/assets/images/gifs/sparkle.gif) no-repeat;
     background-size: 100%;
 
-    @media screen and (max-width: $breakpoint-small) {
+    @media screen and (max-width: $small-breakpoint) {
       $font-size: 21;
 
       margin-top: -3px;
@@ -370,7 +370,7 @@ header[role="banner"] {
     }
   }
 
-  @media screen and (max-width: $breakpoint-small) {
+  @media screen and (max-width: $small-breakpoint) {
     margin-bottom: to-em(12, $font-size);
   }
 }
@@ -385,7 +385,7 @@ header[role="banner"] {
     color: inherit;
 
     &:hover, &:focus {
-      color: $orange;
+      color: $orange-colour;
     }
   }
 }
@@ -393,7 +393,7 @@ header[role="banner"] {
 .services-list {
   margin: 0;
   padding: 0;
-  color: $grey;
+  color: $grey-colour;
   font-weight: bold;
 
   li {
@@ -402,7 +402,7 @@ header[role="banner"] {
     width: percentage(180/640);
   }
 
-  @media screen and (max-width: $breakpoint-medium) {
+  @media screen and (max-width: $medium-breakpoint) {
     margin-left: percentage(-16/288);
     width: percentage(320/288);
 
@@ -420,20 +420,20 @@ header[role="banner"] {
 
   .contact-link {
     display: block;
-    color: $orange;
+    color: $orange-colour;
     font: bold to-em(36, $font-size) $display-font;
 
     &:hover, &:focus {
       transform: scale(1.1);
-      color: lighten($orange, 20%);
+      color: lighten($orange-colour, 20%);
     }
 
-    @media screen and (max-width: $breakpoint-small) {
+    @media screen and (max-width: $small-breakpoint) {
       font-size: to-em(30, $font-size);
     }
   }
 
-  @media screen and (max-width: $breakpoint-small) {
+  @media screen and (max-width: $small-breakpoint) {
     $font-size: 21;
 
     margin-bottom: to-em(42, $font-size);
