@@ -4,5 +4,5 @@ description: A nimble design studio.
 
 source: source
 destination: public
-exclude: [_assets]
-keep_files: ['assets']
+exclude: ["_assets"]
+keep_files: ["assets"]
