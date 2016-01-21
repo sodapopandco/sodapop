@@ -129,7 +129,7 @@ gulp.task "compile:styles", ["clean:styles"], ->
   gulp.src "#{paths.source}_assets/styles/*.scss"
     .pipe plugins.sass(errLogToConsole: true)
     .pipe plugins.autoprefixer()
-    .pipe plugins.combineMediaQueries(log: true)
+    .pipe plugins.combineMq()
     .pipe plugins.concat("main.css")
     .pipe gulp.dest "#{paths.destination}#{paths.assets}#{paths.styles}"
     .pipe browser.reload(stream: true)
