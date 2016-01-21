@@ -351,12 +351,6 @@ header[role="banner"] {
 // About & Contact
 ///////////////////////////////////////////////////////////////////////////////
 
-.about-text,
-.contact-text {
-  font-family: $text-font;
-  // font-weight: bold;
-}
-
 .about-subtitle {
   $font-size: 24;
 
@@ -395,6 +389,7 @@ header[role="banner"] {
   $font-size: 18;
 
   margin-top: percentage(6/320);
+  font-family: $text-font;
   font-size: em($font-size);
 
   a {
