@@ -157,22 +157,22 @@ header[role="banner"] {
 }
 
 .showcase-link {
+  $font-size: 14;
+
   color: inherit;
   font-weight: bold;
 
   &:after {
-    content: "⇢";
-    opacity: 0;
+    content: " ›";
     transition: inherit;
     position: absolute;
-    right: 0;
-    font-weight: bold;
+    right: to-em(-10, $font-size);
+    bottom: to-em(1, $font-size);
   }
 
   &:hover, &:focus {
     &:after {
-      opacity: 1;
-      right: -20px;
+      right: to-em(-12, $font-size);
     }
   }
 }
@@ -393,10 +393,11 @@ header[role="banner"] {
   font-size: em($font-size);
 
   a {
+    border-bottom: 2px solid $grey-colour;
     color: inherit;
 
     &:hover, &:focus {
-      color: $orange-colour;
+      border-bottom: 2px solid $orange-colour;
     }
   }
 }
