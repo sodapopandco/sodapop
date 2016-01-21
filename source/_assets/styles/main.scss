@@ -34,7 +34,6 @@
   $font-size: 30;
 
   font-size: em($font-size);
-  letter-spacing: to-em(1, $font-size);
   line-height: to-em(36, $font-size);
 
   @media screen and (max-width: $small-breakpoint) {
@@ -112,6 +111,10 @@ header[role="banner"] {
 .showcase {
   margin: percentage(24/320) auto;
   width: 100%;
+
+  @media screen and (max-width: $small-breakpoint) {
+    margin: percentage(36/320) auto;
+  }
 }
 
 .showcase-title {
@@ -205,7 +208,7 @@ header[role="banner"] {
 
   a {
     &:hover, &:focus {
-      color: lighten($highlight-colour, 20%);
+      color: lighten($highlight-colour, 10%);
     }
   }
 }
@@ -217,7 +220,7 @@ header[role="banner"] {
 
   a {
     &:hover, &:focus {
-      color: lighten($highlight-colour, 20%);
+      color: lighten($highlight-colour, 10%);
     }
   }
 }
@@ -229,7 +232,7 @@ header[role="banner"] {
 
   a {
     &:hover, &:focus {
-      color: lighten($highlight-colour, 20%);
+      color: lighten($highlight-colour, 10%);
     }
   }
 }
@@ -241,7 +244,7 @@ header[role="banner"] {
 
   a {
     &:hover, &:focus {
-      color: lighten($highlight-colour, 20%);
+      color: lighten($highlight-colour, 10%);
     }
   }
 }
@@ -253,7 +256,7 @@ header[role="banner"] {
 
   a {
     &:hover, &:focus {
-      color: lighten($highlight-colour, 20%);
+      color: lighten($highlight-colour, 10%);
     }
   }
 }
@@ -378,7 +381,7 @@ header[role="banner"] {
 .about-text {
   $font-size: 18;
 
-  margin-top: percentage(6/640);
+  margin-top: percentage(6/320);
   font-size: em($font-size);
 
   a {
@@ -402,7 +405,7 @@ header[role="banner"] {
     font: bold to-em(36, $font-size) $display-font;
 
     &:hover, &:focus {
-      color: lighten($orange-colour, 20%);
+      color: lighten($orange-colour, 10%);
     }
 
     @media screen and (max-width: $small-breakpoint) {
