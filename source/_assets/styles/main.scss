@@ -393,29 +393,6 @@ header[role="banner"] {
   }
 }
 
-.services-list {
-  margin: 0;
-  padding: 0;
-  color: $grey-colour;
-  font-family: $text-font;
-  // font-weight: bold;
-
-  li {
-    display: inline-block;
-    margin: 0 percentage(8/640);
-    width: percentage(180/640);
-  }
-
-  @media screen and (max-width: $medium-breakpoint) {
-    margin-left: percentage(-16/288);
-    width: percentage(320/288);
-
-    li {
-      width: percentage(144/320);
-    }
-  }
-}
-
 .contact-text {
   $font-size: 24;
 
