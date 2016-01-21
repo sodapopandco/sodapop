@@ -145,7 +145,7 @@ header[role="banner"] {
   font-weight: bold;
 
   &:after {
-    content: "→";
+    content: "⇢";
     opacity: 0;
     transition: inherit;
     position: absolute;
@@ -168,31 +168,29 @@ header[role="banner"] {
 .showcase-gallery {
   position: relative;
 
-  &:hover, &:focus {
-    .screenshot {
-      $position: percentage(-170/640);
+  .screenshot {
+    $position: percentage(-170/640);
 
-      &.secondary {
-        left: $position;
-        transform: rotate(-1deg);
-      }
-
-      &.tertiary {
-        right: $position;
-        transform: rotate(.5deg);
-      }
+    &.secondary {
+      left: $position;
+      transform: rotate(-1deg);
     }
 
-    .phone-screenshot {
-      $position: percentage(-90/640);
+    &.tertiary {
+      right: $position;
+      transform: rotate(.5deg);
+    }
+  }
 
-      &.secondary {
-        left: $position;
-      }
+  .phone-screenshot {
+    $position: percentage(-90/640);
 
-      &.tertiary {
-        right: $position;
-      }
+    &.secondary {
+      left: $position;
+    }
+
+    &.tertiary {
+      right: $position;
     }
   }
 }
@@ -268,7 +266,6 @@ header[role="banner"] {
   $position: percentage(-160/640);
 
   position: relative;
-  transform: translate3d(0,0,0);
   margin: 0;
 
   &.secondary, &.tertiary {
@@ -396,7 +393,7 @@ header[role="banner"] {
 .contact-text {
   $font-size: 24;
 
-  margin-top: percentage(12/320);
+  margin-top: percentage(18/320);
   font-size: em($font-size);
 
   .contact-link {
