@@ -58,7 +58,7 @@
 }
 
 ::selection {
-  color: #fff;
+  color: transparentize(white,.2);
   background: $orange-colour;
 }
 
