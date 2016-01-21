@@ -76,8 +76,21 @@ header[role="banner"] {
   color: $black-colour;
 }
 
+.header-logo {
+  width: 120px;
+
+  @media screen and (max-width: $small-breakpoint) {
+    width: percentage(120/320);
+  }
+}
+
 .header-wordmark {
   margin-top: percentage(18/320);
+  width: 284px;
+
+  @media screen and (max-width: $small-breakpoint) {
+    width: percentage(284/320);
+  }
 }
 
 .header-tagline {
