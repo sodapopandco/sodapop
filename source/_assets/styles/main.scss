@@ -122,8 +122,8 @@ header[role="banner"] {
 
   margin-bottom: 0;
   color: $black-colour;
+  font-family: $text-font;
   font-size: em($font-size);
-  font-weight: bold;
   line-height: to-em(21, $font-size);
 }
 
@@ -141,6 +141,8 @@ header[role="banner"] {
 
 .showcase-link {
   color: inherit;
+  font-weight: bold;
+  letter-spacing: 1px;
 
   &:after {
     content: "→";
@@ -338,7 +340,8 @@ header[role="banner"] {
 
 .about-text,
 .contact-text {
-  font-weight: bold;
+  font-family: $text-font;
+  // font-weight: bold;
 }
 
 .about-subtitle {
@@ -394,7 +397,8 @@ header[role="banner"] {
   margin: 0;
   padding: 0;
   color: $grey-colour;
-  font-weight: bold;
+  font-family: $text-font;
+  // font-weight: bold;
 
   li {
     display: inline-block;
