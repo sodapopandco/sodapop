@@ -214,6 +214,18 @@ header[role="banner"] {
 // Specific Showcases
 ///////////////////////////////////////////////////////////////////////////////
 
+.ifttt-showcase {
+  $highlight-colour: $ifttt-colour;
+
+  color: $highlight-colour;
+
+  a {
+    &:hover, &:focus {
+      color: lighten($highlight-colour, 10%);
+    }
+  }
+}
+
 .encounters-showcase {
   $highlight-colour: #3191fb;
 
