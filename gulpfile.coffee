@@ -16,14 +16,14 @@ paths =
   styles: "stylesheets/"
 
   # Remote
-  remote: "/var/www/sodapop.is/"
+  remote: "/var/www/sodapopandco.com/"
   public: "public/"
 
 # Project domains.
 domains =
   local: "sodapop"
-  live: "sodapop.is"
-  repository: "everycopy/sodapop"
+  live: "sodapopandco.com"
+  repository: "sodapopandco/sodapop"
 
 # Project server.
 server =
