@@ -2,6 +2,7 @@
   "devDependencies": {
     "browser-sync": "^3.0.2",
     "coffee-script": "^1.12.7",
+    "coffeescript": "^2.7.0",
     "del": "^7.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^9.0.0",
