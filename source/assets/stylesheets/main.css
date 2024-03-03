@@ -238,7 +238,7 @@ header[role="banner"] {
     width: 100%;
     height: auto;
     border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 2px;
+    border-radius: 0.25rem;
     box-sizing: content-box;
   }
 }
