@@ -30,11 +30,11 @@
 
 <body{% if page.class %} class="{{ page.class }}"{% endif %}>
   <div class="content-container">
-    {% include header.html %}
+    {% include "header.html" %}
 
     {{ content }}
 
-    {% include footer.html %}
+    {% include "footer.html" %}
   </div>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
