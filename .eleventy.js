@@ -5,7 +5,7 @@ module.exports = function (eleventyConfig) {
   return {
     // Set input and output directories
     dir: {
-      input: "./",
+      input: "./source",
       output: "./public",
 
       includes: "_includes",
