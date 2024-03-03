@@ -167,6 +167,10 @@ header[role="banner"] {
   Showcases
 */
 
+.eero-showcase {
+  --showcase-colour: var(--eero-colour);
+}
+
 .ifttt-showcase {
   --showcase-colour: var(--ifttt-colour);
 
