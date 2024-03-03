@@ -2,6 +2,11 @@
   Main
 */
 
+body {
+  color: var(--body-color);
+  background-color: var(--body-bg);
+}
+
 .content-container {
   overflow: hidden;
   padding: 7.5% 0;
@@ -15,7 +20,6 @@
 }
 
 .content-container {
-  color: var(--black-colour);
   font-size: var(--body-font-size);
   font-family: var(--display-font);
   line-height: 1.5;
@@ -34,7 +38,7 @@
 
 ::selection {
   color: rgba(255, 255, 255, 0.8);
-  background-color: var(--orange-colour);
+  background-color: var(--highlight-color);
 }
 
 header[role="banner"] {
@@ -44,7 +48,7 @@ header[role="banner"] {
 
 .header-link {
   display: inline-block;
-  color: var(--grey-colour);
+  color: var(--body-color);
 }
 
 .header-logo {
@@ -58,7 +62,7 @@ header[role="banner"] {
 
 .header-tagline {
   margin: 0;
-  color: #ccc;
+  color: var(--secondary-color);
   font-size: 1.125em;
   font-weight: bold;
 
@@ -83,12 +87,12 @@ header[role="banner"] {
   margin: 7.5% auto;
   width: 100%;
 
-  color: var(--showcase-colour);
+  color: var(--showcase-color);
 
   a {
     &:hover,
     &:focus {
-      color: color-mix(in srgb, var(--showcase-colour) 60%, white);
+      color: color-mix(in srgb, var(--showcase-color) 60%, var(--body-bg));
     }
   }
 }
@@ -99,7 +103,7 @@ header[role="banner"] {
 
 .showcase-tagline {
   margin-bottom: 0;
-  color: #333;
+  color: var(--secondary-color);
   font-family: var(--text-font);
   font-size: 1.125em;
   line-height: 1.16667em;
@@ -134,7 +138,7 @@ header[role="banner"] {
 }
 
 .showcase-note {
-  color: var(--grey-colour);
+  color: var(--tertiary-color);
 }
 
 .showcase-gallery {
@@ -168,11 +172,11 @@ header[role="banner"] {
 */
 
 .eero-showcase {
-  --showcase-colour: var(--eero-colour);
+  --showcase-color: var(--eero-color);
 }
 
 .ifttt-showcase {
-  --showcase-colour: var(--ifttt-colour);
+  --showcase-color: var(--ifttt-color);
 
   .title {
     letter-spacing: 0.05em;
@@ -180,27 +184,27 @@ header[role="banner"] {
 }
 
 .encounters-showcase {
-  --showcase-colour: var(--encounters-colour);
+  --showcase-color: var(--encounters-color);
 }
 
 .cute-fight-showcase {
-  --showcase-colour: var(--cute-fight-colour);
+  --showcase-color: var(--cute-fight-color);
 }
 
 .everyday-showcase {
-  --showcase-colour: var(--everyday-colour);
+  --showcase-color: var(--everyday-color);
 }
 
 .fray-showcase {
-  --showcase-colour: var(--fray-colour);
+  --showcase-color: var(--fray-color);
 }
 
 .know-your-team-showcase {
-  --showcase-colour: var(--know-your-team-colour);
+  --showcase-color: var(--know-your-team-color);
 }
 
 .magcloud-showcase {
-  --showcase-colour: var(--magcloud-colour);
+  --showcase-color: var(--magcloud-color);
 }
 
 /*
@@ -210,6 +214,13 @@ header[role="banner"] {
 .screenshot {
   position: relative;
   margin: 0;
+  border-radius: 0.25rem;
+  box-shadow: var(--box-shadow-border);
+  overflow: hidden;
+
+  &.primary {
+    box-shadow: var(--box-shadow-border), var(--box-shadow-lg);
+  }
 
   &.secondary,
   &.tertiary {
@@ -220,19 +231,18 @@ header[role="banner"] {
   &.secondary {
     z-index: 0;
     left: -25%;
+    box-shadow: var(--box-shadow-border), var(--box-shadow);
   }
 
   &.tertiary {
     z-index: 2;
     right: -25%;
+    box-shadow: var(--box-shadow-border), var(--box-shadow-sm);
   }
 
   img {
     width: 100%;
     height: auto;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 0.25rem;
-    box-sizing: content-box;
   }
 }
 
@@ -280,7 +290,7 @@ header[role="banner"] {
 
 .about-subtitle {
   margin: 0 0 2.5%;
-  color: var(--grey-colour);
+  color: var(--secondary-color);
 
   span {
     display: inline-block;
@@ -306,11 +316,11 @@ header[role="banner"] {
 
   a {
     color: inherit;
-    text-decoration: 2px underline var(--grey-colour);
+    text-decoration: 2px underline var(--secondary-color);
 
     &:hover,
     &:focus {
-      text-decoration-color: var(--orange-colour);
+      text-decoration-color: var(--highlight-color);
     }
   }
 }
@@ -321,12 +331,12 @@ header[role="banner"] {
 
   .contact-link {
     display: block;
-    color: var(--orange-colour);
+    color: var(--highlight-color);
     font: bold 1.5em var(--display-font);
 
     &:hover,
     &:focus {
-      color: color-mix(in srgb, var(--orange-colour) 60%, white);
+      color: color-mix(in srgb, var(--highlight-color) 60%, var(--body-bg));
     }
   }
 }
@@ -370,5 +380,13 @@ header[role="banner"] {
   .contact-text {
     margin-bottom: 2em;
     font-size: 1.3125em;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .header-tagline {
+    .replaced-word {
+      filter: invert(100%);
+    }
   }
 }

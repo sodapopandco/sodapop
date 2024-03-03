@@ -8,22 +8,48 @@
   --display-font: "futura-pt", sans-serif;
   --text-font: "baltica-web", serif;
 
-  /* Basic */
-  --orange-colour: #f37421;
-  --black-colour: #333;
-  --grey-colour: #ccc;
+  /* Colours */
+  --body-bg: white;
+
+  --body-color: black;
+  --secondary-color: color-mix(in srgb, var(--body-color) 50%, var(--body-bg));
+  --tertiary-color: color-mix(in srgb, var(--body-color) 25%, var(--body-bg));
+
+  --highlight-color: #f37421;
 
   /* Showcases */
-  --cute-fight-colour: #ff8ee5;
-  --eero-colour: #17204b;
-  --encounters-colour: #3191fb;
-  --everyday-colour: #e33f3f;
-  --fray-colour: #7c2250;
-  --ifttt-colour: #6c0;
-  --know-your-team-colour: #7e55ee;
-  --magcloud-colour: #1569bc;
+  --cute-fight-color: #ff8ee5;
+  --eero-color: #17204b;
+  --encounters-color: #3191fb;
+  --everyday-color: #e33f3f;
+  --fray-color: #7c2250;
+  --ifttt-color: #6c0;
+  --know-your-team-color: #7e55ee;
+  --magcloud-color: #1569bc;
+
+  /* Shadows */
+  --box-shadow-border: 0 0 0 1px rgba(0, 0, 0, 0.05);
+  --box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+  --box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  --box-shadow-lg: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 
   /* Breakpoints */
   --sm-breakpoint: 30em; /* 480px */
   --md-breakpoint: 40em; /* 640px */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-bg: color-mix(in srgb, white 15%, black);
+
+    --body-color: white;
+    --secondary-color: color-mix(
+      in srgb,
+      var(--body-color) 50%,
+      var(--body-bg)
+    );
+    --tertiary-color: color-mix(in srgb, var(--body-color) 25%, var(--body-bg));
+
+    --eero-color: #4d83ff;
+  }
 }
