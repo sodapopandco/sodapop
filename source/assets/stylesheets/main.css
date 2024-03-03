@@ -316,7 +316,8 @@ header[role="banner"] {
 
   a {
     color: inherit;
-    text-decoration: 2px underline var(--secondary-color);
+    text-decoration: 2px underline var(--tertiary-color);
+    text-underline-offset: 3px;
 
     &:hover,
     &:focus {
