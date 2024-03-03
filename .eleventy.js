@@ -1,6 +1,12 @@
 module.exports = function (eleventyConfig) {
-  // Set directories to pass through to the public folder
+  // Set directories and files to pass through to the public folder
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy(
+    "source/apple-touch-icon.png",
+    "apple-touch-icon.png"
+  );
+  eleventyConfig.addPassthroughCopy("source/favicon.ico", "favicon.ico");
+  eleventyConfig.addPassthroughCopy("source/robots.txt", "robots.txt");
 
   return {
     // Set input and output directories
