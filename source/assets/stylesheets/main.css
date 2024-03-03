@@ -195,6 +195,10 @@ header[role="banner"] {
   --showcase-colour: var(--fray-colour);
 }
 
+.know-your-team-showcase {
+  --showcase-colour: var(--know-your-team-colour);
+}
+
 .magcloud-showcase {
   --showcase-colour: var(--magcloud-colour);
 }
