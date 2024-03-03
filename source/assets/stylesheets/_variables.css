@@ -12,8 +12,8 @@
   --body-bg: white;
 
   --body-color: black;
-  --secondary-color: color-mix(in srgb, var(--body-color) 50%, var(--body-bg));
-  --tertiary-color: color-mix(in srgb, var(--body-color) 25%, var(--body-bg));
+  --secondary-color: color-mix(in srgb, var(--body-color) 60%, var(--body-bg));
+  --tertiary-color: color-mix(in srgb, var(--body-color) 20%, var(--body-bg));
 
   --highlight-color: #f37421;
 

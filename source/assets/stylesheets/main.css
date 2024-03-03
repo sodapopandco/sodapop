@@ -62,7 +62,7 @@ header[role="banner"] {
 
 .header-tagline {
   margin: 0;
-  color: var(--secondary-color);
+  color: var(--tertiary-color);
   font-size: 1.125em;
   font-weight: bold;
 
