@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-  <meta name="author" content="{% if page.author %}{{ page.author | escape }}{% else %}{{ site.author | escape }}{% endif %}">
-  <meta name="description" content="{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | escape }}{% endif %}">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+  <head>
+    <meta charset="utf-8">
+    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <meta name="author" content="{% if page.author %}{{ page.author | escape }}{% else %}{{ site.author | escape }}{% endif %}">
+    <meta name="description" content="{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | escape }}{% endif %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
 
-  <link rel="stylesheet" href="/assets/styles/main.css">
+    <link rel="stylesheet" href="/assets/styles/main.css">
 
-  <script>
-    (function(d) {
-      var config = {
-        kitId: 'uib8yps',
-        scriptTimeout: 3000
-      },
-      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-    })(document);
-  </script>
-</head>
+    <script>
+      (function(d) {
+        var config = {
+          kitId: 'uib8yps',
+          scriptTimeout: 3000
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
+  </head>
 
-<body{% if page.class %} class="{{ page.class }}"{% endif %}>
-  <div class="content-container">
-    {% include "header.html" %}
+  <body{% if page.class %} class="{{ page.class }}"{% endif %}>
+    <div class="content-container">
+      {% include "header.html" %}
 
-    {{ content }}
+      {{ content }}
 
-    {% include "footer.html" %}
-  </div>
-</body>
+      {% include "footer.html" %}
+    </div>
+  </body>
 </html>
