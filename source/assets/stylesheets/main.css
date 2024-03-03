@@ -215,12 +215,7 @@ header[role="banner"] {
   position: relative;
   margin: 0;
   border-radius: 0.25rem;
-  box-shadow: var(--box-shadow-border);
   overflow: hidden;
-
-  &.primary {
-    box-shadow: var(--box-shadow-border), var(--box-shadow-lg);
-  }
 
   &.secondary,
   &.tertiary {
@@ -231,13 +226,11 @@ header[role="banner"] {
   &.secondary {
     z-index: 0;
     left: -25%;
-    box-shadow: var(--box-shadow-border), var(--box-shadow);
   }
 
   &.tertiary {
     z-index: 2;
     right: -25%;
-    box-shadow: var(--box-shadow-border), var(--box-shadow-sm);
   }
 
   img {

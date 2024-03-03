@@ -1,0 +1,17 @@
+/*
+  Utilities
+*/
+
+/* Shadows */
+
+.shadow {
+  box-shadow: var(--box-shadow);
+}
+
+.shadow-sm {
+  box-shadow: var(--box-shadow-sm);
+}
+
+.shadow-lg {
+  box-shadow: var(--box-shadow-lg);
+}
