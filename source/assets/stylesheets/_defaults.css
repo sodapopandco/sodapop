@@ -1,6 +1,8 @@
-// Defaults
+/*
+  Defaults
+*/
 
-// Everything
+/* Everything */
 *,
 *:before,
 *:after {
@@ -8,28 +10,29 @@
   text-rendering: optimizeLegibility;
 }
 
-// Selection
+/* Selection */
 ::selection {
   text-shadow: none;
 }
 
-// Headings
+/* Headings */
 h1 {
   margin: 0;
 }
 
-// Anchors
+/* Anchors */
 a {
   text-decoration: none;
-  // Remove the grey overlay on touch events
+  /* Remove the grey overlay on touch events */
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     outline: 0;
   }
 }
 
-// Images
+/* Images */
 img {
   vertical-align: middle;
 }
