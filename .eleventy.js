@@ -1,6 +1,6 @@
 module.exports = function (eleventyConfig) {
   // Set directories and files to pass through to the public folder
-  eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("source/assets");
   eleventyConfig.addPassthroughCopy(
     "source/apple-touch-icon.png",
     "apple-touch-icon.png"
