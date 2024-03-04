@@ -143,28 +143,6 @@ header[role="banner"] {
 
 .showcase-gallery {
   position: relative;
-
-  .screenshot {
-    &.secondary {
-      left: -26.5625%;
-      transform: rotate(-1deg);
-    }
-
-    &.tertiary {
-      right: -26.5625%;
-      transform: rotate(0.5deg);
-    }
-  }
-
-  .phone-screenshot {
-    &.secondary {
-      left: -14.0625%;
-    }
-
-    .tertiary {
-      right: -14.0625%;
-    }
-  }
 }
 
 /*
@@ -238,11 +216,15 @@ header[role="banner"] {
   &.secondary {
     z-index: 0;
     left: -25%;
+    left: -26.5625%;
+    transform: rotate(-1deg);
   }
 
   &.tertiary {
     z-index: 2;
     right: -25%;
+    right: -26.5625%;
+    transform: rotate(0.5deg);
   }
 
   img {
@@ -282,10 +264,12 @@ header[role="banner"] {
 
   &.secondary {
     left: -12.5%;
+    left: -14.0625%;
   }
 
   &.tertiary {
     right: -12.5%;
+    right: -14.0625%;
   }
 }
 
