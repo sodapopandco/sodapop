@@ -210,9 +210,11 @@ header[role="banner"] {
 */
 
 .screenshot {
+  --screenshot-border-radius: 0.25rem;
+
   position: relative;
   margin: 0;
-  border-radius: 0.25rem;
+  border-radius: var(--screenshot-border-radius);
   position: relative;
   overflow: hidden;
 
@@ -224,7 +226,7 @@ header[role="banner"] {
     left: 0;
     border: 1px solid var(--border-translucent);
     position: absolute;
-    border-radius: 0.25rem;
+    border-radius: var(--screenshot-border-radius);
   }
 
   &.secondary,
