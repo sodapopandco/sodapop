@@ -230,20 +230,18 @@ header[role="banner"] {
   &.secondary,
   &.tertiary {
     position: absolute;
-    bottom: 5.625%;
+    bottom: calc((32 / 640) * 100%);
   }
 
   &.secondary {
     z-index: 0;
-    left: -25%;
-    left: -26.5625%;
+    left: calc((-160 / 640) * 100%);
     transform: rotate(-1deg);
   }
 
   &.tertiary {
     z-index: 2;
-    right: -25%;
-    right: -26.5625%;
+    right: calc((-160 / 640) * 100%);
     transform: rotate(0.5deg);
   }
 
@@ -255,10 +253,10 @@ header[role="banner"] {
 
 .desktop-screenshot {
   z-index: 1;
-  width: 100%;
+  width: calc((600 / 640) * 100%);
 
   &.medium {
-    width: 87.5%;
+    width: calc((560 / 640) * 100%);
   }
 
   &.secondary,
@@ -268,28 +266,26 @@ header[role="banner"] {
 }
 
 .tablet-screenshot {
-  width: 37.5%;
+  width: calc((240 / 640) * 100%);
 
   &.landscape {
-    width: 56.25%;
+    width: calc((360 / 640) * 100%);
   }
 }
 
 .phone-screenshot {
-  width: 25%;
+  width: calc((160 / 640) * 100%);
 
   &.landscape {
-    width: 43.75%;
+    width: calc((280 / 640) * 100%);
   }
 
   &.secondary {
-    left: -12.5%;
-    left: -14.0625%;
+    left: calc((-80 / 640) * 100%);
   }
 
   &.tertiary {
-    right: -12.5%;
-    right: -14.0625%;
+    right: calc((-80 / 640) * 100%);
   }
 }
 
