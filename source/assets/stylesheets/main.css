@@ -215,7 +215,19 @@ header[role="banner"] {
   position: relative;
   margin: 0;
   border-radius: 0.25rem;
+  position: relative;
   overflow: hidden;
+
+  &:after {
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 1px solid var(--border-translucent);
+    position: absolute;
+    border-radius: 0.25rem;
+  }
 
   &.secondary,
   &.tertiary {
