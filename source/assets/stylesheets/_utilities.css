@@ -5,13 +5,15 @@
 /* Shadows */
 
 .shadow {
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow-border), var(--box-shadow-small),
+    var(--box-shadow);
 }
 
 .shadow-sm {
-  box-shadow: var(--box-shadow-sm);
+  box-shadow: var(--box-shadow-border), var(--box-shadow-small);
 }
 
 .shadow-lg {
-  box-shadow: var(--box-shadow-lg);
+  box-shadow: var(--box-shadow-border), var(--box-shadow-small),
+    var(--box-shadow), var(--box-shadow-large);
 }
