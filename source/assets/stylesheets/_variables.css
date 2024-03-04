@@ -42,7 +42,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --body-bg: color-mix(in srgb, white 15%, black);
+    --body-bg: color-mix(in srgb, white 10%, black);
 
     --body-color: white;
     --secondary-color: color-mix(
