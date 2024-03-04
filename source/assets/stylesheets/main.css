@@ -2,10 +2,18 @@
   Main
 */
 
+/*
+  Base
+*/
+
 body {
   color: var(--body-color);
   background-color: var(--body-bg);
 }
+
+/*
+  Layout
+*/
 
 .content-container {
   overflow: hidden;
@@ -18,6 +26,10 @@ body {
   width: 90%;
   max-width: var(--md-breakpoint);
 }
+
+/*
+  Type
+*/
 
 .content-container {
   font-size: var(--body-font-size);
@@ -40,6 +52,10 @@ body {
   color: rgba(255, 255, 255, 0.8);
   background-color: var(--highlight-color);
 }
+
+/*
+  Header
+*/
 
 header[role="banner"] {
   margin-bottom: 3.75%;
@@ -82,6 +98,10 @@ header[role="banner"] {
     background-size: 100%;
   }
 }
+
+/*
+  Showcases
+*/
 
 .showcase {
   margin: 7.5% auto;
@@ -146,7 +166,7 @@ header[role="banner"] {
 }
 
 /*
-  Showcases
+  Specific Showcases
 */
 
 .eero-showcase {
@@ -274,7 +294,7 @@ header[role="banner"] {
 }
 
 /*
- About
+ About & Contact
 */
 
 .about-text {
@@ -309,6 +329,10 @@ header[role="banner"] {
     }
   }
 }
+
+/*
+  Small Screens
+*/
 
 @media screen and (max-width: var(--sm-breakpoint)) {
   .title {
@@ -351,6 +375,10 @@ header[role="banner"] {
     font-size: 1.3125em;
   }
 }
+
+/*
+  Dark Mode
+*/
 
 @media (prefers-color-scheme: dark) {
   .header-tagline {
