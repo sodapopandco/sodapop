@@ -166,6 +166,44 @@ header[role="banner"] {
 
 .eero-showcase {
   --showcase-color: var(--eero-color);
+
+  .screenshot {
+    &:nth-child(1) {
+      width: calc((200 / 640) * 100%);
+      z-index: 5;
+    }
+
+    &:nth-child(n + 2) {
+      position: absolute;
+      bottom: calc((32 / 640) * 100%);
+    }
+
+    &:nth-child(2) {
+      left: calc((100 / 640) * 100%);
+      width: calc((180 / 640) * 100%);
+      transform: rotate(-1deg);
+      z-index: 2;
+    }
+
+    &:nth-child(3) {
+      right: calc((100 / 640) * 100%);
+      width: calc((180 / 640) * 100%);
+      transform: rotate(0.5deg);
+      z-index: 3;
+    }
+
+    &:nth-child(4) {
+      left: calc((-40 / 640) * 100%);
+      transform: rotate(-2deg);
+      z-index: 1;
+    }
+
+    &:nth-child(5) {
+      right: calc((-40 / 640) * 100%);
+      transform: rotate(1.5deg);
+      z-index: 0;
+    }
+  }
 }
 
 .ifttt-showcase {
@@ -211,6 +249,7 @@ header[role="banner"] {
   position: relative;
   margin: 0;
   border-radius: var(--screenshot-border-radius);
+  transform-origin: bottom center;
   overflow: hidden;
 
   &:after {
