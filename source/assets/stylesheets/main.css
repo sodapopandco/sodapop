@@ -272,6 +272,14 @@ header[role="banner"] {
 .phone-screenshot {
   width: calc((160 / 640) * 100%);
 
+  &.ios {
+    border-radius: 1rem;
+
+    &:after {
+      border-radius: 1rem;
+    }
+  }
+
   &.landscape {
     width: calc((280 / 640) * 100%);
   }
