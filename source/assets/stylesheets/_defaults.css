@@ -20,6 +20,12 @@ html {
   color-scheme: dark light;
 }
 
+/* Body */
+
+body {
+  margin: 0;
+}
+
 /* Headings */
 h1 {
   margin: 0;
