@@ -219,7 +219,6 @@ header[role="banner"] {
     right: 0;
     bottom: 0;
     left: 0;
-    border: 1px solid var(--border-translucent);
     position: absolute;
     border-radius: var(--screenshot-border-radius);
   }
@@ -330,6 +329,12 @@ header[role="banner"] {
   .header-tagline {
     .replaced-word {
       filter: invert(100%);
+    }
+  }
+
+  .screenshot {
+    &:after {
+      border: 1px solid var(--border-translucent);
     }
   }
 }
