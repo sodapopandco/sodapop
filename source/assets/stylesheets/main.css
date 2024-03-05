@@ -354,30 +354,45 @@ header[role="banner"] {
   }
 }
 
-.contact-button {
+.contact-section {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+/*
+  Buttons
+*/
+.button {
+  --button-color: var(--highlight-color);
+
   display: inline-block;
-  padding: 0.25em 1em;
-  color: var(--highlight-color);
+  padding: 0.25em 0.875em;
+  color: var(--button-color);
   font-size: 1.25rem;
   background-color: color-mix(
     in srgb,
-    var(--highlight-color) 10%,
+    var(--button-color) 10%,
     var(--body-bg)
   );
   border-radius: 2rem;
 
   &:hover,
   &:focus {
-    color: color-mix(in srgb, var(--highlight-color) 80%, var(--body-bg));
+    color: color-mix(in srgb, var(--button-color) 80%, var(--body-bg));
     background-color: color-mix(
       in srgb,
-      var(--highlight-color) 5%,
+      var(--button-color) 5%,
       var(--body-bg)
     );
   }
 
   &:active {
     transform: scale(0.95);
+  }
+
+  &.sms {
+    --button-color: var(--apple-green-color);
   }
 }
 

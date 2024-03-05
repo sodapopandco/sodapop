@@ -15,6 +15,8 @@
   --secondary-color: color-mix(in srgb, var(--body-color) 60%, var(--body-bg));
   --tertiary-color: color-mix(in srgb, var(--body-color) 20%, var(--body-bg));
 
+  --apple-blue-color: #007AFF;
+  --apple-green-color: #34C759;
   --highlight-color: #f37421;
 
   /* Showcases */
@@ -48,6 +50,9 @@
       var(--body-bg)
     );
     --tertiary-color: color-mix(in srgb, var(--body-color) 30%, var(--body-bg));
+
+    --apple-blue-color: #0A84FF;
+    --apple-green-color: #30D158;
 
     /* Showcases */
     --cute-fight-color: #ff8ee5;
