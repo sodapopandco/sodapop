@@ -68,6 +68,7 @@ header[role="banner"] {
 }
 
 .header-tagline {
+  margin-bottom: 1rem;
   font-family: var(--text-font);
   font-size: 1.25rem;
   font-weight: normal;
@@ -90,7 +91,7 @@ header[role="banner"] {
   a {
     &:hover,
     &:focus {
-      color: color-mix(in srgb, var(--showcase-color) 60%, var(--body-bg));
+      color: color-mix(in srgb, var(--showcase-color) 80%, var(--body-bg));
     }
   }
 }
@@ -346,7 +347,7 @@ header[role="banner"] {
 }
 
 /*
- About
+ About & Contact
 */
 
 .about-text {
@@ -366,17 +367,26 @@ header[role="banner"] {
   }
 }
 
+.contact-button {
+  display: inline-block;
+  padding: 0.25em 1em;
+  color: var(--highlight-color);
+  font-size: 1.25rem;
+  background-color: color-mix(in srgb, var(--highlight-color) 10%, var(--body-bg));
+  border-radius: 2rem;
+
+  &:hover,
+  &:focus {
+    color: color-mix(in srgb, var(--highlight-color) 80%, var(--body-bg));
+    background-color: color-mix(in srgb, var(--highlight-color) 5%, var(--body-bg));
+  }
+}
+
 /*
   Dark Mode
 */
 
 @media (prefers-color-scheme: dark) {
-  .header-tagline {
-    .replaced-word {
-      filter: invert(100%);
-    }
-  }
-
   .screenshot {
     &:after {
       border: 1px solid var(--border-translucent);
