@@ -210,6 +210,10 @@ header[role="banner"] {
       z-index: 3;
     }
 
+    &:nth-child(n + 4) {
+      bottom: calc((48 / 640) * 100%);
+    }
+
     &:nth-child(4) {
       left: calc((-80 / 640) * 100%);
       transform: rotate(-2deg);
