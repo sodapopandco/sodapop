@@ -24,7 +24,7 @@ body {
   margin-right: auto;
   margin-left: auto;
   width: 90%;
-  max-width: var(--md-breakpoint);
+  max-width: 40rem;
 }
 
 /*
@@ -378,6 +378,22 @@ header[role="banner"] {
 
   &:active {
     transform: scale(0.95);
+  }
+}
+
+/*
+  Medium Screens and up…
+*/
+
+@media (min-width: 480px) {
+  .phone-screenshot {
+    &.ios {
+      border-radius: 1rem;
+
+      &:after {
+        border-radius: 1rem;
+      }
+    }
   }
 }
 
