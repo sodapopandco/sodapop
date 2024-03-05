@@ -84,7 +84,7 @@ header[role="banner"] {
 */
 
 .showcase {
-  margin: calc((48 / 320) * 100%) auto;
+  margin: calc((64 / 320) * 100%) auto;
   width: 100%;
   color: var(--showcase-color);
 
@@ -100,74 +100,45 @@ header[role="banner"] {
   margin-bottom: 0.25rem;
 }
 
-.showcase-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0 0 1rem;
-  padding: 0;
-  list-style-type: none;
-  color: var(--secondary-color);
-  font-family: var(--text-font);
-  font-size: 0.875rem;
-
-  > * {
-    display: inline-flex;
-    flex-shrink: 0;
-
-    &:not(:first-child) {
-      &::before {
-        content: "•";
-        margin: 0 0.25rem;
-        color: var(--tertiary-color);
-      }
-    }
-  }
-}
-
 .showcase-tagline {
-  margin-top: 1rem;
-  margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 1rem;
   color: var(--secondary-color);
   font-family: var(--text-font);
   font-size: 1.125em;
   text-wrap: balance;
 }
 
-.showcase-link,
-.showcase-note {
-  display: inline-block;
-  position: relative;
-  margin-top: 0.375rem;
-  font-size: 0.875em;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+.showcase-about {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--secondary-color);
+  font-family: var(--text-font);
+  font-size: 1.125em;
+
+  span {
+    color: var(--tertiary-color);
+  }
 }
 
-.showcase-link {
+.showcase-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
   color: inherit;
   font-weight: bold;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  list-style-type: none;
+  text-transform: uppercase;
 
-  &:after {
-    content: " ›";
-    transition: inherit;
-    position: absolute;
-    right: -0.625em;
-    bottom: 0.1em;
+  > * {
+    display: inline-flex;
+    flex-shrink: 0;
+    margin: 0 0.5rem;
   }
-
-  &:hover:after,
-  &:focus:after {
-    right: -0.75em;
-  }
-
-  &:active:after {
-    right: -1em;
-  }
-}
-
-.showcase-note {
-  color: var(--tertiary-color);
 }
 
 .showcase-gallery {
@@ -176,6 +147,10 @@ header[role="banner"] {
   align-items: end;
   justify-content: center;
   text-align: center;
+}
+
+.showcase-footer {
+  margin-top: 1rem;
 }
 
 /*
