@@ -40,7 +40,7 @@ body {
 
 .title {
   font-size: 1.5rem;
-  line-height: 1.25;
+  line-height: 1.125;
 }
 
 ::selection {
@@ -112,12 +112,14 @@ header[role="banner"] {
 .showcase-about {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  color: var(--secondary-color);
+  color: var(--tertiary-color);
   font-family: var(--text-font);
   font-size: 1.125em;
+  text-wrap: balance;
 
   span {
-    color: var(--tertiary-color);
+    color: var(--secondary-color);
+    text-wrap: nowrap;
   }
 }
 
@@ -309,10 +311,10 @@ header[role="banner"] {
   width: calc((160 / 640) * 100%);
 
   &.ios {
-    border-radius: 1rem;
+    border-radius: 0.5rem;
 
     &:after {
-      border-radius: 1rem;
+      border-radius: 0.5rem;
     }
   }
 
@@ -357,13 +359,21 @@ header[role="banner"] {
   padding: 0.25em 1em;
   color: var(--highlight-color);
   font-size: 1.25rem;
-  background-color: color-mix(in srgb, var(--highlight-color) 10%, var(--body-bg));
+  background-color: color-mix(
+    in srgb,
+    var(--highlight-color) 10%,
+    var(--body-bg)
+  );
   border-radius: 2rem;
 
   &:hover,
   &:focus {
     color: color-mix(in srgb, var(--highlight-color) 80%, var(--body-bg));
-    background-color: color-mix(in srgb, var(--highlight-color) 5%, var(--body-bg));
+    background-color: color-mix(
+      in srgb,
+      var(--highlight-color) 5%,
+      var(--body-bg)
+    );
   }
 
   &:active {
