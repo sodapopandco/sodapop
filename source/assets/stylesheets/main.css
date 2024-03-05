@@ -60,7 +60,7 @@ header[role="banner"] {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .header-logo {
@@ -68,7 +68,7 @@ header[role="banner"] {
 }
 
 .header-tagline {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-family: var(--text-font);
   font-size: 1.25rem;
   font-weight: normal;
@@ -330,10 +330,12 @@ header[role="banner"] {
 }
 
 /*
- About & Contact
+  About & Contact
 */
 
 .about-text {
+  margin-top: 0;
+  color: var(--secondary-color);
   font-family: var(--text-font);
   font-size: 1.125rem;
   text-wrap: balance;
