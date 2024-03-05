@@ -54,43 +54,26 @@ body {
 
 header[role="banner"] {
   margin-bottom: 1.5rem;
-  width: 18rem;
 }
 
 .header-link {
-  display: inline-block;
-  color: var(--body-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
 }
 
 .header-logo {
-  width: 120px;
-}
-
-.header-wordmark {
-  margin-top: 1rem;
-  width: 284px;
+  width: 4rem;
 }
 
 .header-tagline {
-  margin: 0;
-  color: var(--tertiary-color);
-  font-size: 1.125rem;
-  font-weight: bold;
+  font-family: var(--text-font);
+  font-size: 1.25rem;
+  font-weight: normal;
 
-  span {
-    display: inline-block;
-    height: 1.5rem;
-    vertical-align: middle;
-  }
-
-  .replaced-word {
-    overflow: hidden;
-    text-indent: 100%;
-    white-space: nowrap;
-    width: 70px;
-    height: 24px;
-    background: url(/assets/images/gifs/nimble.gif) no-repeat;
-    background-size: 100%;
+  strong {
+    font-family: var(--display-font);
   }
 }
 
@@ -101,7 +84,6 @@ header[role="banner"] {
 .showcase {
   margin: calc((32 / 320) * 100%) auto;
   width: 100%;
-
   color: var(--showcase-color);
 
   a {
