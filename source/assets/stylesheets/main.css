@@ -318,34 +318,20 @@ header[role="banner"] {
  About & Contact
 */
 
-.about-text {
-  font-family: var(--text-font);
-  font-size: 1.125rem;
+.about-section {
+  p {
+    font-family: var(--text-font);
+    font-size: 1.125rem;
 
-  a {
-    color: inherit;
-    text-decoration: 2px underline var(--tertiary-color);
-    text-underline-offset: 3px;
+    a {
+      color: inherit;
+      text-decoration: 2px underline var(--tertiary-color);
+      text-underline-offset: 3px;
 
-    &:hover,
-    &:focus {
-      text-decoration-color: var(--highlight-color);
-    }
-  }
-}
-
-.contact-text {
-  margin-top: 2rem;
-  font-size: 1.5rem;
-
-  .contact-link {
-    display: block;
-    color: var(--highlight-color);
-    font: bold 2rem var(--display-font);
-
-    &:hover,
-    &:focus {
-      color: color-mix(in srgb, var(--highlight-color) 60%, var(--body-bg));
+      &:hover,
+      &:focus {
+        text-decoration-color: var(--highlight-color);
+      }
     }
   }
 }
