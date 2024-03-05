@@ -160,6 +160,10 @@ header[role="banner"] {
   &:focus:after {
     right: -0.75em;
   }
+
+  &:active:after {
+    right: -1em;
+  }
 }
 
 .showcase-note {
@@ -379,6 +383,10 @@ header[role="banner"] {
   &:focus {
     color: color-mix(in srgb, var(--highlight-color) 80%, var(--body-bg));
     background-color: color-mix(in srgb, var(--highlight-color) 5%, var(--body-bg));
+  }
+
+  &:active {
+    transform: scale(0.95);
   }
 }
 
