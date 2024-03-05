@@ -391,7 +391,7 @@ header[role="banner"] {
     transform: scale(0.95);
   }
 
-  &.sms {
+  &.sms-button {
     --button-color: var(--apple-green-color);
   }
 }
