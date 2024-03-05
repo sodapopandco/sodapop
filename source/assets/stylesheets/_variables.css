@@ -48,10 +48,10 @@
     --body-color: white;
     --secondary-color: color-mix(
       in srgb,
-      var(--body-color) 50%,
+      var(--body-color) 60%,
       var(--body-bg)
     );
-    --tertiary-color: color-mix(in srgb, var(--body-color) 25%, var(--body-bg));
+    --tertiary-color: color-mix(in srgb, var(--body-color) 30%, var(--body-bg));
 
     --eero-color: #4d83ff;
 
