@@ -161,27 +161,27 @@ header[role="banner"] {
     }
 
     &:nth-child(2) {
-      left: calc((100 / 640) * 100%);
+      left: calc((60 / 640) * 100%);
       width: calc((180 / 640) * 100%);
       transform: rotate(-1deg);
       z-index: 2;
     }
 
     &:nth-child(3) {
-      right: calc((100 / 640) * 100%);
+      right: calc((60 / 640) * 100%);
       width: calc((180 / 640) * 100%);
       transform: rotate(0.5deg);
       z-index: 3;
     }
 
     &:nth-child(4) {
-      left: calc((-40 / 640) * 100%);
+      left: calc((-80 / 640) * 100%);
       transform: rotate(-2deg);
       z-index: 1;
     }
 
     &:nth-child(5) {
-      right: calc((-40 / 640) * 100%);
+      right: calc((-80 / 640) * 100%);
       transform: rotate(1.5deg);
       z-index: 0;
     }
