@@ -53,7 +53,12 @@
     );
     --tertiary-color: color-mix(in srgb, var(--body-color) 30%, var(--body-bg));
 
+    /* Showcases */
     --eero-color: #4d83ff;
+    --encounters-color: #ffd440;
+    --fray-color: #BC3F87;
+    --know-your-team-color: #BE8EFE;
+    --magcloud-color: #28A7ED;
 
     /* Borders */
     --border-translucent: rgba(255, 255, 255, 0.1);
