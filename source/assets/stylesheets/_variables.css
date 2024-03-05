@@ -56,6 +56,6 @@
     --eero-color: #4d83ff;
 
     /* Borders */
-    --border-translucent: rgba(255, 255, 255, 0.25);
+    --border-translucent: rgba(255, 255, 255, 0.1);
   }
 }
