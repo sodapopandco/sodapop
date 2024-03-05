@@ -71,6 +71,7 @@ header[role="banner"] {
   font-family: var(--text-font);
   font-size: 1.25rem;
   font-weight: normal;
+  text-wrap: balance;
 
   strong {
     font-family: var(--display-font);
@@ -345,23 +346,22 @@ header[role="banner"] {
 }
 
 /*
- About & Contact
+ About
 */
 
-.about-section {
-  p {
-    font-family: var(--text-font);
-    font-size: 1.125rem;
+.about-text {
+  font-family: var(--text-font);
+  font-size: 1.125rem;
+  text-wrap: balance;
 
-    a {
-      color: inherit;
-      text-decoration: 2px underline var(--tertiary-color);
-      text-underline-offset: 3px;
+  a {
+    color: inherit;
+    text-decoration: 2px underline var(--tertiary-color);
+    text-underline-offset: 3px;
 
-      &:hover,
-      &:focus {
-        text-decoration-color: var(--highlight-color);
-      }
+    &:hover,
+    &:focus {
+      text-decoration-color: var(--highlight-color);
     }
   }
 }
