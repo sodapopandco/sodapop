@@ -18,7 +18,7 @@
   --highlight-color: #f37421;
 
   /* Showcases */
-  --cute-fight-color: #ff8ee5;
+  --cute-fight-color: #FF5ED8;
   --eero-color: #17204b;
   --encounters-color: #3191fb;
   --everyday-color: #e33f3f;
@@ -54,6 +54,7 @@
     --tertiary-color: color-mix(in srgb, var(--body-color) 30%, var(--body-bg));
 
     /* Showcases */
+    --cute-fight-color: #ff8ee5;
     --eero-color: #4d83ff;
     --encounters-color: #ffd440;
     --fray-color: #BC3F87;
