@@ -3,6 +3,14 @@
 */
 
 /*
+ Root
+*/
+
+:root {
+  font-size: calc(1rem + 0.125vw);
+}
+
+/*
   Base
 */
 
@@ -370,11 +378,7 @@ header[role="banner"] {
   padding: 0.25em 0.875em;
   color: var(--button-color);
   font-size: 1.25rem;
-  background-color: color-mix(
-    in srgb,
-    var(--button-color) 10%,
-    var(--body-bg)
-  );
+  background-color: color-mix(in srgb, var(--button-color) 10%, var(--body-bg));
   border-radius: 2rem;
 
   &:hover,
