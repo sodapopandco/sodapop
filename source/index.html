@@ -3,10 +3,12 @@ class: home
 layout: default
 ---
 
+{% include "header.html" %}
+
 <main role="main" class="main-section content-section">
   <article class="know-your-team-showcase showcase">
     <header class="header">
-      <h2 class="showcase-title title">Canopy</h2>
+      <h2 class="showcase-title title">Canopy →</h2>
       <p class="showcase-tagline">
         Level-up as a leader when you’re short on time.
       </p>
@@ -41,7 +43,9 @@ layout: default
 
     <footer class="showcase-footer">
       <p class="showcase-about">
-        <span>Lead Product Designer</span> • <span>2021–Now</span>
+        <a href="projects/canopy" class="showcase-link">
+          <span>Lead Product Designer</span> • <span>2021–Now</span>
+        </a>
       </p>
       <ul class="showcase-tags">
         <li>Leadership &amp; Teams</li>
@@ -352,3 +356,5 @@ layout: default
     </footer>
   </article>
 </main>
+
+{% include "footer.html" %}

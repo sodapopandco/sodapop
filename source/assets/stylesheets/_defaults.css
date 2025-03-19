@@ -43,6 +43,10 @@ a {
   }
 }
 
+abbr {
+  text-decoration: none;
+}
+
 /* Images */
 img {
   vertical-align: middle;

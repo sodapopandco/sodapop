@@ -24,15 +24,11 @@
 
 <body{% if page.class %} class="{{ page.class }}" {% endif %}>
   <div class="content-container">
-    {% include "header.html" %}
-
     {{ content }}
-
-    {% include "footer.html" %}
   </div>
-  </body>
+</body>
 
-  <script src="/assets/javascripts/main.js"></script>
-  <script data-goatcounter="https://sodapopandco.goatcounter.com/count"
-             async src="//gc.zgo.at/count.js"></script>
+<script src="/assets/javascripts/main.js"></script>
+<script data-goatcounter="https://sodapopandco.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </html>
