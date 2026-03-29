@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<!-- I'll add in some notes here later… -->
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <title>{{ site.title }}</title>
   <meta name="author" content="{{ site.author.name }}">
   <meta name="description" content="{{ site.description }}">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="{{ site.title }}">
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:type" content="website">
 
   <link rel="stylesheet" href="/assets/stylesheets/index.css">
 
@@ -22,7 +25,7 @@
   </script>
 </head>
 
-<body{% if page.class %} class="{{ page.class }}" {% endif %}>
+<body{% if page.class %} class="{{ page.class }}"{% endif %}>
   <div class="content-container">
     {% include "header.html" %}
 
@@ -30,9 +33,10 @@
 
     {% include "footer.html" %}
   </div>
-  </body>
 
   <script src="/assets/javascripts/main.js"></script>
   <script data-goatcounter="https://sodapopandco.goatcounter.com/count"
-             async src="//gc.zgo.at/count.js"></script>
+    async src="//gc.zgo.at/count.js"></script>
+</body>
+
 </html>
