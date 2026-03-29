@@ -152,11 +152,17 @@ header[role="banner"] {
 }
 
 .showcase-gallery {
+  --fan: 1;
+
   position: relative;
   display: flex;
   align-items: end;
   justify-content: center;
   text-align: center;
+}
+
+.showcase-gallery:hover {
+  --fan: 1.25;
 }
 
 .showcase-footer {
@@ -182,16 +188,16 @@ header[role="banner"] {
     }
 
     &:nth-child(2) {
-      left: calc((60 / 640) * 100%);
+      left: calc((60 / 640) * 100% / var(--fan));
       width: calc((180 / 640) * 100%);
-      transform: rotate(-1deg);
+      transform: rotate(calc(-1deg * var(--fan)));
       z-index: 2;
     }
 
     &:nth-child(3) {
-      right: calc((60 / 640) * 100%);
+      right: calc((60 / 640) * 100% / var(--fan));
       width: calc((180 / 640) * 100%);
-      transform: rotate(0.5deg);
+      transform: rotate(calc(1deg * var(--fan)));
       z-index: 3;
     }
 
@@ -200,14 +206,14 @@ header[role="banner"] {
     }
 
     &:nth-child(4) {
-      left: calc((-80 / 640) * 100%);
-      transform: rotate(-2deg);
+      left: calc((-80 / 640) * var(--fan) * 100%);
+      transform: rotate(calc(-2deg * var(--fan)));
       z-index: 1;
     }
 
     &:nth-child(5) {
-      right: calc((-80 / 640) * 100%);
-      transform: rotate(1.5deg);
+      right: calc((-80 / 640) * var(--fan) * 100%);
+      transform: rotate(calc(2deg * var(--fan)));
       z-index: 0;
     }
   }
@@ -269,6 +275,11 @@ header[role="banner"] {
     border-radius: var(--screenshot-border-radius);
   }
 
+  &.primary {
+    /* 1 → 1.01 as --fan goes 1 → 1.25 */
+    transform: scale(calc(1 + (var(--fan) - 1) * 0.04));
+  }
+
   &.secondary,
   &.tertiary {
     position: absolute;
@@ -277,14 +288,14 @@ header[role="banner"] {
 
   &.secondary {
     z-index: 0;
-    left: calc((-160 / 640) * 100%);
-    transform: rotate(-1deg);
+    left: calc((-160 / 640) * var(--fan) * 100%);
+    transform: rotate(calc(-1deg * var(--fan)));
   }
 
   &.tertiary {
     z-index: 2;
-    right: calc((-160 / 640) * 100%);
-    transform: rotate(0.5deg);
+    right: calc((-160 / 640) * var(--fan) * 100%);
+    transform: rotate(calc(1deg * var(--fan)));
   }
 
   img {
@@ -331,11 +342,11 @@ header[role="banner"] {
   }
 
   &.secondary {
-    left: calc((-80 / 640) * 100%);
+    left: calc((-80 / 640) * var(--fan) * 100%);
   }
 
   &.tertiary {
-    right: calc((-80 / 640) * 100%);
+    right: calc((-80 / 640) * var(--fan) * 100%);
   }
 }
 
