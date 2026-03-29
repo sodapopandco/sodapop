@@ -199,6 +199,7 @@ header[role="banner"] {
   .screenshot {
     &:nth-child(1) {
       width: calc((200 / 640) * 100%);
+      transform: scale(calc(1 + (var(--fan) - 1) * 0.04));
       z-index: 5;
     }
 
