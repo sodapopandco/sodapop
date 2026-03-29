@@ -12,8 +12,39 @@ body {
   opacity: 0;
 }
 
-/* Transition all anchor and screenshot properties */
-a,
-.screenshot {
+/* Transition all anchor properties */
+a {
   transition: all 0.125s;
+}
+
+/* Register --fan so the browser can interpolate it */
+@property --fan {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1;
+}
+
+/* Screenshot fan-out — interruptible, responsive */
+/* Resting state = exit transition (snaps back, bounces at rest) */
+.showcase-gallery {
+  transition: --fan 200ms cubic-bezier(0.2, 0, 0.2, 2.5);
+}
+
+.screenshot {
+  transition: transform 200ms cubic-bezier(0.2, 0, 0.2, 2.5),
+    left 200ms cubic-bezier(0.2, 0, 0.2, 2.5),
+    right 200ms cubic-bezier(0.2, 0, 0.2, 2.5),
+    box-shadow 200ms ease-out;
+}
+
+/* Hover state = enter transition (fans out, bounces at landing) */
+.showcase-gallery:hover {
+  transition: --fan 180ms cubic-bezier(0.2, 0, 0.2, 2.5);
+}
+
+.showcase-gallery:hover .screenshot {
+  transition: transform 180ms cubic-bezier(0.2, 0, 0.2, 2.5),
+    left 180ms cubic-bezier(0.2, 0, 0.2, 2.5),
+    right 180ms cubic-bezier(0.2, 0, 0.2, 2.5),
+    box-shadow 180ms ease-out;
 }

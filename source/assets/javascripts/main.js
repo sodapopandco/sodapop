@@ -1,3 +1,17 @@
+// Fan out screenshots when they scroll into view
+var observer = new IntersectionObserver(
+  function (entries) {
+    entries.forEach(function (entry) {
+      entry.target.classList.toggle("in-view", entry.isIntersecting);
+    });
+  },
+  { threshold: 0.75 }
+);
+
+document.querySelectorAll(".showcase-gallery").forEach(function (gallery) {
+  observer.observe(gallery);
+});
+
 document.querySelectorAll(".email-button").forEach(function (button) {
   button.addEventListener("click", function (event) {
     event.preventDefault();
