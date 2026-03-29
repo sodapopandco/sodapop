@@ -439,8 +439,7 @@ header[role="banner"] {
 .scroll-nav-button {
   position: fixed;
   bottom: 1.5rem;
-  left: 50%;
-  translate: -50% 0;
+  right: 1rem;
   z-index: 10;
 
   display: flex;
@@ -487,9 +486,7 @@ header[role="banner"] {
 
 @media (min-width: 480px) {
   .scroll-nav-button {
-    left: auto;
     right: 1.5rem;
-    translate: none;
   }
 }
 
