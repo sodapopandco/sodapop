@@ -46,16 +46,33 @@ document.querySelectorAll(".showcase-gallery").forEach(function (gallery) {
   });
 
   // Show/hide based on scroll position
+  var headerVisible = true;
+  var footerVisible = false;
+
+  function updateVisibility() {
+    button.classList.toggle("visible", !headerVisible && !footerVisible);
+  }
+
   var headerSection = document.querySelector("header[role='banner']");
   var headerObserver = new IntersectionObserver(
     function (entries) {
-      var headerVisible = entries[0].isIntersecting;
-      button.classList.toggle("visible", !headerVisible);
+      headerVisible = entries[0].isIntersecting;
+      updateVisibility();
+    },
+    { threshold: 0.5 }
+  );
+
+  var footerSection = document.querySelector("footer[role='contentinfo']");
+  var footerObserver = new IntersectionObserver(
+    function (entries) {
+      footerVisible = entries[0].isIntersecting;
+      updateVisibility();
     },
     { threshold: 0.5 }
   );
 
   headerObserver.observe(headerSection);
+  footerObserver.observe(footerSection);
 
   function updateButton() {
     var atEnd = currentIndex >= sections.length - 1;
