@@ -20,15 +20,16 @@
   opacity: 0.1;
 }
 
-/* Shadows */
+/* Shadows — normalized to 4 layers for smooth transitions */
+
+.shadow-sm {
+  box-shadow: var(--box-shadow-border), var(--box-shadow-small),
+    0 0 0 transparent, 0 0 0 transparent;
+}
 
 .shadow {
   box-shadow: var(--box-shadow-border), var(--box-shadow-small),
-    var(--box-shadow);
-}
-
-.shadow-sm {
-  box-shadow: var(--box-shadow-border), var(--box-shadow-small);
+    var(--box-shadow), 0 0 0 transparent;
 }
 
 .shadow-lg {
