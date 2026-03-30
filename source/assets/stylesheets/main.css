@@ -398,6 +398,13 @@ header[role="banner"] {
   display: flex;
   gap: 0.5rem;
   justify-content: center;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 480px) {
+  .contact-section {
+    padding-bottom: 0;
+  }
 }
 
 /*
@@ -439,7 +446,8 @@ header[role="banner"] {
 .scroll-nav-button {
   position: fixed;
   bottom: 1.5rem;
-  right: 1rem;
+  left: 50%;
+  translate: -50% 0;
   z-index: 10;
 
   display: flex;
@@ -486,7 +494,9 @@ header[role="banner"] {
 
 @media (min-width: 480px) {
   .scroll-nav-button {
+    left: auto;
     right: 1.5rem;
+    translate: none;
   }
 }
 
