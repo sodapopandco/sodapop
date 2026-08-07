@@ -1,0 +1,15 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      # One PR for routine version bumps
+      npm-dependencies:
+        patterns: ["*"]
+      # One PR for security fixes, batched together
+      npm-security:
+        applies-to: security-updates
+        patterns: ["*"]
+    open-pull-requests-limit: 5
