@@ -1,4 +1,4 @@
-exports.handler = async () => {
+export const handler = async () => {
   const phoneNumber = process.env.PHONE_NUMBER;
   const smsLink = `sms:${phoneNumber}`;
 
