@@ -1,4 +1,4 @@
-exports.handler = async () => {
+export const handler = async () => {
   const emailAddress = process.env.EMAIL_ADDRESS;
   const mailtoLink = `mailto:${emailAddress}`;
 
